@@ -1,0 +1,10 @@
+0 21 * * Fri             /home/dpb/synced/bin/net-radio.py program MyWord
+0 14 * * Sat             /home/dpb/synced/bin/net-radio.py program ThistleAndShamrock
+0 15 * * Sat             /home/dpb/synced/bin/net-radio.py program FolkMusic
+0 22 * * Tue             /home/dpb/synced/bin/net-radio.py program SelectedShorts
+0 10 * * Sat             /home/dpb/synced/bin/net-radio.py program WestCoastLive
+0 13 * * Sun             /home/dpb/synced/bin/net-radio.py program ThisAmericanLife
+0 15 * * Sat             /home/dpb/synced/bin/net-radio.py program PrarieHomeCompanion
+0 18 * * Mon-Fri	 /home/dpb/synced/bin/net-radio.py program FreshAir
+# 55 13 * * Wed             /home/dpb/synced/bin/net-radio.py program KUOWTest
+# 15 0,3,6,9,12,15,18,21 * * * /home/dpb/riders/grab_data.py

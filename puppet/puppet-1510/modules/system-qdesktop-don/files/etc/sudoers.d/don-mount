@@ -1,0 +1,3 @@
+
+don ALL=(root) NOPASSWD: /bin/mount *
+don ALL=(root) NOPASSWD: /bin/umount *

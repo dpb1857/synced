@@ -1,0 +1,93 @@
+------------------------------------------------------------------------
+[Date Prev <msg00095.html>][Date Next <msg00097.html>] [Chronological]
+<index.html#00096> [Thread] <threads.html#00096> [Top] </xemacs>
+
+
+  Re: Overkill cc-mode font-lock-keywords file
+
+------------------------------------------------------------------------
+
+    * *To*: *xemacs@xemacs.org <mailto:xemacs@xemacs.org>*
+    * *Subject*: *Re: Overkill cc-mode font-lock-keywords file*
+    * *From*: *Chris Holt <xris@migraine.stanford.edu
+      <mailto:xris@migraine.stanford.edu>>*
+    * Date: 05 Jun 1998 10:19:29 -0700
+    * Message-ID: <w3790nblqam.fsf@vicarious.Stanford.EDU <msg00096.html>>
+    * Newsgroups: *comp.emacs.xemacs*
+    * References: <w37d8coljtr.fsf@vicarious.Stanford.EDU
+      <msg00078.html>> <35781D85.8C336052@us.ibm.com <msg00095.html>>
+    * Xref: uunet comp.emacs.xemacs:35456
+
+------------------------------------------------------------------------
+
+Stephen S Furkay <ssf@us.ibm.com> writes:
+> 
+> I'd like to try Chris' enhanced font-locking support, but wonder how I
+> enable it, given my environment. I use an xemacs which is supported by my
+> local IS shop, and so don't have direct access to the lisp libraries. I
+> therefore do all my customization w/.emacs. Is it possible to incorporate
+> this lisp code outside the system library directories? Thanks for any help
+> you can provide.
+> 
+
+Shouldn't be a problem. Put the keywords code in a file and stick it in your
+local lisp library. Then simply load it up. Here's a snippet from my xemacs
+init file:
+
+;;; Paths
+
+(setq load-path (append 
+		 (list
+		  (expand-file-name "~xris/src/emacs")
+		  )
+		 load-path))
+;; Font-Lock
+
+;; Put in the require explicitly to set the autohighlight var
+(require 'font-lock)
+
+; Why isn't this hook customizable? No one knows. 
+(add-hook 'font-lock-mode-hook 'turn-on-lazy-shot)
+
+;; Change the modeline from " Font" to "", since it's obvious when it's on
+(defcustom font-lock-mode-string ""
+  "The string that will appear in the modeline when font-lock-mode is on."
+  :type 'string
+  :group 'font-lock)
+;; And insert the string in minor-mode-alist
+(setcdr (cdr (cadr (assoc 'font-lock-mode minor-mode-alist))) 
+	'font-lock-mode-string)
+
+(load-library "keywords")
+
+
+Here's how it works. I've got a file called ~xris/src/emacs/keywords.el that
+has the code I posted before. I first set the load-path so that load-library
+will work. Then I load font-lock, turn on lazy-shot (highly recommended),
+get rid of the font-lock string from the modeline (but make it customizable
+in case I want to change it later), and finally load in the keyword file. No 
+lisp libraries are touched. 
+
+I should also point out that the new keywords replace c-font-lock-keywords-3 
+and c++-font-lock-keywords-3, which are selected when you choose the "Most"
+font-lock setting. 
+
+
+Chris
+
+.
+
+------------------------------------------------------------------------
+
+    * *References*:
+          o *Overkill cc-mode font-lock-keywords file <msg00078.html>*
+          + /From:/ Chris Holt <xris@migraine.stanford.edu>
+          o *Re: Overkill cc-mode font-lock-keywords file <msg00095.html>*
+          + /From:/ Stephen S Furkay <ssf@us.ibm.com>
+
+    * Prev by Date: *Re: Overkill cc-mode font-lock-keywords file
+      <msg00095.html>*
+    * Next by Date: *Re: nested modes ? <msg00097.html>*
+    * Index(es):
+          o *Chronological* <index.html#00096>
+          o *Thread* <threads.html#00096>

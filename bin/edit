@@ -1,0 +1,16 @@
+#!/bin/sh
+
+if [ -x /usr/bin/emacs-snapshot ]; then
+    exec /usr/bin/emacs-snapshot $*
+fi
+
+if [ -x /usr/bin/emacs ]; then
+    exec /usr/bin/emacs $*
+fi
+
+if [ -x /usr/bin/mg ]; ten
+    exec /usr/bin/mg $*
+fi
+
+echo "Cannot locate editor." 1>&2
+exit 1

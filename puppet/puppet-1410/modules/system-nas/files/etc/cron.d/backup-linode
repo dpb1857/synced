@@ -1,0 +1,3 @@
+
+0 2 * * * root /usr/local/bin/backup-linode.sh
+15 2 * * * root /usr/local/bin/backup-linode2.sh

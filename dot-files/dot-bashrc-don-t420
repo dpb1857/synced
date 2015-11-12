@@ -1,0 +1,9 @@
+
+. $HOME/synced/dot-files/dot-bashrc-quixey
+
+function q() {
+    cd $HOME/quixey
+    . MakeEnv
+    adddot
+    cd $HOME/quixey/quixey/src
+}

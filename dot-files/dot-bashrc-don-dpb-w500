@@ -1,0 +1,4 @@
+
+. $HOME/synced/dot-files/dot-bashrc-quixey
+
+alias q='cd /home/scratch/quixey && . MakeEnv && cd quixey/src && adddot'

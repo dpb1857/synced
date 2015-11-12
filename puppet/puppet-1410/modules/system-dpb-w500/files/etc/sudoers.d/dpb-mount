@@ -1,0 +1,3 @@
+
+dpb ALL=(root) NOPASSWD: /bin/mount *
+dpb ALL=(root) NOPASSWD: /bin/umount *

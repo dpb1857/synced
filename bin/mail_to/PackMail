@@ -1,0 +1,29 @@
+#!/bin/sh
+
+cd $HOME/Mail
+
+echo "Nuking deleted files..."
+find . -name ,\* -print | xargs rm -f
+
+echo "generating include list..."
+find . -type f -print  | sed 's#^\./##' | sort > /tmp/use.dpb
+
+echo "generating exclude list..."
+find inbox -type f -print > /tmp/exclude.dpb
+
+echo "Don't forget to exclude the components file!!!"
+echo "components" >> /tmp/exclude.dpb
+
+cat /tmp/exclude.dpb | sort > /tmp/exclude.dpb.xxx
+mv /tmp/exclude.dpb.xxx /tmp/exclude.dpb
+
+echo "generating pack list..."
+comm -23 /tmp/use.dpb /tmp/exclude.dpb > /tmp/pack.dpb
+
+echo "building tar file..."
+tar cvTf /tmp/pack.dpb $HOME/tmp/PackMail.tar
+gzip $HOME/tmp/PackMail.tar
+
+cat /tmp/pack.dpb | xargs rm -f
+rm -f /tmp/exclude.dpb /tmp/use.dpb /tmp/pack.dpb
+

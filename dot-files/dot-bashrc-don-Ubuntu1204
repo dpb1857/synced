@@ -1,0 +1,10 @@
+
+. $HOME/synced/dot-files/dot-bashrc-quixey
+
+function q() {
+    cd $HOME/quixey
+    . MakeEnv
+    export PATH=$HOME/quixey/python/bin:$PATH
+    adddot
+    cd $HOME/quixey/quixey/src
+}

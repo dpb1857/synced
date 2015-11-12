@@ -1,0 +1,11 @@
+
+Add the chome ppa;
+
+Login to chrome/chromium; (use dpb1857 gmail login)
+Login to pinboard; (dpb:<planetary>pinboard)
+login to evernote;
+login to pocket; (getpocket.com - login with email dpb1857)
+
+Set chrome as default browser;
+
+-> need to go into SystemSettings/Preferences/PreferredApplications to set it.

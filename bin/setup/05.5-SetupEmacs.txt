@@ -1,0 +1,11 @@
+Try installing emacs via:
+
+  apt-get install emacs<version> ;
+
+If that's new enough to run the packages we need - esp. magit -
+then OK.
+
+Otherwise, install a newer version from the ppa:
+
+    https://launchpad.net/~ubuntu-elisp/+archive/ubuntu/ppa
+    emacs-snapshot

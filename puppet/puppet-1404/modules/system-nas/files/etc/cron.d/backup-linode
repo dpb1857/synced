@@ -1,0 +1,2 @@
+
+15 2 * * * root /usr/local/bin/backup-linode2.sh

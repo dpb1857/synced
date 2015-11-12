@@ -1,0 +1,24 @@
+
+Download from this ppa: ppa:ubuntu-lxc/lxd-stable
+
+apt-add-repository ppa:ubuntu-lxc/lxd-stable
+apt-get update
+apt-get install golang
+
+Or this if the ppa doesn't work:
+
+#!/bin/sh
+
+cd /tmp
+curl https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz > golang.tar.gz
+cd /opt && sudo tar xzf /tmp/golang.tar.gz
+exit 1
+
+# Build/install gorun;
+
+cd $HOME
+export GOPATH=$HOME/repos/golang-gorun
+mkdir -p $GOPATH
+cd $GOPATH
+go get launchpad.net/gorun
+sudo cp bin/gorun /usr/local/bin

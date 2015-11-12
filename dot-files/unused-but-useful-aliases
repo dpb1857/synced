@@ -1,0 +1,4 @@
+
+# Mounting a smb file system on linux;
+
+alias zdrive='sudo mount shfile03.apple.sh.pie:/simplyshare /mnt/SimplyShare -t smbfs -o user=don'

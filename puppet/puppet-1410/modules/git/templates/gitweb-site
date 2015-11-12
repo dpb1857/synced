@@ -1,0 +1,19 @@
+NameVirtualHost *:80
+<VirtualHost *:80>
+	ServerName git.<%= domain %>
+	ServerAdmin webmaster@<%= domain %>
+	HeaderName HEADER
+	# bogus but safe DocumentRoot
+	DocumentRoot /var/cache/git
+	ErrorLog /var/log/apache2/git-error.log
+	CustomLog /var/log/apache2/git-access.log combined
+	Alias /gitweb.css /usr/share/gitweb/gitweb.css
+	Alias /git-logo.png /usr/share/gitweb/git-logo.png
+	Alias /favicon.png /usr/share/gitweb/git-favicon.png
+	Alias /favicon.gif /usr/share/gitweb/git-favicon.png
+	Alias /git-favicon.png /usr/share/gitweb/git-favicon.png
+	AliasMatch ^/git/(.*) /var/cache/git/$1
+	ScriptAlias / /usr/lib/cgi-bin/gitweb.cgi
+</VirtualHost>
+
+

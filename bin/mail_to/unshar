@@ -1,0 +1,103 @@
+#!/bin/sh
+
+# cheap unshar program;
+
+DPB_HOME=/usr/viking/dpb/home
+NEWS_DIR=/usr/viking/dpb/News
+
+cnews_test () {
+    world_news_file=`echo news*.Z`
+    if [ -f $world_news_file ]; then
+	if [ -f world_news_requested ]; then
+	    mv world_news_requested world_news_requested.old
+	fi
+	touch world_news_arrived
+	mv $world_news_file cnews-world.tar.Z
+	uncompress cnews-world.tar
+    fi
+
+    news_file=`echo cnews*.tar`
+    if [ -f $news_file ]; then
+	cwd=`pwd`
+	if [ ! -d $NEWS_DIR ]; then
+	    mkdir $NEWS_DIR
+        fi
+	if [ ! -d $NEWS_DIR/spool ]; then
+	    mkdir $NEWS_DIR/spool
+	fi
+	cd $NEWS_DIR/spool
+	tar xf $cwd/$news_file
+	cd $cwd
+	rm -f $news_file
+
+	if [ -x $DPB_HOME/bin/scripts/nntp-hooks ]; then
+	    $DPB_HOME/bin/scripts/nntp-hooks &
+	fi	
+    fi
+}
+
+lsfile_test () {
+    for file in ls-*.Z; do
+	if [ -f $file ]; then
+	    rm -f $DPB_HOME/info/$file
+	    chmod ugo+r $file
+	    mv $file $DPB_HOME/info
+	fi
+    done
+}
+
+do_unshar () {
+    file=$1
+
+    echo $file
+    awk '/^#.*\/bin\/sh/	{start=1;} 
+	 /^#.*shell archive/	{start=1;}
+                        	{if (start) print $0;}
+	 /^.*CUT HERE/		{start=1;}
+	 /^.*cut here/		{start=1;}' \
+	< $file | /bin/sh
+    rm -f $file
+}
+
+iterate_xx() {
+    processed_files=0;
+
+    # Test to see if someone already has the lock;
+    if [ ! -f /tmp/xx-lock ]; then 
+	touch /tmp/xx-lock
+	touch /tmp/xx-lock.$$
+
+	# Make sure we got the lock;
+	first=`(cd /tmp; /bin/ls xx-lock.* | sed 's/xx-lock\.//' | \
+		sort -n | head -1)`
+
+	# We got the lock, unshar some files;
+	if [ $$ -eq $first ]; then
+	    count=`/bin/ls | grep '^xx\.' | wc -l`
+	    if [ $count -gt 0 ]; then
+		for file in xx.*; do
+		    processed_files=1;
+		    do_unshar $file
+		done	    
+	    fi
+
+	    cnews_test;
+	    lsfile_test;
+	    rm -f /tmp/xx-lock
+	fi
+	rm -f /tmp/xx-lock.$$
+    fi
+}
+
+# Main script body;
+
+if [ "$1" = "-x" ]; then
+    processed_files=1;
+    while [ $processed_files -eq 1 ]; do
+        iterate_xx;
+    done
+else
+    for file in $*; do
+	do_unshar $file
+    done
+fi

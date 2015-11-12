@@ -1,0 +1,5 @@
+[user]
+  name = Don Bennett
+  email = dpb@donbennett.org
+[push]
+	default = simple

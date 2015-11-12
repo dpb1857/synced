@@ -1,0 +1,55 @@
+
+# dpb .profile additions;
+
+USER=`whoami`
+DIRS="/home/$USER-stuff/stuff/bin /mnt/shared/$USER/bin /home/$USER/synced/bin"
+for dir in $DIRS; do
+    if [ -d $dir ]; then
+	PATH=$dir:$PATH
+    fi
+done
+
+# Directories to add to the path after the existing path variable;
+OPT_DIRS="/opt/Adobe/Reader8 /opt/jython2.5b0 /opt/python30 /var/lib/gems/1.8/bin /opt/sbt/bin /opt/go"
+for dir in $OPT_DIRS; do
+    if [ -d $dir/bin ]; then
+        PATH=$PATH:$dir/bin
+    elif [ -d $dir ]; then
+        PATH=$PATH:$dir
+    fi
+done
+
+# Directories to add to the front of the path;
+OPT_DIRS="/opt/emacs24/bin"
+for dir in $OPT_DIRS; do
+    if [ -d $dir/bin ]; then
+        PATH=$dir/bin:$PATH
+    elif [ -d $dir ]; then
+        PATH=$dir:$PATH
+    fi
+done
+
+JAVA_DIRS="/opt/jdk1.8.0_45"
+for dir in $JAVA_DIRS; do
+    if [ -d $dir ]; then
+        PATH=$dir/bin:$PATH
+        export JAVA_HOME=$dir
+    fi
+done
+
+GRADLE_DIRS="/opt/gradle-*"
+for dir in $GRADLE_DIRS; do
+    if [ -d $dir ]; then
+        PATH=$dir/bin:$PATH
+        export GRADLE_HOME=$dir
+    fi
+done
+
+export EDITOR=emacsclient
+export ALTERNATE_EDITOR=mg
+export FCEDIT=$EDITOR
+export VISUAL=$EDITOR
+export PAGER=less
+# export INTERACTIVE=1
+# export CVS_RSH=cvs-rsh
+# export RSYNC_RSH=ssh

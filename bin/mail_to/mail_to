@@ -1,0 +1,343 @@
+#! /bin/sh
+################################################################################
+#
+# File:         mail_to
+# RCS:          $Id: mail_to,v 1.16 1995/01/05 23:17:32 dpb Exp $
+# Description:  make things mailable
+# Author:       Tw Cook, Atherton Technology, Don Bennett, Frame Technology
+# Created:      Mon Jun  5 15:51:16 1989
+# Modified:     Wed Aug  2 10:00:11 1989 (Tw Cook) tw@Atherton.COM
+# Language:     Text
+# Package:      N/A
+# Status:       Experimental (Do Not Distribute)
+#
+################################################################################
+
+# Usage:
+#     mail_to archive-name
+#	will leave in /tmp/dist-archive-name the uuencoded,
+#	split files.
+#     mail_to archive-name mail-address
+#	will mail to mail-address the uuencoded, split files
+#	(and will remove them after mailing).
+# Assumptions:
+#     Assumes that uuencode is somewhere in your $PATH.
+
+# To make this work on an SGI system, I had to:
+# a) Don't use /bin/sh, use /bin/bash so we can get a shell with
+#    a builtin echo that understands -n; (We could have just found
+#    a working echo)
+# b) Install a gnu version of split, so the SGI version won't gripe
+#    about 12 character filename length stuff...
+#
+# Older SGI systems have problems with:
+#   a) echo -n ;
+#   b) split has strange file name length restrictions;
+# 
+# This seems to have gone away, so I'm changing back to /bin/sh;
+# 
+
+MAX_LOAD_AVERAGE=5
+
+pseudo_shar() {
+    # Args: filename mainfilename thiscount totalcount
+    echo '#! /bin/sh'
+    echo "echo x - extracting ${1}, part ${3} of ${4} parts making up ${2}"
+    echo 'cat << \SHAR_EOF >' "'"${1}"'"
+    cat ${1}
+    echo 'SHAR_EOF'
+
+    if [ $unpack = yes ]
+    then
+	mybasearchive="${basearchive}"
+        if  [ "${compress}" = "yes" ]
+	then
+	    mybasearchive="${basearchive}.Z"
+	fi
+
+        # for file in ${mybasearchive}.* 
+        # do
+	#     echo 'if [ ! -f '"$file"' ]'
+	#     echo 'then'
+	#     echo '    allhere=no'
+	#     echo 'fi'
+        # done
+
+        echo ''
+        echo 'allhere=yes'
+	echo "files='"
+	for file in $baseArchiveFileList
+	do
+	    echo "  $file"
+	done	
+	echo "';"
+
+	echo '';
+	echo 'for file in $files'
+	echo 'do'
+	echo '    if [ ! -f $file ]'
+	echo '    then'
+	echo '        allhere=no'
+	echo '    fi'
+	echo 'done' 
+	echo ''
+	echo 'if [ $allhere = yes ]'
+	echo 'then'
+	echo '    echo "unpacking..."'
+	echo '    cat '"${mybasearchive}"'.* \' 
+
+	if [ "${encode}" = "uuencode" ]
+        then
+	    echo '    | uudecode'
+	    echo '    chmod u+rw '"${mybasearchive}"
+	elif [ "${encode}" = "btoa" ]; then
+	    echo '    | atob > '"${mybasearchive}"
+	    echo '    chmod u+rw '"${mybasearchive}"
+	elif [ "${encode}" = "hexify" ]; then
+	    echo '    | unhexify > '"${mybasearchive}"
+	    echo '    chmod u+rw '"${mybasearchive}"
+	else
+	    echo '    > '"${mybasearchive}"
+        fi
+	echo '    rm $files'
+
+	if [ "${compress}" = "yes" ]
+        then
+	    echo '    uncompress '"${basearchive}"
+        fi
+
+	echo '    echo "done."'
+	echo 'fi'
+    fi
+
+    echo 'exit 0'
+}
+
+mail_to_usage() {
+    echo "Usage: mail_to [-a] [-h] [-u] [-z] [-nounpack]"
+    echo "		archive-name [mail-address] [-p parts]"
+    echo "    use -a to use atob, -u to uuencode, -h to hexify,"
+    echo "    -z to compress."
+    echo "    use -nounpack to not add unpacking code to the shar script."
+    echo "    the parts are the uuencoded split pieces you wish to send"
+    echo "    in case of a screw-up the first time around."
+}
+
+mail_to () {
+
+    encode=no
+    compress=no
+    unpack=yes
+    parts=no
+    slowly=no
+
+    if [ $# -eq 0 ]
+    then
+	mail_to_usage
+	return
+    fi
+
+    while [ $# -gt 0 ]
+    do
+	case $1 in
+	    -nounpack)
+		    unpack=no
+		    shift
+		    ;;
+	    -unpack)
+		    unpack=yes
+		    shift
+		    ;;
+	    -a)
+		    encode=btoa
+		    encodeext=btoa
+		    shift
+		    ;;
+	    -u)
+		    encode=uuencode
+		    encodeext=uu
+		    shift
+		    ;;
+	    -h)
+		    encode=hexify
+		    encodeext=hh
+		    shift
+		    ;;
+	    -z|-c)
+		    compress=yes
+		    shift
+		    ;;
+	    -p)
+		    parts=yes
+		    shift
+		    pieces=$*
+		    break
+		    ;;
+	    -load)
+		    MAX_LOAD_AVERAGE=$2
+		    shift
+		    shift
+		    ;;
+	    -slowly)
+		    slowly=yes
+		    shift
+		    ;;
+	    -*)
+		    mail_to_usage
+		    return ;;
+
+	    *)	    if [ -z "$archive" ]
+		    then
+			archive=${1}
+		    else
+			mailaddr="${1}"
+		    fi
+		    shift ;;
+	esac
+    done
+
+    basearchive=`basename ${archive}`
+
+    echo Packaging and splitting ${basearchive} ...
+
+    cat $archive |
+    (
+	tmpdir=/tmp/dist-${basearchive}
+	if [ -d ${tmpdir} ]
+	then
+	    tmpdir=${tmpdir}-$$
+	fi
+
+	mkdir ${tmpdir}
+	cd ${tmpdir}
+
+	if [ $compress = yes ]
+	then	# uuencode MUST be yes
+	    if [ "$encode" = "no" ]; then
+	        encode=uuencode
+	        encodeext=uu
+	    fi
+
+	    encodearg=${basearchive}.Z
+	    if [ "$encode" = "btoa" ]; then
+		encodearg="";
+	    fi
+	    if [ "$encode" = "hexify" ]; then
+		encodearg="";
+	    fi
+	    compress | $encode ${encodearg} |
+	    split -800 - ${basearchive}.Z.${encodeext}.
+	else
+	    if [ $encode != no ]
+	    then
+	        encodearg=${basearchive}
+	        if [ "$encode" = "btoa" ]; then
+		    encodearg="";
+	        fi
+	        if [ "$encode" = "hexify" ]; then
+		    encodearg="";
+	        fi
+		${encode} ${encodearg} |
+		split -800 - ${basearchive}.${encodeext}.
+	    else
+		split -800 - ${basearchive}.
+	    fi
+	fi
+	
+
+	allcount=`ls ${basearchive}.* | wc -l`
+	allcount=`expr $allcount`
+	count=1
+
+	if [ -z "${mailaddr}" ]
+	then
+	    echo "Left in ${tmpdir} ${allcount} file(s):"
+	    ls
+	else
+	    mailer=/bin/mail
+	    subject=""
+
+	    if [ -x /usr/ucb/Mail ]; then
+		mailer=/usr/ucb/Mail
+	        subject="-s"
+	    fi
+
+	    if [ -x /usr/bin/mailx ]; then
+		mailer=/usr/bin/mailx
+	        subject="-s"
+	    fi
+
+	    if [ -x /usr/sbin/Mail ]; then
+		mailer=/usr/sbin/Mail
+	        subject="-s"
+	    fi
+
+	    echo -n ${mailer} to ${mailaddr}, ${allcount} "file(s)"
+
+	    if [ "${encode}" != "no" ]
+	    then
+		echo -n ", encoded, using ${encode}"
+	    fi
+
+	    if [ "${compress}" = "yes" ]
+	    then
+		echo ", compressed."
+	    else
+		echo "."
+	    fi
+
+	    baseArchiveFileList=`echo ${basearchive}.*`
+	    for file in $baseArchiveFileList
+	    do
+                la=`uptime | awk '{print $10}' | sed 's/\..*//'`
+                while [ $la -gt $MAX_LOAD_AVERAGE ]; do
+                    echo "sleeping 30";
+                    sleep 30;
+                    la=`uptime | awk '{print $10}' | sed 's/\..*//'`
+                done
+
+		partOK=1;
+		if [ "${parts}" = "yes" ]
+		then
+		    partOK=0;
+		    for part in $pieces; do
+			echo $file | grep "$part\$" > /dev/null 2>&1
+			if [ $? -eq 0 ]; then
+			    partOK=1;
+			fi
+		    done
+		fi
+	
+		if [ $partOK -eq 0 ]
+		then
+		    echo "skipping $file"
+		    count=`expr $count + 1`
+		    rm -f ${file}
+		    continue;
+		fi
+
+		if [ -z "$subject" ]
+		then
+		    pseudo_shar ${file} ${basearchive} ${count} ${allcount} |
+		    ${mailer} ${mailaddr}
+		else
+		    pseudo_shar ${file} ${basearchive} ${count} ${allcount} |
+		    ${mailer} ${subject} "${file}" ${mailaddr}
+		fi
+
+		echo "mailed ${file}, ${count} of ${allcount}."
+                 if [ $slowly = yes -a $count -lt $allcount ]; then
+		    echo "waiting..."
+                    sleep 300;
+                fi
+
+		count=`expr $count + 1`
+		rm -f ${file}
+	    done
+	    cd /tmp
+	    rmdir ${tmpdir}
+	fi
+    )
+}
+
+mail_to $@

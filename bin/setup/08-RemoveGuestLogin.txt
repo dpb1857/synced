@@ -1,0 +1,5 @@
+sudo nano /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf
+Add the following line, save and then close.
+
+allow-guest=false
+Reboot, and you're set.

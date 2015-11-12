@@ -1,0 +1,4 @@
+
+0 3 * * * root /usr/local/bin/backup-rusa.sh
+15 3 * * * root /usr/local/bin/backup-linode-rusa.sh
+30 3 * * * root /usr/local/bin/backup-linode-rusa-www.sh

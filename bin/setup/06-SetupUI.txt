@@ -1,0 +1,20 @@
+
+1) Configure keyboard to use capslock as ctl;
+
+2) Configure themes: Other settings -
+   Controls: HighContrast (top line)
+   Icons: gnome
+   Window borders: Ambiance
+   Keybindings: emacs
+
+3) Configure capslock as ctl;
+   Keyboard (under Hardware)
+
+4) Configure keyboard shortcuts for terminal, chrome, emacs;
+
+5) Move toolbar to top;
+
+6) Configure panel auto-hide timeouts;
+   500ms show delay, 250ms hide;
+
+7) Disable touchpad while typing;

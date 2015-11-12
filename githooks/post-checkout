@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# An example hook script that is called after a successful
+# checkout.
+#
+
+find . -name \*.pyc -print |xargs rm -f
+find . -name \*~ -print |xargs rm -f
+find . -name \*# -print |xargs rm -f

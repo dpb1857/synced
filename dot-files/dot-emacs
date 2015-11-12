@@ -1,0 +1,151 @@
+;; Don's gnuemacs profile file...
+;; File-Name: dpb-laptop:/home/dbennett/.emacs
+;; Last-Edit: Wed May 14 23:11:28 2008 by Don Bennett <dpb at dpb-laptop>
+;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Path configuration;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(setq load-path
+      (append (list
+	       (concat (getenv "HOME") "/synced/elisp")
+	       (concat (getenv "HOME") "/elisp")
+	       "/usr/local/share/emacs/site-lisp"
+	       ;; (concat (getenv "HOME") "/elisp/git-emacs")
+	       ;; (concat (getenv "HOME") "/elisp/gitsum")
+	       ;; "/usr/share/doc/git-core/contrib/emacs"
+	       ;; "/opt/jde/lisp"
+	       )
+	      load-path))
+
+;; Package managers are good;
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/"))
+
+;; fix
+;; (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
+
+(package-initialize)
+
+(require 'dpb-python)
+(require 'dpb-cc-mode-setup)
+(require 'dpb-golang)
+(require 'dpb-clj)
+;; (require 'dpb-php)
+(require 'dpb-enable-features)
+(require 'dpb-position-info)
+(require 'dpb-truncate-toggle)
+(require 'dpb-verify-exit)
+(require 'dpb-orgmode)
+(require 'dpb-docker-tramp)
+(require 'iwb) ;; indent-whole-buffer
+
+(require 'vi-paren-matching)
+(require 'igrep)
+
+;; (require 'git)
+;; (require 'git-emacs)
+;; (require 'gitsum)
+
+;;;;;;;;;;;;;;;;;;;;
+;; magit
+;;;;;;;;;;;;;;;;;;;;
+(unless (package-installed-p 'magit)
+  (package-refresh-contents)
+  (package-install 'magit))
+
+(global-set-key "\^xm" 'magit-status)
+
+;; Also useful if you're switching branches a lot;
+(global-auto-revert-mode)
+(setq magit-last-seen-setup-instructions "1.4.0")
+
+;;(require 'puppet-mode-init)
+(require 'hy-mode)
+
+;; postgres - connecting to a non-default port using sql-postgres:
+;; (setq sql-postgres-options '("-P" "pager=off" "-p" "32497"))
+
+;; No more Svn!
+;; (require 'psvn)
+;; (setq svn-status-default-diff-arguments '("--diff-cmd" "diff" "-x" "-wbBu"))
+
+
+;; (add-to-list 'vc-handled-backends 'GIT)
+;; (autoload 'git-blame-mode "git-blame"
+;;   "Minor mode for incremental blame for Git." t)
+
+(setq-default indent-tabs-mode nil)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(setenv "PAGER") ;; for subshells and ipython;
+(server-start)
+
+;; Try to control window splitting;
+(setq split-width-threshold 250)
+
+;; Add scala mode, the emacs24 way; (https://github.com/hvesalai/scala-mode2)
+(unless (package-installed-p 'scala-mode2)
+  (package-refresh-contents)
+  (package-install 'scala-mode2))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(inhibit-startup-screen t)
+ '(org-agenda-custom-commands
+   (quote
+    (("d" todo "DELEGATED" nil)
+     ("c" todo "DONE|DEFERRED|CANCELLED" nil)
+     ("w" todo "WAITING" nil)
+     ("W" agenda ""
+      ((org-agenda-ndays 21)))
+     ("A" agenda ""
+      ((org-agenda-skip-function
+        (lambda nil
+          (org-agenda-skip-entry-if
+           (quote notregexp)
+           "\\=.*\\[#A\\]")))
+       (org-agenda-ndays 1)
+       (org-agenda-overriding-header "Today's Priority #A tasks: ")))
+     ("u" alltodo ""
+      ((org-agenda-skip-function
+        (lambda nil
+          (org-agenda-skip-entry-if
+           (quote scheduled)
+           (quote deadline)
+           (quote regexp)
+           "<[^>
+]+>")))
+       (org-agenda-overriding-header "Unscheduled TODO entries: "))))))
+ '(org-agenda-ndays 7)
+ '(org-agenda-show-all-dates t)
+ '(org-agenda-skip-deadline-if-done t)
+ '(org-agenda-skip-scheduled-if-done t)
+ '(org-agenda-start-on-weekday nil)
+ '(org-deadline-warning-days 14)
+ '(org-default-notes-file "~/org/notes.org")
+ '(org-fast-tag-selection-single-key (quote expert))
+ '(org-remember-store-without-prompt t)
+ '(org-remember-templates
+   (quote
+    ((116 "* TODO %?
+  %u" "~/org/todo.org" "Tasks")
+     (110 "* %u %?" "~/org/notes.org" "Notes"))))
+ '(org-reverse-note-order t)
+ '(package-selected-packages (quote (scala-mode2 magit cider clojure-mode go-mode)))
+ '(remember-annotation-functions (quote (org-remember-annotation)))
+ '(remember-handler-functions (quote (org-remember-handler)))
+ '(safe-local-variable-values (quote ((py-indent-offset . 4)))))
+
+(set-face-attribute 'default nil :height 80)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+(put 'scroll-left 'disabled nil)

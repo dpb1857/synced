@@ -1,0 +1,13 @@
+
+0 4 * * * root /usr/local/bin/backup.sh cds
+10 4 * * * root /usr/local/bin/backup.sh family
+20 4 * * * root /usr/local/bin/backup.sh radio
+30 4 * * * root /usr/local/bin/backup.sh DPBARCHIVE
+40 4 * * * root /usr/local/bin/backup.sh mirror/dpb-thinkpad
+50 4 * * * root /usr/local/bin/backup.sh mirror/dpb-SanDisk32
+0 5 * * * root /usr/local/bin/backup.sh mirror/deborah-lenovo-t500
+30 5 * * * root /usr/local/bin/backup.sh castle_home
+40 5 * * * root /usr/local/bin/backup.sh media-downloads
+50 5 * * * root /usr/local/bin/backup.sh media-audio
+00 6 * * * root /usr/local/bin/backup.sh media-recordings
+10 6 * * * root /usr/local/bin/backup.sh media-video
