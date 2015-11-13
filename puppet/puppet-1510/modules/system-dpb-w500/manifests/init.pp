@@ -88,10 +88,10 @@ UUID=ff88e5d5-9b33-4616-8ef6-bbafe8238dbb /home/scratch   ext3    relatime      
     # Add dpb to fuse group;
     ############################################################
 
-    exec { 'add-to-fuse':
-        command => "/usr/sbin/adduser dpb fuse",
-	unless  => "/bin/grep ^fuse:.*:dpb /etc/group"
-    }
+#    exec { 'add-to-fuse':
+#        command => "/usr/sbin/adduser dpb fuse",
+#	unless  => "/bin/grep ^fuse:.*:dpb /etc/group"
+#    }
 
     ############################################################
     # Add a high-numbered ssh port listener;
