@@ -21,10 +21,10 @@ class system-thinkpad-x220 {
    # Add dpb to fuse group;
    ############################################################
 
-   exec { 'add-to-fuse':
-     command => "/usr/sbin/adduser dpb fuse",
-     unless  => "/bin/grep ^fuse:.*:dpb /etc/group"
-   }
+#   exec { 'add-to-fuse':
+#     command => "/usr/sbin/adduser dpb fuse",
+#     unless  => "/bin/grep ^fuse:.*:dpb /etc/group"
+#   }
 
    ############################################################
    # Disable guest login;
