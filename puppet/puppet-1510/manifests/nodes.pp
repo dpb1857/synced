@@ -48,6 +48,7 @@ node thinkpad-x220 {
 #  include cc-dev
 #  include languages
 #  include devtools
+  include desktop
   class {'network-connectivity': node_type=>'server'}
   include crypt-filesystems
   include network-filesystems
