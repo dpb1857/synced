@@ -22,3 +22,5 @@
    500ms show delay, 250ms hide;
 
 8) Disable touchpad while typing;
+
+9) Configure date format; %A %B %e, %H:%M:%S
