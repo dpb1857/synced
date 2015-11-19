@@ -7,5 +7,6 @@ then OK.
 
 Otherwise, install a newer version from the ppa:
 
-    https://launchpad.net/~ubuntu-elisp/+archive/ubuntu/ppa
-    emacs-snapshot
+  sudo add-apt-repository ppa:ubuntu-elisp/ppa
+  sudo apt-get update
+  sudo apt-get install emacs-snapshot
