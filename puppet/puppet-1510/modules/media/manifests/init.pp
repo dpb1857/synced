@@ -22,6 +22,14 @@ class media {
         ensure => installed,
     }
 
+    package {'exfat-fuse':
+        ensure => installed,
+    }
+
+    package {'exfat-utils':
+        ensure => installed,
+    }
+
     package {'gimp':
         ensure => installed,
     }
