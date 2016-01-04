@@ -29,6 +29,7 @@
 
 (package-initialize)
 
+(require 'dpb-flycheck)
 (require 'dpb-python)
 (require 'dpb-cc-mode-setup)
 (require 'dpb-golang)
