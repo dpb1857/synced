@@ -22,3 +22,14 @@ mkdir -p $GOPATH
 cd $GOPATH
 go get launchpad.net/gorun
 sudo cp bin/gorun /usr/local/bin
+
+# Install additional tools to support emacs;
+# from dpb-golang.el -
+
+    ;; Dependencies -
+
+    ;; godef:
+    ;; go get code.google.com/p/rog-go/exp/cmd/godef
+    ;;
+    ;; gocode:
+    ;; go get -u github.com/nsf/gocode
