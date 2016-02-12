@@ -19,6 +19,10 @@ for dir in $OPT_DIRS; do
     fi
 done
 
+if [ -d /opt/go ]; then
+    export GOROOT=/opt/go
+fi
+
 # Directories to add to the front of the path;
 OPT_DIRS="/opt/emacs24/bin"
 for dir in $OPT_DIRS; do
