@@ -180,4 +180,8 @@ GatewayPorts yes\n\
       mode => 0644,
     }
 
+    # Media server; Serve media to TV at least.
+    package {'minidlna':
+       ensure => installed,
+    }
 }
