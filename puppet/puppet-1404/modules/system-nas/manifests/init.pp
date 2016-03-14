@@ -76,7 +76,7 @@ class system-nas {
 # /srv was on /dev/sda7 during installation
 UUID=31209888-2cf9-4a3a-ad5f-8d9147ef474c /srv            ext4    defaults        0       2
 # /backup
-UUID=0ae9a824-5000-4b3e-b29b-c45b39f43701 /backup         btrfs   defaults        0       2
+UUID=b2d16bb0-9657-476d-abf1-049b4c5b4830 /backup         btrfs   defaults        0       2
 # /photos
 UUID=856cbf37-61ad-43e1-95fe-8a4a517f2417 /photos         ext4    defaults        0       2
 \" >> /etc/fstab",
