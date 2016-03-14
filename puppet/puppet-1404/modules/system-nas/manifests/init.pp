@@ -25,6 +25,29 @@ class system-nas {
   }
 
   ############################################################
+  # Add user/group for william;
+  ############################################################
+
+
+   user {'william':
+     ensure => 'present',
+     managehome => true,
+     shell => "/bin/bash",
+     groups => 'william',
+   }
+
+   group {'william':
+     ensure => 'present'
+   }
+
+  file {"/home/william":
+      source => "puppet:///modules/system-nas/home/william",
+      owner => "william",
+      group => "william",
+      recurse => true,
+  }
+
+  ############################################################
   # Mount additional file systems;
   ############################################################
     file {'/srv':
@@ -89,7 +112,7 @@ UUID=856cbf37-61ad-43e1-95fe-8a4a517f2417 /photos         ext4    defaults      
         command => "/bin/echo \"\n\
 # XXX dpb add an additional high-numbered port;\n\
 Port 32022\n\
-AllowUsers dpb deborah nx\n\
+AllowUsers dpb deborah william nx\n\
 GatewayPorts yes\n\
 \" >> /etc/ssh/sshd_config",
         unless => '/bin/grep "Port 32022" /etc/ssh/sshd_config',
