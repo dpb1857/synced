@@ -1,0 +1,8 @@
+
+0 4 * * * root /usr/local/bin/backup.sh cds
+10 4 * * * root /usr/local/bin/backup.sh family
+20 4 * * * root /usr/local/bin/backup.sh radio
+30 4 * * * root /usr/local/bin/backup.sh DPBARCHIVE
+40 4 * * * root /usr/local/bin/backup.sh mirror/dpb-thinkpad
+50 4 * * * root /usr/local/bin/backup.sh mirror/dpb-SanDisk32
+0 5 * * * root /usr/local/bin/backup.sh mirror/deborah-lenovo-t500
