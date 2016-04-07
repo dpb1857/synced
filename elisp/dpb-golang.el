@@ -7,7 +7,7 @@
 ;; Dependencies -
 
 ;; godef:
-;; go get code.google.com/p/rog-go/exp/cmd/godef
+;; go get -u github.com/rogpeppe/godef
 ;;
 ;; gocode:
 ;; go get -u github.com/nsf/gocode

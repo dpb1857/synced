@@ -49,6 +49,10 @@ for dir in $GRADLE_DIRS; do
     fi
 done
 
+# Setup go environment
+export GOPATH=$HOME/goprojects
+PATH=$PATH:$GOPATH/bin
+
 export EDITOR=emacsclient
 export ALTERNATE_EDITOR=mg
 export FCEDIT=$EDITOR
