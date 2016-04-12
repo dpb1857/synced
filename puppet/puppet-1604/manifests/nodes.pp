@@ -6,7 +6,7 @@ node dpb-ThinkPad-W500 {
     include media
     include python-dev
     include cc-dev
-    include java-dev
+    # include java-dev
     include database
     include languages
     include devtools
@@ -129,7 +129,7 @@ node virt-Ubuntu1104 {
     include media
     include cc-dev
     include database
-    include java-dev
+    # include java-dev
     include languages
     include office
 }

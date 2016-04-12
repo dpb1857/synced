@@ -40,16 +40,4 @@ class java-dev {
     package {'liblog4j1.2-java-doc':
         ensure => installed,
     }
-
-    package {'openjdk-6-demo':
-        ensure => installed,
-    }
-
-    package {'openjdk-6-doc':
-        ensure => installed,
-    }
-
-    package {'openjdk-6-jdk':
-        ensure => installed,
-    }
 }
