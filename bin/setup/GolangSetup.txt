@@ -16,12 +16,10 @@ exit 1
 
 # Build/install gorun;
 
-cd $HOME
-export GOPATH=$HOME/repos/golang-gorun
-mkdir -p $GOPATH
-cd $GOPATH
-go get launchpad.net/gorun
-sudo cp bin/gorun /usr/local/bin
+
+## GOPATH is now set to $HOME/goprojects
+go get -u launchpad.net/gorun
+# Possibly copy into /usr/local/bin?
 
 # Install additional tools to support emacs;
 # from dpb-golang.el -
