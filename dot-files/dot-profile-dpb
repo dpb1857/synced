@@ -10,7 +10,15 @@ for dir in $DIRS; do
 done
 
 # Directories to add to the path after the existing path variable;
-OPT_DIRS="/opt/Adobe/Reader8 /opt/jython2.5b0 /opt/python30 /var/lib/gems/1.8/bin /opt/sbt/bin /opt/go"
+OPT_DIRS="/opt/Adobe/Reader8
+          /opt/apache-maven-*
+          /opt/go
+          /opt/jython2.5b0
+          /opt/python30
+          /opt/sbt/bin
+          /var/lib/gems/1.8/bin
+"
+
 for dir in $OPT_DIRS; do
     if [ -d $dir/bin ]; then
         PATH=$PATH:$dir/bin
