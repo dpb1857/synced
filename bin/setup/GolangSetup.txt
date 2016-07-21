@@ -10,9 +10,15 @@ Or this if the ppa doesn't work:
 #!/bin/sh
 
 cd /tmp
-curl https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz > golang.tar.gz
+curl https://storage.googleapis.com/golang/go1.6.3.linux-amd64.tar.gz > golang.tar.gz
 cd /opt && sudo tar xzf /tmp/golang.tar.gz
-exit 1
+
+if [ ! -d $GOPATH ]; then
+    echo "Making directory $GOPATH"
+    mkdir $GOPATH
+fi
+
+exit 0
 
 # Build/install gorun;
 
