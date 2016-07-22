@@ -3,3 +3,14 @@ Add the following line, save and then close.
 
 allow-guest=false
 Reboot, and you're set.
+
+************************************************
+
+Location moved in 1604:
+
+mkdir /etc/lightdm/lightdm.conf.d
+mg /etc/lightdm/lightcm.conf.d/50-no-guest-conf
+
+[dpb@dpb-ThinkPad-W500] 4% cat 50-no-guest.conf
+[SeatDefaults]
+allow-guest=false
