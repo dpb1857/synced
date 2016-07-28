@@ -6,4 +6,5 @@ Then:
   mv dot-vpnc $HOME/Private/dot-vpnc
   ln -s $HOME/Private/dot-vpnc $HOME/.vpnc
 
-adjust vpn password if necessary
+*** adjust vpn password if necessary ***
+6/15 current password starts with '&'
