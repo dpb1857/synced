@@ -10,3 +10,7 @@ Otherwise, install a newer version from the ppa:
   sudo add-apt-repository ppa:ubuntu-elisp/ppa
   sudo apt-get update
   sudo apt-get install emacs-snapshot
+
+
+If the selected region fails to highlight, reset the Theme Controls to "ambiance".
+When Controls are set to "HighContrast", the selected region is not visible.
