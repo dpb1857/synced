@@ -78,6 +78,10 @@ class media {
         ensure => installed,
     }
 
+    package {'libav-tools':
+        ensure => installed,
+    }
+
 #    package {'kino':
 #        ensure => installed,
 #    }
