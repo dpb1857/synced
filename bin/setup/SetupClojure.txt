@@ -1,0 +1,9 @@
+
+1) Download clojure from clojure.org, unpack in /opt;
+
+2) Add symlinks so 'clojure' script will work:
+   cd /opt; ln -s clojure-<version> clojure
+   cd /opt/clojure-<version>; ln -s clojure-<version>.jar clojure.jar
+
+3) Test: run 'clojure'; should start prompt.
+
