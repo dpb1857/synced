@@ -4,7 +4,7 @@
 # somewhere on your $PATH, like ~/bin. The rest of Leiningen will be
 # installed upon first run into the ~/.lein/self-installs directory.
 
-export LEIN_VERSION="2.5.2"
+export LEIN_VERSION="2.7.0"
 
 case $LEIN_VERSION in
     *SNAPSHOT) SNAPSHOT="YES" ;;
@@ -83,7 +83,19 @@ function self_install {
   fi
 }
 
-if [ "$(id -u)" -eq 0 ] && [ "$LEIN_ROOT" = "" ]; then
+function check_root {
+  local -i user_id
+  # Thank you for the complexity, Solaris
+  if [ `uname` = "SunOS" -a -x /usr/xpg4/bin/id ]; then
+    user_id=$(/usr/xpg4/bin/id -u 2>/dev/null || echo 0)
+  else
+    user_id=$(id -u 2>/dev/null || echo 0)
+  fi
+  [ $user_id -eq 0 -a "$LEIN_ROOT" = "" ] && return 0
+  return 1
+}
+
+if check_root; then
     echo "WARNING: You're currently running as root; probably by accident."
     echo "Press control-C to abort or Enter to continue as root."
     echo "Set LEIN_ROOT to disable this warning."
@@ -210,9 +222,14 @@ else # Not running from a checkout
     fi
 fi
 
-# TODO: explain what to do when Java is missing
-export JAVA_CMD="${JAVA_CMD:-"java"}"
-export LEIN_JAVA_CMD="${LEIN_JAVA_CMD:-$JAVA_CMD}"
+if [ ! -x "$JAVA_CMD" ] && ! type -f java >/dev/null
+then
+    >&2 echo "Leiningen coundn't find 'java' executable, which is required."
+    >&2 echo "Please either set JAVA_CMD or put java (>=1.6) in your \$PATH ($PATH)."
+    exit 1
+fi
+
+export LEIN_JAVA_CMD="${LEIN_JAVA_CMD:-${JAVA_CMD:-java}}"
 
 if [[ -z "${DRIP_INIT+x}" && "$(basename "$LEIN_JAVA_CMD")" == *drip* ]]; then
     export DRIP_INIT="$(printf -- '-e\n(require (quote leiningen.repl))')"
@@ -253,7 +270,7 @@ elif [ "$1" = "upgrade" ] || [ "$1" = "downgrade" ]; then
     fi
     if [ $SNAPSHOT = "YES" ]; then
         echo "The upgrade task is only meant for stable releases."
-        echo "See the \"Hacking\" section of the README."
+        echo "See the \"Bootstrapping\" section of CONTRIBUTING.md."
         exit 1
     fi
     if [ ! -w "$SCRIPT" ]; then
