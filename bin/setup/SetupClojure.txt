@@ -7,3 +7,7 @@
 
 3) Test: run 'clojure'; should start prompt.
 
+
+To make sure cider and cider-nrel match -
+ You can run the emacs package manager from the menu to update the version of cider;
+ You can edit ~/.lein/profiles.clj to update the required version of cider-nrepl;
