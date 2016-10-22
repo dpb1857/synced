@@ -12,9 +12,4 @@ class common-system {
     package {'ntp':
         ensure => installed,
     }
-    
-    package {'python-software-properties':
-        ensure => installed,
-    }
-
 }

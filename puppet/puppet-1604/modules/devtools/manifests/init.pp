@@ -67,9 +67,9 @@ class devtools {
         ensure => installed,
     }
 
-    package {'mongodb-clients':
-        ensure => installed,
-    }
+#    package {'mongodb-clients':
+#        ensure => installed,
+#    }
 
     ############################################################
     # Extra documentation
@@ -99,17 +99,17 @@ class devtools {
         ensure => installed,
     }
 
-    package {'chromium-browser':
-        ensure => installed,
-    }
+#    package {'chromium-browser':
+#        ensure => installed,
+#    }
 
-    package {'nginx':
-        ensure => installed,
-    }
+#    package {'nginx':
+#        ensure => installed,
+#    }
 
-    package {'uwsgi':
-        ensure => installed,
-    }
+#    package {'uwsgi':
+#        ensure => installed,
+#    }
 
 #    package {'apache2':
 #        ensure => installed,

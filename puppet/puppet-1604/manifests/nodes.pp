@@ -22,12 +22,11 @@ node dpb-ThinkPad-W500 {
     include system-dpb-w500
 }
 
-node don-thinkpad-t420s {
+node don-yoga3 {
   include common-system
   include editors
   include office
   include python-dev
-  include cc-dev
   include languages
   include devtools
   include desktop
@@ -37,7 +36,7 @@ node don-thinkpad-t420s {
   include system-utilities
   include media
   include virtual
-   include system-don-t420
+   include system-don-yoga3
 }
 
 node thinkpad-x220 {

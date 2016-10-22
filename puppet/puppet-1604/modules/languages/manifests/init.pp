@@ -1,29 +1,30 @@
 
 class languages {
 
-    package {'clisp':
-        ensure => installed,
-    }
+#    package {'clisp':
+#        ensure => installed,
+#    }
 
-    package {'clisp-doc':
-        ensure => installed,
-    }
+#    package {'clisp-doc':
+#        ensure => installed,
+#    }
 
 #    package {'clojure1.4':
 #        ensure => installed,
 #    }
 
-    package {'gambc':
-        ensure => installed,
-    }
+#    package {'gambc':
+#        ensure => installed,
+#    }
 
-    package {'gambc-doc':
-        ensure => installed,
-    }
+#    package {'gambc-doc':
+#        ensure => installed,
+#    }
 
-    package {'gdc':
-        ensure => installed,
-    }
+#    # gcc for 'D'
+#    package {'gdc':
+#        ensure => installed,
+#    }
 
 #    package {'golang':
 #        ensure => installed,

@@ -17,7 +17,7 @@ class python-dev {
         ensure => installed,
     }
 
-    package {'zlib1g-dev':
-        ensure => installed,
-    }
+#    package {'zlib1g-dev':
+#        ensure => installed,
+#    }
 }

@@ -1,21 +1,22 @@
 
 class office {
 
-    package {'antiword':
-        ensure => installed,
-    }
+#    package {'antiword':
+#        ensure => installed,
+#    }
 
+    # inspired by Visio
     package {'dia-gnome':
         ensure => installed,
     }
 
-    package {'gnucash':
-        ensure => installed,
-    }
+#    package {'gnucash':
+#        ensure => installed,
+#    }
 
-    package {'gnucash-docs':
-        ensure => installed,
-    }
+#    package {'gnucash-docs':
+#        ensure => installed,
+#    }
 
     package {'inkscape':
         ensure => installed,

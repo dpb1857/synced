@@ -1,5 +1,5 @@
 
-class system-don-t420 {
+class system-don-yoga3 {
 
   ############################################################
   # Enable /net access to network hosts;
