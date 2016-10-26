@@ -81,6 +81,21 @@
 (setq-default indent-tabs-mode nil)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (setenv "PAGER") ;; for subshells and ipython;
+
+;; Start servers;
+
+;;
+;; edit-server, goes with chrome extension edit-with-emacs
+;;
+(unless (package-installed-p 'edit-server)
+  (package-refresh-contents)
+  (package-install 'edit-server))
+
+(edit-server-start)
+
+;;
+;; The usual emacsclient server;
+;;
 (server-start)
 
 ;; Try to control window splitting;
