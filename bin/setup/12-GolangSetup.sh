@@ -17,8 +17,7 @@ export PATH="/opt/go/bin:$PATH"
 # Build/install gorun;
 
 ## GOPATH is now set to $HOME/goprojects
-# go get -u launchpad.net/gorun
-# Possibly copy into /usr/local/bin?
+go get -u github.com/erning/gorun
 
 # Install additional tools to support emacs;
 # from dpb-golang.el -
