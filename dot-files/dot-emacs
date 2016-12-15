@@ -41,6 +41,7 @@
 (require 'dpb-verify-exit)
 (require 'dpb-orgmode)
 (require 'dpb-docker-tramp)
+(require 'dpb-javascript)
 (require 'iwb) ;; indent-whole-buffer
 
 (require 'vi-paren-matching)
