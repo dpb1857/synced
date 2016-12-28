@@ -1,9 +1,0 @@
-
-function tunnel() {
-    ssh -R *:8090:bugs.quixeyplex.com:80 \
-	-R *:8091:wiki.quixeyplex.com:80 \
-	-p 22022 dpb@castle.donbennett.org \
-	"while true; do date; sleep 60; done"
-
-    cd $HOME/quixey/quixey/src
-}
