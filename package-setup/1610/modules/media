@@ -1,0 +1,35 @@
+
+ubuntu-restricted-extras
+digikam
+digikam-doc
+exfat-fuse
+exfat-utils
+gimp
+gimp-help-en
+gscan2pdf
+# Pano stitcher
+hugin
+imagemagick
+kipi-plugins
+showfoto
+xsane
+amarok
+audacity
+# avidemux
+# easytag
+# libav-tools
+
+# OpenShot & H.264:
+# from: http://www.openshotusers.com/forum/viewtopic.php?f=12&t=912
+# Solved. Went to Synaptic and installed libavformat-extra-52 and that did it.
+
+# Movie editor
+openshot
+ripperx
+youtube-dl
+handbrake
+
+# Make sure we installed the package to read DVDs;
+# sudo /usr/share/doc/libdvdread4/install-css.sh
+# This finds or builds the deb package libdvdcss2; can we write a puppet rule for this?
+libdvdread4
