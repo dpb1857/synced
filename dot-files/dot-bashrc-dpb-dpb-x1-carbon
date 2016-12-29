@@ -100,5 +100,5 @@ function ssh-don() {
 
 function sbackup() {
     sh -c "cd /media/dpb/SanDisk32 && sh Backup.sh $@"
-    rsync -av --delete-after /home/scratch/SanDisk32/ 192.168.2.3:/srv/mirror/dpb-SanDisk32
+    rsync -av --delete-after /space/SanDisk32/ 192.168.2.3:/srv/mirror/dpb-SanDisk32
 }

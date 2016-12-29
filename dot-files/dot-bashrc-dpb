@@ -155,11 +155,11 @@ function finance() {
     find_media_dir finance
     if [ "$MEDIA_DIR" == "" ]; then
         echo "Could not locate finance directory; try mounting backup" 1>&2
-        if [ ! -d /home/scratch/SanDisk32/finance ]; then
+        if [ ! -d /space/SanDisk32/finance ]; then
             echo "No backup found" 1>&2
             return
         fi
-        sudo mount -t ecryptfs -r /home/scratch/SanDisk32/finance $HOME/finance
+        sudo mount -t ecryptfs -r /space/SanDisk32/finance $HOME/finance
     else
         sudo mount -t ecryptfs $MEDIA_DIR $HOME/finance
     fi
