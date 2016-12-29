@@ -2,7 +2,7 @@
 1) Configure keyboard to use capslock as ctl;
 
 2) Configure themes: Other settings -
-   Controls: HighContrast (top line)
+   Controls: HighContrast (top line); (or Radiance looks ok on x1-carbon)
    Icons: gnome
    Window borders: Ambiance
    Keybindings: emacs

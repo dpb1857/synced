@@ -42,6 +42,7 @@
 (require 'dpb-orgmode)
 (require 'dpb-docker-tramp)
 (require 'dpb-javascript)
+(require 'dpb-smooth)
 (require 'iwb) ;; indent-whole-buffer
 
 (require 'vi-paren-matching)
@@ -156,7 +157,9 @@
   %u" "~/org/todo.org" "Tasks")
      (110 "* %u %?" "~/org/notes.org" "Notes"))))
  '(org-reverse-note-order t)
- '(package-selected-packages (quote (scala-mode2 magit cider clojure-mode go-mode)))
+ '(package-selected-packages
+   (quote
+    (sublimity smooth-scrolling scala-mode2 magit cider clojure-mode go-mode)))
  '(remember-annotation-functions (quote (org-remember-annotation)))
  '(remember-handler-functions (quote (org-remember-handler)))
  '(safe-local-variable-values (quote ((py-indent-offset . 4)))))
@@ -165,3 +168,9 @@
 ;; (set-face-attribute 'default nil :height 80)
 
 (put 'scroll-left 'disabled nil)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
