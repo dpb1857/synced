@@ -2,7 +2,7 @@
 
 cd $HOME
 
-for srcdir in /home/dpb-stuff/linked-dirs /home/space/linked-dirs /mnt/shared/dpb/linked-dirs /mnt/shared/dpb-x100/linked-dirs; do
+for srcdir in /home/dpb-stuff/linked-dirs /home/space/linked-dirs /mnt/shared/dpb/linked-dirs /mnt/shared/dpb-x100/linked-dirs /space/linked-dirs; do
     if [ -d $srcdir ]; then
 	dirs=`cd $srcdir && echo *`
 	for dir in $dirs; do
