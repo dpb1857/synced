@@ -22,9 +22,11 @@ libav-tools
 # OpenShot & H.264:
 # from: http://www.openshotusers.com/forum/viewtopic.php?f=12&t=912
 # Solved. Went to Synaptic and installed libavformat-extra-52 and that did it.
+# For 16.10, need to install x264
 
 # Movie editor
 openshot
+x264
 ripperx
 youtube-dl
 handbrake
