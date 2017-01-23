@@ -19,6 +19,7 @@ function do_backup() {
         backup_name="`date +%Y-%m-%dT%H:%M`"
         /bin/btrfs subvolume snapshot -r $BASE/$NAME/current $BASE/$NAME/$backup_name
         cp /tmp/filelist.$$ $BASE/$NAME/updates/$backup_name
+        cat /tmp/filelist.$$
     fi
 
     rm -f /tmp/filelist.$$
