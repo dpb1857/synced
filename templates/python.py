@@ -9,8 +9,6 @@ Module comment
 # pylint:disable=invalid-name
 
 def main():
-    import argparse
-
     pass
 
 if __name__ == "__main__":
