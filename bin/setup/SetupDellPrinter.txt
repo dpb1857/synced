@@ -1,0 +1,18 @@
+
+http://askubuntu.com/questions/513943/how-can-i-get-my-dell-c1760nw-printer-to-work-with-ubuntu
+
+Basic Instructions -
+
+sudo apt-get install libcupsimage2:i386
+Download and install the Ubuntu .deb drivers from Xerox for their Phaser 6000 model.
+
+[ I have it in Downloads/DellC1760nw/xerox-phaser-6000-6010_1.0-1_i386.deb ]
+
+I had to download some additional stuff by hand from packages.ubuntu.com; for 16.10:
+
+  lib32stdc++6
+  lib32gcc1
+  libc6-i386
+
+If you try to debug filter problems, look for "xrhkazmf" in the the
+/var/log/cups/error_log file.
