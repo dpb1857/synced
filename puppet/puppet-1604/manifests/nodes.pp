@@ -101,7 +101,6 @@ node castle {
 
 node nas {
   include common-system
-  include editors
   class {'network-connectivity': node_type=>'server'}
   include crypt-filesystems
   include network-filesystems
