@@ -2,5 +2,6 @@
 make
 mg
 ntp
+ntpdate
 texi2html
 texinfo
