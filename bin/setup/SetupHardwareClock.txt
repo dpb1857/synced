@@ -1,0 +1,22 @@
+http://www.howtogeek.com/211144/how-to-get-windows-and-linux-clocks-to-display-the-correct-and-matching-time-dual-boot/
+
+I recently faced the same problem and this is how I fixed it. You need to make some minor changes in both operating systems.
+
+I started with Linux first. Run the following commands as root:
+
+ntpdate pool.ntp.org
+This will update your time if it is not set correctly.
+
+Now set the hardware clock to UTC with this command.
+
+utc
+Source
+
+Now boot to Windows and add the following to the registry. Simply create a .reg file using the code below in Notepad. Save it and run it.
+
+Windows Registry Editor Version 5.00
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\=dword:00000001
+Source
+
+From the next boot onward, both operating systems will show you the correct time.RealTimeIsUniversalTimeZoneInformation]
+systohc hwclock 
