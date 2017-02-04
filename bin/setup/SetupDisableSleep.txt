@@ -1,0 +1,28 @@
+
+Two things do the trick -
+
+http://askubuntu.com/questions/741271/disable-sleep-on-laptop-lid-close-in-tty1
+
+Try to edit the /etc/systemd/logind.conf file and modify the line:
+
+"#HandleLidSwitch=suspend"
+
+to
+
+HandleLidSwitch=ignore
+
+Then reboot.
+
+
+
+AND
+
+http://askubuntu.com/questions/141866/keep-ubuntu-server-running-on-a-laptop-with-the-lid-closed
+
+
+just to confirm, 14.04 LTS Server user here on a Dell X100e.
+
+sudo apt-get install acpi-support
+sudo vi /etc/default/acpi-support # and then set SUSPEND_METHODS="none"
+sudo /etc/init.PPd/acpid restart
+Instantly able to close lid, no issues.
