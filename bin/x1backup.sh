@@ -26,7 +26,6 @@ function do_backup() {
 }
 
 DIRS="digikam
-      docker
       goprojects
       imports
       linked-dirs
