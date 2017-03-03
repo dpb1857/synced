@@ -7,6 +7,7 @@ Module comment
 # Find pylint codes at: http://pylint-messages.wikidot.com/all-codes
 # pylint: disable=line-too-long
 # pylint: disable=invalid-name
+# pylint: disable=missing-docstring
 
 def main():
     "Main function body"
