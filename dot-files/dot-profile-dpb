@@ -32,7 +32,10 @@ if [ -d /opt/go ]; then
 fi
 
 # Directories to add to the front of the path;
-OPT_DIRS="/opt/emacs24/bin"
+OPT_DIRS="/opt/emacs24/bin
+          /opt/python27
+"
+
 for dir in $OPT_DIRS; do
     if [ -d $dir/bin ]; then
         PATH=$dir/bin:$PATH
