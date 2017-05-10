@@ -27,3 +27,6 @@ go get -u github.com/rogpeppe/godef
 
 # gocode:
 go get -u github.com/nsf/gocode
+
+# delve (debugger)
+go get -u github.com/derekparker/delve/cmd/dlv
