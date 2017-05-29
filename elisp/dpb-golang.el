@@ -21,8 +21,19 @@
   (package-refresh-contents)
   (package-install 'go-eldoc))
 
+;; XXX go-dlv doesn't appear to be in melpa;
+;;
+;;(unless (package-installed-p 'go-dlv)
+;;  (package-refresh-contents)
+;;  (package-install 'go-dlv))
+
+
+
+
+
 (require 'go-mode)
 (require 'go-eldoc)
+(require 'go-dlv)
 
 (add-hook 'go-mode-hook
   (lambda()
