@@ -1,0 +1,4 @@
+
+1) Add launcher shortcut for terminal;
+
+2) Download/install/link chrome;
