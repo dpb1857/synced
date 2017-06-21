@@ -1,0 +1,11 @@
+
+1) Add launcher shortcut for terminal;
+
+2) Download/install/link chrome;
+
+3) Create/install ssh keys;
+
+4) terminal keyboard preferences: check "use option as meta key"
+
+5) install brew:
+   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
