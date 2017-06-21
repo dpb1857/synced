@@ -7,5 +7,15 @@
 
 4) terminal keyboard preferences: check "use option as meta key"
 
-5) install brew:
+5) turn on click-and-drag -
+   System Preferences ->
+     Accessibility ->
+       Mouse & Trackpad from options on left ->
+         click Trackpad Options ->
+           place checkmark next to "Enable dragging"
+
+6) install brew:
    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+7) brew install awscli
+
