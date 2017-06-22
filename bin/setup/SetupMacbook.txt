@@ -19,3 +19,11 @@
 
 7) brew install awscli
 
+8) install emacs;
+   see: https://github.com/railwaycat/homebrew-emacsmacport
+   (from hackernews https://news.ycombinator.com/item?id=9594031)
+
+   brew tap railwaycat/emacsmacport
+   brew install emacs-mac
+   brew linkapps
+   
