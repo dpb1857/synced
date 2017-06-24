@@ -1,3 +1,5 @@
+;; -*- mode: emacs-lisp-mode; -*-
+
 ;; Don's gnuemacs profile file...
 ;; File-Name: dpb-laptop:/home/dbennett/.emacs
 ;; Last-Edit: Wed May 14 23:11:28 2008 by Don Bennett <dpb at dpb-laptop>
@@ -22,13 +24,20 @@
 	       )
 	      load-path))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Package managers are good;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (require 'package)
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/"))
 
 ;; fix
 ;; (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; seup various don packages
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (package-initialize)
 
@@ -37,7 +46,6 @@
 (require 'dpb-cc-mode-setup)
 (require 'dpb-golang)
 (require 'dpb-clj)
-;; (require 'dpb-php)
 (require 'dpb-enable-features)
 (require 'dpb-position-info)
 (require 'dpb-truncate-toggle)
@@ -55,9 +63,18 @@
 ;; (require 'git-emacs)
 ;; (require 'gitsum)
 
-;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; shell-mode tweaking
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(if (string-equal system-type "darwin")
+    (setq explicit-bash-args (quote ("--noediting" "-i" "-l"))))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; magit
-;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (unless (package-installed-p 'magit)
   (package-refresh-contents)
   (package-install 'magit))
@@ -85,6 +102,7 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (setenv "PAGER") ;; for subshells and ipython;
 
+;; XXX Remove or keep?
 ;; misc key bindings;
 ;; (global-set-key "\C-\M-y" 'clipboard-yank)
 
@@ -93,6 +111,7 @@
 ;;
 ;; edit-server, goes with chrome extension edit-with-emacs
 ;;
+
 (unless (package-installed-p 'edit-server)
   (package-refresh-contents)
   (package-install 'edit-server))
