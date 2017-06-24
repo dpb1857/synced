@@ -65,16 +65,14 @@
 (global-auto-revert-mode)
 (setq magit-last-seen-setup-instructions "1.4.0")
 
-;;(require 'puppet-mode-init)
+;;;;;;;;;;;;;;;;;;;;
+;; end Magit
+;;;;;;;;;;;;;;;;;;;;
+
 (require 'hy-mode)
 
 ;; postgres - connecting to a non-default port using sql-postgres:
-;; (setq sql-postgres-options '("-P" "pager=off" "-p" "32497"))
-
-;; No more Svn!
-;; (require 'psvn)
-;; (setq svn-status-default-diff-arguments '("--diff-cmd" "diff" "-x" "-wbBu"))
-
+;; (setq sql-postgres-options '("-P" "pager=off" "-p" "32497")
 
 ;; (add-to-list 'vc-handled-backends 'GIT)
 ;; (autoload 'git-blame-mode "git-blame"
@@ -83,6 +81,9 @@
 (setq-default indent-tabs-mode nil)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (setenv "PAGER") ;; for subshells and ipython;
+
+;; misc key bindings;
+;; (global-set-key "\C-\M-y" 'clipboard-yank)
 
 ;; Start servers;
 
