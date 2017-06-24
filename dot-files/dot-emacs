@@ -3,6 +3,9 @@
 ;; Last-Edit: Wed May 14 23:11:28 2008 by Don Bennett <dpb at dpb-laptop>
 ;;
 
+;; do something conditional on the variable 'system-type'
+;; + '(explicit-bash-args (quote ("--noediting" "-i" "-l")))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Path configuration;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
