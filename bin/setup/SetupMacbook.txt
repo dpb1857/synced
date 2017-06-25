@@ -29,3 +29,6 @@
    brew tap railwaycat/emacsmacport
    brew install emacs-mac
    brew linkapps
+
+10) Keyboard shortcuts for Terminal app(Utilities/Terminal), Chrome, Emacs;
+    see: https://computers.tutsplus.com/tutorials/how-to-launch-any-app-with-a-keyboard-shortcut--mac-31463
