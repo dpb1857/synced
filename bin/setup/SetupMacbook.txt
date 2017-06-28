@@ -32,3 +32,8 @@
 
 10) Keyboard shortcuts for Terminal app(Utilities/Terminal), Chrome, Emacs;
     see: https://computers.tutsplus.com/tutorials/how-to-launch-any-app-with-a-keyboard-shortcut--mac-31463
+
+11) Setup python3 environment:
+    brew install python3
+    pip3 install virtualenv
+    pip3 install pylint

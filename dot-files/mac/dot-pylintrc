@@ -1,0 +1,10 @@
+
+[MESSAGES CONTROL]
+disable=line-too-long,missing-docstring
+
+[REPORTS]
+# Include message's id in output
+include-ids=yes
+
+# Tells whether to display a full report or only the messages
+reports=no
