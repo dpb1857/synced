@@ -48,6 +48,7 @@
 (require 'dpb-truncate-toggle)
 (require 'dpb-verify-exit)
 (require 'dpb-orgmode)
+(require 'dpb-docker)
 (require 'dpb-docker-tramp)
 (require 'dpb-javascript)
 (require 'dpb-smooth)
