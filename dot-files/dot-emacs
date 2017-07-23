@@ -52,6 +52,7 @@
 (require 'dpb-docker-tramp)
 (require 'dpb-javascript)
 (require 'dpb-smooth)
+(require 'dpb-acejump)
 (require 'iwb) ;; indent-whole-buffer
 
 (require 'vi-paren-matching)
@@ -60,6 +61,16 @@
 ;; (require 'git)
 ;; (require 'git-emacs)
 ;; (require 'gitsum)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Turn Ido mode
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(require 'ido)
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; shell-mode tweaking; login shell for mac
@@ -74,7 +85,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (unless (package-installed-p 'magit)
-  (package-refresh-contents)
+  (package-refresh-contents)6
   (package-install 'magit))
 
 (global-set-key "\^xm" 'magit-status)
@@ -180,7 +191,7 @@
  '(org-reverse-note-order t)
  '(package-selected-packages
    (quote
-    (sublimity smooth-scrolling scala-mode2 magit cider clojure-mode go-mode)))
+    (ace-jump-mode sublimity smooth-scrolling scala-mode2 magit cider clojure-mode go-mode)))
  '(remember-annotation-functions (quote (org-remember-annotation)))
  '(remember-handler-functions (quote (org-remember-handler)))
  '(safe-local-variable-values (quote ((py-indent-offset . 4)))))
