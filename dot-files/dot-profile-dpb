@@ -19,6 +19,7 @@ OPT_DIRS="/opt/Adobe/Reader8
           /var/lib/gems/1.8/bin
 	  /opt/caddy
 	  /opt/hugo
+          /opt/idea-IC
 "
 
 for dir in $OPT_DIRS; do
