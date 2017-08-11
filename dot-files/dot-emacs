@@ -53,6 +53,7 @@
 (require 'dpb-javascript)
 (require 'dpb-smooth)
 (require 'dpb-acejump)
+(require 'dpb-neotree)
 (require 'iwb) ;; indent-whole-buffer
 
 (require 'vi-paren-matching)
