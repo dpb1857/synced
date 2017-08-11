@@ -98,7 +98,7 @@
 ;; end Magit
 ;;;;;;;;;;;;;;;;;;;;
 
-(require 'hy-mode)
+(require 'hy-mode) ;; lisp on a python interpreter!
 
 ;; postgres - connecting to a non-default port using sql-postgres:
 ;; (setq sql-postgres-options '("-P" "pager=off" "-p" "32497")
