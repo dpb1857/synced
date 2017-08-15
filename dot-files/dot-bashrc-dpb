@@ -12,15 +12,10 @@ alias caps='setxkbmap -option ctrl:nocaps'
 alias d='export d=`pwd` && echo "setting environment variable d to $d"'
 alias dirs='echo $(builtin dirs) [$OLDPWD]'
 alias goto='cd `/bin/pwd`'
-# alias moin='(cd /home/dpb-stuff/moin-desktop && python moin.py>/tmp/moin.log 2>&1)'
 alias rehash='export PATH=$PATH'
 alias uncd='cd $OLDPWD'
 alias scp='scp -c blowfish-cbc'
-alias puppet-apply='sudo puppet apply --confdir=$HOME/synced/puppet $HOME/synced/puppet/manifests/site.pp'
-alias puppet-base='sudo puppet apply --confdir=$HOME/synced/puppet $HOME/synced/puppet/manifests/fundamental.pp'
 alias xf='(xfwm4 --replace &)'
-
-alias idea=/opt/idea*/bin/idea.sh
 
 ignoreeof=5
 
@@ -35,24 +30,6 @@ else
 fi
 
 PS1="${LEFTP}${LOGNAME}@${HOSTNAME}${RIGHTP} \#${key} "
-
-# Append all of the jar files in the current directory to CLASSPATH.
-
-function addjars() {
-    local cp
-    for file in *.jar; do
-	if [ "$cp" ]; then
-	    cp="$cp:"
-	fi
-	cp="$cp`pwd`/$file"
-    done
-
-    echo "Adding $cp to CLASSPATH."
-    if [ "$CLASSPATH" ]; then
-        cp=":$cp"
-    fi
-    export CLASSPATH="$CLASSPATH$cp"
-}
 
 function dt() {
     if [ -f /tmp/dir.txt ]; then
@@ -69,11 +46,6 @@ function dt() {
 function manl () {
     nroff -man $1 | less
 }
-
-#function moin () {
-#     (cd /home/dpb-stuff/moin-desktop && python moin.py>/tmp/moin.log 2>&1) &
-#     firefox http://localhost:8080 &
-# }
 
 function adddot () {
     export PATH=".:$PATH"
@@ -242,15 +214,6 @@ function android-backup() {
       . rsync://backup@nas:/backup/dpb/nexus-s
 }
 
-function update() {
-    cd $HOME/synced && git pull
-    cd $HOME/synced && git status
-}
-
-function kml2gpx() {
-    gpsbabel -i kml -f $1 -o gpx -F $2
-}
-
 function ro() {
     sudo mount -o ro,remount $1
 }
@@ -264,19 +227,19 @@ function docker_clean() {
     docker rmi `docker images|grep -v orca|awk '{print $3}'`
 }
 
+function openvpn() {
+    enc
+    cat ~/enc/armory/armory-vpn.txt
+    unenc
+    cd $HOME && sudo openvpn --config client.ovpn
+}
+
+
 # Make a file in /etc/sudoers.d/ with this to allow shutdown without password -
 #(username) (hostname) = ...
 # dpb x100 = NOPASSWD: /sbin/init
 function timer() {
     (sleep $1 && sudo /sbin/init 0) &
-}
-
-function qvpn() {
-    if [ ! -f ~/.vpnc ]; then
-        echo "Unpack .vpnc; see ~/synced/dot-files/dot-vpnc.README."
-        return
-    fi
-    sudo vpnc ~/.vpnc
 }
 
 host_dot_bashrc="$HOME/synced/dot-files/dot-bashrc-`hostname`"
