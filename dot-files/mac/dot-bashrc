@@ -1,2 +1,6 @@
 
 . $HOME/synced/dot-files/dot-bashrc-dpb
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/dpb/.sdkman"
+[[ -s "/Users/dpb/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/dpb/.sdkman/bin/sdkman-init.sh"
