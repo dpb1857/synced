@@ -40,3 +40,6 @@
 
 12) Other stuff;
     brew install jq
+
+13) Install sdkman to manage installed software;
+    cat http://get.sdkman.io | bash
