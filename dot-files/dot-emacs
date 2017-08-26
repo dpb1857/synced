@@ -58,7 +58,6 @@
 (require 'iwb) ;; indent-whole-buffer
 
 (require 'vi-paren-matching)
-(require 'igrep)
 
 ;; (require 'git)
 ;; (require 'git-emacs)
