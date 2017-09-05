@@ -124,7 +124,7 @@ function finance() {
     if [ ! -d $HOME/finance ]; then
         mkdir $HOME/finance
     fi
-    sudo mount -t ecryptfs $HOME/.finance $HOME/finance
+    sudo mount -t ecryptfs /space/finance $HOME/finance
 }
 
 function unfinance() {
