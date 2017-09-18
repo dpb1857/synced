@@ -8,20 +8,23 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
+@app.route('/', defaults={'path': ''},methods=["GET", "POST"])
+@app.route('/<path:path>',methods=["GET", "POST"])
+def update(path):
 
-@app.route("/update", methods=["GET", "POST"])
-def update():
+    headers = {k:v for k,v in request.headers.items()}
 
-    for k,v in request.headers:
-        print("Header: {}: {}".format(k, v))
-    print("Method: {}".format(request.method))
-    print("Path: {}".format(request.path))
-    print("Parameters: {}".format(request.args))
+    resp = {
+        "Headers": headers,
+        "Method": request.method,
+        "Path": request.path,
+        "Parameters": request.args
+        }
 
     if request.method == "POST":
-        print("Post body: {}".format(request.get_data()))
+        resp["Body"] = request.get_data()
 
-    return json.dumps({"status": "ok"})
+    return json.dumps(resp, indent=2)
 
 if __name__ == "__main__":
     app.run()
