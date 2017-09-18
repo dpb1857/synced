@@ -8,8 +8,8 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-@app.route('/', defaults={'path': ''},methods=["GET", "POST"])
-@app.route('/<path:path>',methods=["GET", "POST"])
+@app.route('/', defaults={'path': ''},methods=["GET", "POST", "DELETE"])
+@app.route('/<path:path>',methods=["GET", "POST", "DELETE"])
 def update(path):
 
     headers = {k:v for k,v in request.headers.items()}
@@ -22,7 +22,7 @@ def update(path):
         }
 
     if request.method == "POST":
-        resp["Body"] = request.get_data()
+        resp["Body"] = request.get_data(as_text=True)
 
     return json.dumps(resp, indent=2)
 
