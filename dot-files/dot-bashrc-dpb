@@ -124,6 +124,14 @@ function finance() {
     if [ ! -d $HOME/finance ]; then
         mkdir $HOME/finance
     fi
+    echo "Mounting finance dir read-only"
+    sudo mount -t ecryptfs -r /space/finance $HOME/finance
+}
+
+function finance-rw() {
+    if [ ! -d $HOME/finance ]; then
+        mkdir $HOME/finance
+    fi
     sudo mount -t ecryptfs /space/finance $HOME/finance
 }
 
