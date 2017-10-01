@@ -121,6 +121,10 @@ ungnucashfs() {
 }
 
 function finance() {
+    if mount | grep -q $HOME/finance; then
+        echo "Finance directory already mounted" 1>&2
+        return 1
+    fi
     if [ ! -d $HOME/finance ]; then
         mkdir $HOME/finance
     fi
