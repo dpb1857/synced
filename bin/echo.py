@@ -1,15 +1,16 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
-from collections import namedtuple
-import datetime
+# pylint: disable=invalid-name
+# pylint: disable=missing-docstring
+
 import json
 
 from flask import Flask, request
 
 app = Flask(__name__)
 
-@app.route('/', defaults={'path': ''},methods=["GET", "POST", "DELETE"])
-@app.route('/<path:path>',methods=["GET", "POST", "DELETE"])
+@app.route('/', defaults={'path': ''}, methods=["GET", "POST", "DELETE"])
+@app.route('/<path:path>', methods=["GET", "POST", "DELETE"])
 def update(path): # pylint: disable=unused-argument
 
     headers = {k:v for k, v in request.headers.items()}
