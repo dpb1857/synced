@@ -9,11 +9,12 @@ for dir in $DIRS; do
     fi
 done
 
+# Allow /opt to override default path;
 for dir in /opt/*; do
     if [ -d $dir/bin ]; then
-        PATH=$PATH:$dir/bin
+        PATH=$dir/bin:$PATH
     elif [ -d $dir ]; then
-        PATH=$PATH:$dir
+        PATH=$dir:$PATH
     fi
 done
 
