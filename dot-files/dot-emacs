@@ -1,4 +1,4 @@
-;; -*- mode: emacs-lisp-mode; -*-
+;; -*- mode: emacs-lisp; -*-
 
 ;; Don's gnuemacs profile file...
 ;; File-Name: dpb-laptop:/home/dbennett/.emacs
@@ -38,30 +38,38 @@
 
 (package-initialize)
 
-(require 'dpb-flycheck)
-(require 'dpb-python)
+;; languages
+
+(require 'dpb-flycheck);; Must come before some lang modes that tweak checkers;
+
 (require 'dpb-cc-mode-setup)
-(require 'dpb-golang)
 (require 'dpb-clj)
+(require 'dpb-golang)
+(require 'dpb-groovy-mode)
+(require 'dpb-javascript)
+(require 'dpb-python)
+;; (require 'hy-mode) ;; lisp on a python interpreter!
+
+;; devtools
+
+(require 'dpb-docker)
+(require 'dpb-docker-tramp)
+(require 'dpb-neotree)
+(require 'vi-paren-matching)
+
+;; modes
+
+(require 'dpb-orgmode)
+
+;; features
+
 (require 'dpb-enable-features)
 (require 'dpb-position-info)
 (require 'dpb-truncate-toggle)
 (require 'dpb-verify-exit)
-(require 'dpb-orgmode)
-(require 'dpb-docker)
-(require 'dpb-docker-tramp)
-(require 'dpb-javascript)
 (require 'dpb-smooth)
 (require 'dpb-acejump)
-(require 'dpb-neotree)
-(require 'dpb-groovy-mode)
 (require 'iwb) ;; indent-whole-buffer
-
-(require 'vi-paren-matching)
-
-;; (require 'git)
-;; (require 'git-emacs)
-;; (require 'gitsum)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -69,9 +77,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (require 'ido)
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
+(setq ido-enable-flex-matching nil)
+(setq ido-show-dot-for-dired t)
+;; (setq ido-everywhere t) ;; why?
 (ido-mode t)
+
+;; disable a search for file in other dirs when you want to create a new one;
+;; https://stackoverflow.com/questions/17986194/emacs-disable-automatic-file-search-in-ido-mode
+(setq ido-auto-merge-work-directories-length -1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; shell-mode tweaking; login shell for mac
@@ -96,53 +109,41 @@
 (setq magit-last-seen-setup-instructions "1.4.0")
 
 ;;;;;;;;;;;;;;;;;;;;
-;; end Magit
+;; postgres;
 ;;;;;;;;;;;;;;;;;;;;
-
-(require 'hy-mode) ;; lisp on a python interpreter!
 
 ;; postgres - connecting to a non-default port using sql-postgres:
 ;; (setq sql-postgres-options '("-P" "pager=off" "-p" "32497")
 
-;; (add-to-list 'vc-handled-backends 'GIT)
-;; (autoload 'git-blame-mode "git-blame"
-;;   "Minor mode for incremental blame for Git." t)
 
 (setq-default indent-tabs-mode nil)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (setenv "PAGER") ;; for subshells and ipython;
 
-;; XXX Remove or keep?
-;; misc key bindings;
-;; (global-set-key "\C-\M-y" 'clipboard-yank)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; browse-kill-ring
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; Start servers;
-
-;;
-;; edit-server, goes with chrome extension edit-with-emacs
-;;
-
-(unless (package-installed-p 'edit-server)
+(unless (package-installed-p 'browse-kill-ring)
   (package-refresh-contents)
-  (package-install 'edit-server))
+  (package-install 'browse-kill-ring))
 
-(edit-server-start)
-
-;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; The usual emacsclient server;
-;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (server-start)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Misc settings
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Try to control window splitting;
 (setq split-width-threshold 250)
 
-;; Add scala mode, the emacs24 way; (https://github.com/hvesalai/scala-mode2)
-;; (unless (package-installed-p 'scala-mode2)
-;;   (package-refresh-contents)
-;;   (package-install 'scala-mode2))
-
 ;; Disable toolbar
 (tool-bar-mode -1)
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -192,7 +193,7 @@
  '(org-reverse-note-order t)
  '(package-selected-packages
    (quote
-    (ace-jump-mode sublimity smooth-scrolling scala-mode2 magit cider clojure-mode go-mode)))
+    (browse-kill-ring ace-jump-mode sublimity smooth-scrolling scala-mode2 magit cider clojure-mode go-mode)))
  '(remember-annotation-functions (quote (org-remember-annotation)))
  '(remember-handler-functions (quote (org-remember-handler)))
  '(safe-local-variable-values (quote ((py-indent-offset . 4)))))
