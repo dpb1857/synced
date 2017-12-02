@@ -1,3 +1,4 @@
+# -*- mode: shell-script; -*-
 
 unalias ls 2> /dev/null
 alias ls='ls -F'
@@ -229,12 +230,12 @@ function docker_clean() {
     docker rmi `docker images|grep -v orca|awk '{print $3}'`
 }
 
-function openvpn() {
-    enc
-    cat ~/enc/armory/armory-vpn.txt
-    unenc
-    cd $HOME && sudo openvpn --config client.ovpn
-}
+# function openvpn() {
+#     enc
+#     cat ~/enc/armory/armory-vpn.txt
+#     unenc
+#     cd $HOME && sudo openvpn --config client.ovpn
+# }
 
 
 # Make a file in /etc/sudoers.d/ with this to allow shutdown without password -
