@@ -12,17 +12,11 @@
 3) Configure capslock as ctl;
    Keyboard (under Hardware)
 
-   -> In the same place, set the key to kill the x server;
-
 4) Configure keyboard shortcuts for terminal, chrome, emacs;
 
 5) Configure c-alt-w to close (force?) close windows; (along with alt-f4)
 
-6) Move toolbar to top;
-
 7) Configure panel auto-hide timeouts;
    500ms show delay, 250ms hide;
-
-8) Disable touchpad while typing;
 
 9) Configure date format; %A %B %e, %H:%M:%S
