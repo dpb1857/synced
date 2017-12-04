@@ -1,6 +1,8 @@
 
 1) Configure keyboard to use capslock as ctl;
 
+1b) Make the text bigger! Settings > Fonts > Text scaling factor: 1.4
+
 2) Configure themes: Other settings -
    Controls: HighContrast (top line); (or Radiance looks ok on x1-carbon)
    Icons: gnome
