@@ -1,9 +1,0 @@
-https://launchpad.net/~embrosyn/+archive/ubuntu/cinnamon
-
-Regarding Bluetooth: blueberry is the new Bluetooth configuration tool which replaces cinnamon-bluetooth. Users are strongly encouraged to use blueberry instead of the deprecated cinnamon-bluetooth package.
-
-Adding this PPA to your system
-You can update your system with unsupported packages from this untrusted PPA by adding ppa:embrosyn/cinnamon to your system's Software Sources. (Read about installing)
-
-sudo add-apt-repository ppa:embrosyn/cinnamon
-sudo apt-get update
