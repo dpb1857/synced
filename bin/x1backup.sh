@@ -33,7 +33,6 @@ DIRS="digikam
       repos
       SanDisk32
       vc
-      finance
 "
 
 if [ ! -d $BASE ]; then
