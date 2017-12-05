@@ -11,15 +11,15 @@
 
 (setq load-path
       (append (list
-	       (concat (getenv "HOME") "/synced/elisp")
-	       (concat (getenv "HOME") "/elisp")
-	       "/usr/local/share/emacs/site-lisp"
-	       ;; (concat (getenv "HOME") "/elisp/git-emacs")
-	       ;; (concat (getenv "HOME") "/elisp/gitsum")
-	       ;; "/usr/share/doc/git-core/contrib/emacs"
-	       ;; "/opt/jde/lisp"
-	       )
-	      load-path))
+               (concat (getenv "HOME") "/synced/elisp")
+               (concat (getenv "HOME") "/elisp")
+               "/usr/local/share/emacs/site-lisp"
+               ;; (concat (getenv "HOME") "/elisp/git-emacs")
+               ;; (concat (getenv "HOME") "/elisp/gitsum")
+               ;; "/usr/share/doc/git-core/contrib/emacs"
+               ;; "/opt/jde/lisp"
+               )
+              load-path))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Package managers are good;
@@ -55,7 +55,8 @@
 (require 'dpb-docker)
 (require 'dpb-docker-tramp)
 (require 'dpb-neotree)
-(require 'vi-paren-matching)
+;; (require 'vi-paren-matching)
+(show-paren-mode t)
 
 ;; modes
 
