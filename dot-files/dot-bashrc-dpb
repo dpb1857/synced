@@ -100,6 +100,20 @@ function unencdocs() {
     rmdir $HOME/encdocs
 }
 
+function encjobs() {
+    if [ ! -d $HOME/jobsenc ]; then
+        mkdir $HOME/jobsenc
+    fi
+    JOBS_DIR="$HOME/Dropbox/Jobs/enc"
+    sudo mount -t ecryptfs $JOBS_DIR $HOME/jobsenc
+    chmod 700 $HOME/jobsenc
+}
+
+function unencjobs() {
+    sudo umount $HOME/jobsenc
+    rmdir $HOME/jobsenc
+}
+
 function gnucashfs() {
     if [ ! -d $HOME/gnucash ]; then
         mkdir $HOME/gnucash;

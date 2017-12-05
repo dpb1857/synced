@@ -34,25 +34,6 @@ function unstuff() {
     sudo rmdir /mnt/stuff
 }
 
-function jobsenc() {
-    if [ ! -d $HOME/jobsenc ]; then
-        mkdir $HOME/jobsenc
-    fi
-    find_media_dir Documents/Jobs/enc
-    if [ "$MEDIA_DIR" == "" ]; then
-        echo "Could not locate jobsenc directory." 1>&2
-    else
-        sudo mount -t ecryptfs $MEDIA_DIR $HOME/jobsenc
-    fi
-
-    chmod 700 $HOME/jobsenc
-}
-
-function unjobsenc() {
-    sudo umount $HOME/jobsenc
-    rmdir $HOME/jobsenc
-}
-
 function unphotos() {
     killall digikam
     killall kio_digikamalbums
