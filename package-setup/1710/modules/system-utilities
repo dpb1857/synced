@@ -1,11 +1,12 @@
 
-cpulimit
+# cpulimit
+curl
 dconf-editor
 filelight
 gparted
 iotop
 nmap
-rdiff-backup
+# rdiff-backup
 sysstat
 traceroute
-wireshark
+# wireshark

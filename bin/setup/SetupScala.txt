@@ -1,3 +1,0 @@
-After doing the SetupJava stuff,
-
-head over to scala-ide.org and install the scala dev stuff into eclipse.

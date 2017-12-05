@@ -1,13 +1,18 @@
 
-dia-gnome
-gnucash
-gnucash-docs
+dia
+# dia-gnome
+# gnucash
+# gnucash-docs
 inkscape
 krita
-kde-spectacle
-kmag
-lyx
-pdfjam
+# Screenshot utility
+# kde-spectacle
+# KDE screen magnifier
+# kmag
+# LaTex - based document processor
+# lyx
+# pdfjam
 pdfposter
 pdftk
-scribus
+# Open source desktop publishing
+# scribus

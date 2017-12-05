@@ -15,7 +15,7 @@ showfoto
 xsane
 amarok
 audacity
-libav-tools
+# libav-tools
 # avidemux
 # easytag
 

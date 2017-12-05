@@ -1,12 +1,11 @@
 
 1) Download clojure from clojure.org, unpack in /opt;
 
-2) Add symlinks so 'clojure' script will work:
-   cd /opt; ln -s clojure-<version> clojure
-   cd /opt/clojure-<version>; ln -s clojure-<version>.jar clojure.jar
+   curl -O https://download.clojure.org/install/linux-install.sh
+   chmod +x linux-install.sh
+   sudo ./linux-install.sh
 
-3) Test: run 'clojure'; should start prompt.
-
+2) Test: run 'clojure'; should start prompt.
 
 To make sure cider and cider-nrel match -
  You can run the emacs package manager from the menu to update the version of cider;
