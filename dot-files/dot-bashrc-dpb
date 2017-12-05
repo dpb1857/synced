@@ -90,12 +90,8 @@ function encdocs() {
     if [ ! -d $HOME/encdocs ]; then
         mkdir $HOME/encdocs
     fi
-    find_media_dir Documents/encdocs
-    if [ "$MEDIA_DIR" == "" ]; then
-        echo "Could not locate encdocs directory." 1>&2
-    else
-        sudo mount -t ecryptfs $MEDIA_DIR $HOME/encdocs
-    fi
+    DOCS_DIR="$HOME/Dropbox/Documents/EncDocs"
+    sudo mount -t ecryptfs $DOCS_DIR $HOME/encdocs
     chmod 700 $HOME/encdocs
 }
 
