@@ -20,3 +20,5 @@
    500ms show delay, 250ms hide;
 
 9) Configure date format; %A %B %e, %H:%M:%S
+
+10) Remove gnome-screensaver; To disable multiple lock screens.
