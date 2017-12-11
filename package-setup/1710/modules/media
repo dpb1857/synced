@@ -15,7 +15,8 @@ showfoto
 xsane
 amarok
 audacity
-# libav-tools
+# Installs avconv, used to convert files to mp4;
+libav-tools
 # avidemux
 # easytag
 
