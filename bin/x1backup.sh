@@ -27,7 +27,6 @@ function do_backup() {
 
 DIRS="digikam
       goprojects
-      imports
       linked-dirs
       refile
       repos
