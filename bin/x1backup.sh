@@ -25,14 +25,8 @@ function do_backup() {
     rm -f /tmp/filelist.$$
 }
 
-DIRS="digikam
-      goprojects
-      linked-dirs
-      refile
-      repos
-      SanDisk32
-      vc
-"
+DIRS=$(cat $BASE/backup-directories.txt)
+echo $DIRS
 
 if [ ! -d $BASE ]; then
     echo "Backup drive is not mounted" 1>&2
