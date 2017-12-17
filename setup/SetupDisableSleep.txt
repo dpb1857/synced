@@ -1,4 +1,10 @@
 
+############################################################
+1710 - Didn't have to do any of this;
+       just use the power settings.
+############################################################
+
+
 Two things do the trick -
 
 http://askubuntu.com/questions/741271/disable-sleep-on-laptop-lid-close-in-tty1
