@@ -8,8 +8,30 @@ Module comment
 # pylint: disable=line-too-long
 # pylint: disable=invalid-name
 # pylint: disable=missing-docstring
+# pylint: disable=too-few-public-methods
 
 import logging
+
+Help_message = """
+This is help text.
+"""
+
+def interact():
+
+    def get_command():
+        line = input("> ")
+        cmd, *rest = line.split()
+        return cmd, rest
+
+    while True:
+        cmd, _rest = get_command()
+
+        if cmd == "help":
+            print(Help_message)
+        elif cmd in ("q", "quit"):
+            return
+        else:
+            print("unknown command, type 'help'for help.")
 
 
 def main():
