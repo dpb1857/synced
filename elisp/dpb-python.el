@@ -19,4 +19,8 @@
 ;; (add-hook 'python-mode-hook #'lambda-mode 1)
 ;; (setq lambda-symbol (string (make-char 'greek-iso8859-7 107)))
 
+;; XXX Seems to be some sort of problem that causes the help popup to
+;; come up all the time;
+(defun py-help-at-point nil)
+
 (provide 'dpb-python)
