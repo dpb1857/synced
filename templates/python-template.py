@@ -56,7 +56,7 @@ def main():
         log_level = logging.INFO
 
     logging.basicConfig(level=log_level)
-    print("args:", args)
+    logging.debug("args: %s", args)
 
 if __name__ == "__main__":
     main()
