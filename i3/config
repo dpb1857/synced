@@ -215,5 +215,7 @@ bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ 
 bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # brightness control
-bindsym XF86MonBrightnessDown exec xbacklight -steps 1 -time 0 -dec 5
-bindsym XF86MonBrightnessUp exec xbacklight -steps 1 -time 0 -inc 10
+# bindsym XF86MonBrightnessDown exec xbacklight -steps 1 -time 0 -dec 5
+# bindsym XF86MonBrightnessUp exec xbacklight -steps 1 -time 0 -inc 10
+bindsym XF86MonBrightnessDown exec ~/synced/i3/bin/adjust-brightness.sh -10
+bindsym XF86MonBrightnessUp exec ~/synced/i3/bin/adjust-brightness.sh 10
