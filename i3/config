@@ -167,8 +167,8 @@ bar {
 
 # Misc settings;
 
-focus_follows_mouse yes
-new_window pixel 3
+# seems to be the default;
+# focus_follows_mouse yes
 hide_edge_borders smart
 
 # Run configuration commands;
@@ -219,3 +219,7 @@ bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle
 # bindsym XF86MonBrightnessUp exec xbacklight -steps 1 -time 0 -inc 10
 bindsym XF86MonBrightnessDown exec ~/synced/i3/bin/adjust-brightness.sh -10
 bindsym XF86MonBrightnessUp exec ~/synced/i3/bin/adjust-brightness.sh 10
+
+# Scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
