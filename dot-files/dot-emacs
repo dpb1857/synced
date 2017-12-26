@@ -205,7 +205,9 @@
     (markdown-mode browse-kill-ring ace-jump-mode sublimity smooth-scrolling scala-mode2 magit cider clojure-mode go-mode)))
  '(remember-annotation-functions (quote (org-remember-annotation)))
  '(remember-handler-functions (quote (org-remember-handler)))
- '(safe-local-variable-values (quote ((py-indent-offset . 4)))))
+ '(safe-local-variable-values (quote ((py-indent-offset . 4))))
+ '(show-paren-mode t)
+ '(tool-bar-mode nil))
 
 ;; This was causing really tiny fonts in windows;
 ;; (set-face-attribute 'default nil :height 80)
@@ -216,4 +218,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 79 :width normal)))))
