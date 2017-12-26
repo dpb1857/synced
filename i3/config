@@ -181,8 +181,13 @@ exec --no-startup-id $HOME/.fehbg
 # Launch daemons of various sorts;
 ########################################
 
-# autolock;
-exec --no-startup-id xautolock -time 5 -locker "i3lock -d -c 000070" -notify 10 -notifier "notify-send -u critical -t 10000 -- 'locking screen soon'"
+# Screensave / Locking / blanking;
+exec --no-startup-id xscreensaver
+exec --no-startup-id xautolock -time 30 -locker ~/synced/i3/bin/i3lock-wrapper.sh
+
+# bindsym $mod+Control+l exec xscreensaver -lock
+bindsym $mod+Shift+Delete exec xautolock -locknow
+bindsym Mod1+Control+l exec xautolock -locknow
 
 # bluetooth;
 exec --no-startup-id blueman-applet
@@ -197,17 +202,7 @@ exec --no-startup-id dropbox start
 # Keyboard commands
 ########################################
 
-# Exit without prompt;
-bindsym $mod+Shift+e exec sh -c '[ $(echo "NO\nYES" | dmenu -sb "#ff6600" -i -p "Really exit i3 X session?") = "YES" ] && i3-msg exit'
-
-# Launch Chrome;
-bindsym $mod+c exec google-chrome
-
-# Launch Emacs;
-bindsym $mod+x exec emacs
-
-# Lock
-bindsym $mod+Shift+Delete exec xautolock -locknow
+### Control Buttons;
 
 # volume control
 bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ '-5%'
@@ -220,6 +215,32 @@ bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86MonBrightnessDown exec ~/synced/i3/bin/adjust-brightness.sh -10
 bindsym XF86MonBrightnessUp exec ~/synced/i3/bin/adjust-brightness.sh 10
 
+### Other Shortcuts;
+
+# Exit without prompt;
+bindsym $mod+Shift+e exec sh -c '[ $(echo "NO\nYES" | dmenu -sb "#ff6600" -i -p "Really exit i3 X session?") = "YES" ] && i3-msg exit'
+
 # Scratchpad
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
+
+### Applications;
+
+# Launch Chrome;
+bindsym $mod+c exec google-chrome
+bindsym $mod+Control+c exec google-chrome
+bindsym Mod1+Control+c exec google-chrome
+
+# Launch Emacs;
+bindsym $mod+x exec emacs
+bindsym $mod+Control+x exec emacs
+bindsym Mod1+Control+x exec emacs
+
+# Launch Terminal;
+bindsym Mod1+Control+s exec gnome-terminal
+
+
+# File Manager;
+# dolphin or nemo(used by cinnamon)
+bindsym $mod+Control+d exec dolphin
+bindsym Mod1+Control+d exec dolphin
