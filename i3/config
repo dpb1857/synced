@@ -181,6 +181,9 @@ exec --no-startup-id $HOME/.fehbg
 # Launch daemons of various sorts;
 ########################################
 
+# Gnome keyring daemon;
+# exec --no-startup-id gnome-keyring-daemon
+
 # Screensave / Locking / blanking;
 exec --no-startup-id xscreensaver
 exec --no-startup-id xautolock -time 30 -locker ~/synced/i3/bin/i3lock-wrapper.sh
@@ -212,8 +215,10 @@ bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle
 # brightness control
 # bindsym XF86MonBrightnessDown exec xbacklight -steps 1 -time 0 -dec 5
 # bindsym XF86MonBrightnessUp exec xbacklight -steps 1 -time 0 -inc 10
-bindsym XF86MonBrightnessDown exec ~/synced/i3/bin/adjust-brightness.sh -10
-bindsym XF86MonBrightnessUp exec ~/synced/i3/bin/adjust-brightness.sh 10
+# bindsym XF86MonBrightnessDown exec ~/synced/i3/bin/adjust-brightness.sh -10
+# bindsym XF86MonBrightnessUp exec ~/synced/i3/bin/adjust-brightness.sh 10
+bindsym XF86MonBrightnessDown exec sudo /usr/local/bin/adjust-brightness.sh -10
+bindsym XF86MonBrightnessUp exec sudo /usr/local/bin/adjust-brightness.sh 10
 
 ### Other Shortcuts;
 
