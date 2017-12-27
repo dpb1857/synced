@@ -185,8 +185,8 @@ exec --no-startup-id $HOME/.fehbg
 # exec --no-startup-id gnome-keyring-daemon
 
 # Screensave / Locking / blanking;
-exec --no-startup-id xscreensaver
-exec --no-startup-id xautolock -time 30 -locker ~/synced/i3/bin/i3lock-wrapper.sh
+exec --no-startup-id xscreensaver -no-splash
+exec --no-startup-id xautolock -time 20 -locker ~/synced/i3/bin/i3lock-wrapper.sh
 
 # bindsym $mod+Control+l exec xscreensaver -lock
 bindsym $mod+Shift+Delete exec xautolock -locknow
