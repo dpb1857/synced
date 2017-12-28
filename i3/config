@@ -235,6 +235,7 @@ bindsym $mod+minus scratchpad show
 # Bar display control
 bindsym $mod+b bar mode dock
 bindsym $mod+Shift+b bar mode hide
+bindsym $mod+Shift+Control+b bar mode invisible
 
 # Focus control
 bindsym Mod1+Tab focus left
