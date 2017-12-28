@@ -154,6 +154,9 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
+        mode hide
+        hidden_state hide
+        modifier $mod
 }
 
 ############################################################
@@ -175,7 +178,7 @@ hide_edge_borders smart
 
 exec --no-startup-id xrandr --dpi 200
 exec --no-startup-id setxkbmap -option ctrl:nocaps
-exec --no-startup-id $HOME/.fehbg
+exec --no-startup-id ~/synced/i3/bin/cycle-background.py
 
 ########################################
 # Launch daemons of various sorts;
@@ -229,7 +232,16 @@ bindsym $mod+Shift+e exec sh -c '[ $(echo "NO\nYES" | dmenu -sb "#ff6600" -i -p 
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
+# Bar display control
+bindsym $mod+b bar mode dock
+bindsym $mod+Shift+b bar mode hide
+
+# Focus control
+bindsym Mod1+Tab focus left
+
+########################################
 ### Applications;
+########################################
 
 # Launch Chrome;
 bindsym $mod+c exec google-chrome
