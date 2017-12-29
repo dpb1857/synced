@@ -1,5 +1,5 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-demo 5.36 for dpb on Tue Dec 26 17:54:17 2017.
+# Written by xscreensaver-demo 5.36 for dpb on Thu Dec 28 13:35:38 2017.
 # https://www.jwz.org/xscreensaver/
 
 timeout:	0:05:00
@@ -32,7 +32,7 @@ dpmsOff:	4:00:00
 grabDesktopImages:  False
 grabVideoFrames:    False
 chooseRandomImages: True
-imageDirectory:	/home/dpb/Pictures
+imageDirectory:	/home/dpb/Pictures/Screensaver
 
 mode:		random
 selected:	-1
