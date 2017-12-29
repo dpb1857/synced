@@ -193,7 +193,7 @@ exec --no-startup-id xautolock -time 20 -locker ~/synced/i3/bin/i3lock-wrapper.s
 
 # bindsym $mod+Control+l exec xscreensaver -lock
 bindsym $mod+Shift+Delete exec xautolock -locknow
-bindsym Mod1+Control+l exec xautolock -locknow
+bindsym $mod+Control+l exec xautolock -locknow
 
 # bluetooth;
 exec --no-startup-id blueman-applet
@@ -245,20 +245,15 @@ bindsym Mod1+Tab focus left
 ########################################
 
 # Launch Chrome;
-bindsym $mod+c exec google-chrome
 bindsym $mod+Control+c exec google-chrome
-bindsym Mod1+Control+c exec google-chrome
 
 # Launch Emacs;
-bindsym $mod+x exec emacs
 bindsym $mod+Control+x exec emacs
-bindsym Mod1+Control+x exec emacs
 
 # Launch Terminal;
-bindsym Mod1+Control+s exec gnome-terminal
+bindsym $mod+Control+s exec gnome-terminal
 
 
 # File Manager;
 # dolphin or nemo(used by cinnamon)
 bindsym $mod+Control+d exec dolphin
-bindsym Mod1+Control+d exec dolphin
