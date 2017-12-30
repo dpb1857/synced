@@ -10,6 +10,8 @@ alias again='LEFTP=""; RIGHTP=""; source ~/.bashrc'
 # Thanks, KDP;
 
 alias caps='setxkbmap -option ctrl:nocaps'
+# https://askubuntu.com/questions/504240/how-to-change-the-caret-of-the-gnome-terminal
+alias cursor="echo -ne '\e[0 q'"
 alias d='export d=`pwd` && echo "setting environment variable d to $d"'
 alias dirs='echo $(builtin dirs) [$OLDPWD]'
 alias goto='cd `/bin/pwd`'
