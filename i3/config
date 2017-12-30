@@ -194,6 +194,7 @@ exec --no-startup-id exec xautolock -time 60 -locker ~/synced/i3/bin/i3lock-wrap
 # bindsym $mod+Control+l exec xscreensaver -lock
 bindsym $mod+Shift+Delete exec xautolock -locknow
 bindsym $mod+Control+l exec xautolock -locknow
+bindsym Mod1+Control+l exec xautolock -locknow
 
 # bluetooth;
 exec --no-startup-id exec blueman-applet

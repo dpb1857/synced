@@ -14,8 +14,19 @@ import subprocess
 import time
 
 
+PID_FNAME = "/tmp/cycle-background.pid"
+
 BACKGROUNDS_DIR = "/home/dpb/Dropbox/Photos/Backgrounds"
 
+
+def kill_old_instance():
+
+    os.system("kill $(cat {} 2>/dev/null) 2>/dev/null".format(PID_FNAME))
+
+def write_pid_file():
+
+    with open(PID_FNAME, "w") as f:
+        f.write("{}\n".format(os.getpid()))
 
 def get_background_files():
 
@@ -67,6 +78,9 @@ def main():
 
     logging.basicConfig(level=log_level)
     logging.debug("args: %s", args)
+
+    kill_old_instance()
+    write_pid_file()
     cycle_backgrounds()
 
 if __name__ == "__main__":
