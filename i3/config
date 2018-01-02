@@ -206,7 +206,7 @@ exec --no-startup-id exec nm-applet
 exec --no-startup-id dropbox start
 
 # syndaemon, keyboard disables touchpad clicks; cinnamon params
-exec --no-startup-id exec syndaemon -i 1.0 -t -K -R
+exec --no-startup-id exec syndaemon -i 1.0 -R
 
 ########################################
 # Keyboard commands
