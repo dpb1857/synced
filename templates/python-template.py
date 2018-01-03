@@ -12,11 +12,11 @@ Module comment
 
 import logging
 
-Help_message = """
-This is help text.
-"""
 
 def interact():
+    """
+    This is help text.
+    """
 
     def get_command():
         line = input("> ")
@@ -27,9 +27,11 @@ def interact():
         cmd, _rest = get_command()
 
         if cmd == "help":
-            print(Help_message)
+            print(interact.__doc__)
+
         elif cmd in ("q", "quit"):
             return
+
         else:
             print("unknown command, type 'help'for help.")
 
@@ -57,6 +59,8 @@ def main():
 
     logging.basicConfig(level=log_level)
     logging.debug("args: %s", args)
+
+    interact()
 
 if __name__ == "__main__":
     main()
