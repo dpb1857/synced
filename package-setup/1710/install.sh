@@ -29,7 +29,7 @@ if [ $missing -eq 1 ]; then
 fi
 sleep 10
 
-debs=`cat $fnames|grep -v '^#'`
+debs=`cat $fnames|grep -v '^#'|sort`
 echo
 echo "installing the following debs:"
 for deb in $debs; do
