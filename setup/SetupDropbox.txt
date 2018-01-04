@@ -1,3 +1,18 @@
 
 Install:
   https://www.dropbox.com/install-linux
+
+  install the 64-bit ubuntu deb package.
+
+
+install libpango prereq as necessary, may need to to apt install -fixup;
+
+To actually install the daemon, need to run:
+
+  dropbox start -i
+
+before
+
+  dropbox start
+
+will actually work.

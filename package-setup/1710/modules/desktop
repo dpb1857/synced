@@ -2,4 +2,9 @@ compizconfig-settings-manager
 cinnamon
 cinnamon-desktop-environment
 i3
+xscreensaver
+xautolock
+xserver-xorg-input-synaptics
 feh
+# Used by dropbox;
+python-gpgme
