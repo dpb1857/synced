@@ -10,7 +10,7 @@ sudo apt-get install google-chrome-stable
 Login to chrome/chromium; (use dpb1857 gmail login) $<leadingcap,planetary><2digUltAns>
 
 Login to pinboard; (dpb:<planetary>pinboard)
-login to evernote;
+login to evernote; (dpb@donbennett.org)
 login to pocket; (getpocket.com - login with email dpb1857)
 
 Set chrome as default browser;
