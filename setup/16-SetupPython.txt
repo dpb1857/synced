@@ -1,0 +1,9 @@
+
+# Install python3 virtualenv in /opt so we can pull in some packages;
+#
+# In particular, we want to install pylint so we can
+# lint our python code in emacs;
+
+cd /opt
+virtualenv -p /usr/bin/python3 python3
+python3/bin/pip install pylint
