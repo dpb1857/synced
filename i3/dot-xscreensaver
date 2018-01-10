@@ -32,14 +32,14 @@ dpmsOff:	4:00:00
 grabDesktopImages:  False
 grabVideoFrames:    False
 chooseRandomImages: True
-imageDirectory:	/home/dpb/Pictures/Screensaver
+imageDirectory:	/home/dpb/Photos/Preview
 
 mode:		random
 selected:	-1
 
 textMode:	literal
 textLiteral:	This is a test of the Emergency Broadcast System
-textFile:	
+textFile:
 textProgram:	fortune
 textURL:	http://feeds.feedburner.com/ubuntu-news
 
@@ -278,4 +278,3 @@ procInterrupts:	True
 xinputExtensionDev: False
 overlayStderr:	True
 authWarningSlack:   20
-
