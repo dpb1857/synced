@@ -40,7 +40,7 @@
 
 ;; languages
 
-(require 'dpb-flycheck);; Must come before some lang modes that tweak checkers;
+(require 'dpb-flycheck) ;; Must come before some lang modes that tweak checkers;
 
 (require 'dpb-cc-mode-setup)
 (require 'dpb-clj)
@@ -55,7 +55,7 @@
 (require 'dpb-docker)
 (require 'dpb-docker-tramp)
 (require 'dpb-neotree)
-;; (require 'vi-paren-matching)
+(require 'vi-paren-matching)
 (show-paren-mode t)
 
 ;; modes
@@ -153,6 +153,8 @@
 ;; Disable toolbar
 (tool-bar-mode -1)
 
+;; Disable menubar
+(menu-bar-mode -1)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
