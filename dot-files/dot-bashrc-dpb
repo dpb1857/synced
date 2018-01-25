@@ -15,6 +15,7 @@ alias cursor="echo -ne '\e[0 q'"
 alias d='export d=`pwd` && echo "setting environment variable d to $d"'
 alias dirs='echo $(builtin dirs) [$OLDPWD]'
 alias goto='cd `/bin/pwd`'
+alias pyserve='python -m http.server 8080' # python3 module name
 alias rehash='export PATH=$PATH'
 alias uncd='cd $OLDPWD'
 alias scp='scp -c blowfish-cbc'
