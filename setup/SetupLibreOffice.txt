@@ -1,0 +1,6 @@
+
+https://askubuntu.com/questions/1008880/libreoffice-5-4-5-1-gets-access-denied-on-nfs-mounted-filesystem
+
+Work-around for recent LibreOffice issues related to permissions and apparmor -
+
+  sudo ln -s /etc/apparmor.d/usr.lib.libreoffice.program.* /etc/apparmor.d/disable/
