@@ -1,16 +1,19 @@
 
-1) Add launcher shortcut for terminal;
+1) Link mac dotfiles;
+   dotprofile-mac
+   dot-emacs
 
-2) terminal keyboard preferences: check "use option as meta key"
+2) Add launcher shortcut for terminal;
 
 3) Map caps lock to control on all keyboards;
    SystemPreferences->Keyboard[Keyboard]->ModifierKeys; for all keyboards, set the caps lock mapping;
 
 4) Download/install/link chrome;
+   -> Configure App Shortcuts keys to make it more like Chrome on linux
 
 5) Create/install ssh keys;
 
-6) turn on click-and-drag -
+6) turn on touchpad click-and-drag -
    System Preferences ->
      Accessibility ->
        Mouse & Trackpad from options on left ->
@@ -30,16 +33,31 @@
    brew install emacs-mac
    brew linkapps
 
-10) Keyboard shortcuts for Terminal app(Utilities/Terminal), Chrome, Emacs;
+10) install & configure git;
+   configure default email address: git config --global user.email "user@company.com"
+
+
+11) Keyboard shortcuts for Terminal app(Utilities/Terminal), Chrome, Emacs;
     see: https://computers.tutsplus.com/tutorials/how-to-launch-any-app-with-a-keyboard-shortcut--mac-31463
 
-11) Setup python3 environment:
+12) Setup python3 environment:
     brew install python3
     pip3 install virtualenv
     pip3 install pylint
 
-12) Other stuff;
+13) Other stuff;
     brew install jq
 
-13) Install sdkman to manage installed software;
+14) Install sdkman to manage installed software;
     cat http://get.sdkman.io | bash
+
+15) Setup lockscreen without sleep;
+    https://apple.stackexchange.com/questions/95819/mbp-lock-screen-hotkey-without-sleeping
+
+*** Notes on data backup strategy
+
+    -> Create dbennett@easypost.com browser login/context for passwords, bookmarks;
+    -> Configure, save appropriate docs in Dropbox EasyPost folder;
+    -> Install gpg, use it to encrypt/store things in google drive;
+       * ssh ids
+       * 1password recovery things
