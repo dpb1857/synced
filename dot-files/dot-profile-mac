@@ -14,3 +14,4 @@ alias pyserve='python -m http.server 8080' # python3 module name
 alias rehash='export PATH=$PATH'
 alias uncd='cd $OLDPWD'
 alias scp='scp -c blowfish-cbc'
+alias xemacs='open -n -a Emacs.app'
