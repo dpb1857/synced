@@ -4,3 +4,13 @@ export PATH=$PATH:/usr/local/go/bin
 # Setup go environment
 export GOPATH=/Users/dbennett/gopath
 PATH=$PATH:$GOPATH/bin
+
+alias ls='ls -F'
+alias again='LEFTP=""; RIGHTP=""; source ~/.profile'
+alias d='export d=`pwd` && echo "setting environment variable d to $d"'
+alias dirs='echo $(builtin dirs) [$OLDPWD]'
+alias goto='cd `/bin/pwd`'
+alias pyserve='python -m http.server 8080' # python3 module name
+alias rehash='export PATH=$PATH'
+alias uncd='cd $OLDPWD'
+alias scp='scp -c blowfish-cbc'
