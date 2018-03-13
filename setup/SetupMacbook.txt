@@ -53,6 +53,7 @@
 
 15) Setup lockscreen without sleep;
     https://apple.stackexchange.com/questions/95819/mbp-lock-screen-hotkey-without-sleeping
+    Mollyguard - can't setup on Easypost mac, security settings won't allow it;
 
 *** Notes on data backup strategy
 
