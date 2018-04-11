@@ -17,3 +17,19 @@ alias rehash='export PATH=$PATH'
 alias uncd='cd $OLDPWD'
 alias scp='scp -c blowfish-cbc'
 alias xemacs='open -n -a Emacs.app'
+
+function dt() {
+    if [ -f /tmp/dir.txt ]; then
+        export d=`cat /tmp/dir.txt`
+        rm -f /tmp/dir.txt
+	echo "Set environment variable d to $d ."
+    else
+	curdir=`/bin/pwd`
+        echo $curdir > /tmp/dir.txt
+	echo "Stored $curdir in /tmp/dir.txt ."
+    fi
+}
+
+if ! echo $PATH|grep -q /usr/local/bin: ; then
+  export PATH=/usr/local/bin:$PATH
+fi
