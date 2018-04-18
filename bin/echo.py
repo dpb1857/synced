@@ -3,14 +3,15 @@
 # pylint: disable=invalid-name
 # pylint: disable=missing-docstring
 
+import argparse
 import json
 
 from flask import Flask, request
 
 app = Flask(__name__)
 
-@app.route('/', defaults={'path': ''}, methods=["GET", "POST", "DELETE"])
-@app.route('/<path:path>', methods=["GET", "POST", "DELETE"])
+@app.route('/', defaults={'path': ''}, methods=["GET", "POST", "PATCH", "DELETE"])
+@app.route('/<path:path>', methods=["GET", "POST", "PATCH", "DELETE"])
 def update(path): # pylint: disable=unused-argument
 
     headers = {k:v for k, v in request.headers.items()}
@@ -22,7 +23,7 @@ def update(path): # pylint: disable=unused-argument
         "Parameters": request.args
         }
 
-    if request.method == "POST":
+    if request.method in ("POST", "PATCH"):
         body = request.get_data(as_text=True)
         try:
             body = json.loads(body)
@@ -35,4 +36,8 @@ def update(path): # pylint: disable=unused-argument
     return resp
 
 if __name__ == "__main__":
-    app.run(port=5001)
+    parser = argparse.ArgumentParser(description="echo")
+    parser.add_argument("--port", "-p", type=int)
+
+    args = parser.parse_args()
+    app.run(port=args.port)
