@@ -93,6 +93,14 @@ def create_order():
     print ("SUCCESSFULLY ADDED ORDER", id)
     return json.dumps(body)
 
+@app.route("/vendor/v1/orders/<id>", methods=["GET"], endpoint="get_orders")
+@logit
+def get_order(id):
+    if not id in Orders:
+        return "Order not found", 404
+
+    return json.dumps(Orders[id])
+
 @app.route("/vendor/v1/orders/<id>", methods=["DELETE"], endpoint="delete_orders")
 @logit
 def delete_order(id):
@@ -108,6 +116,22 @@ def delete_order(id):
 @logit
 def update(path): # pylint: disable=unused-argument
     return "OK\n"
+
+
+def fulfill(key, state):
+    states = ["shipped", "cancelled"]
+
+    if key not in Orders:
+        print("missing key:", key)
+        return
+
+    if state not in states:
+        print("state must be one of:", states)
+        return
+
+    order = Orders[key]
+    order["status"] = state
+    order["trackers"] = [{"carrier":"Magento Carrier", "public_url":"http://www.tracker.com/", "tracking_code":"TrackCode-Magento-789"}]
 
 
 def main():
