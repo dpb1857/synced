@@ -99,6 +99,8 @@ def get_order(id):
     if not id in Orders:
         return "Order not found", 404
 
+    print ("RETURNING ORDER")
+    print (json.dumps(Orders[id], indent=2))
     return json.dumps(Orders[id])
 
 @app.route("/vendor/v1/orders/<id>", methods=["DELETE"], endpoint="delete_orders")
