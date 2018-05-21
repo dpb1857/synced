@@ -120,7 +120,7 @@ def update(path): # pylint: disable=unused-argument
     return "OK\n"
 
 
-def fulfill(key, state):
+def fulfill(key, state, tracking_code):
     states = ["shipped", "cancelled"]
 
     if key not in Orders:
@@ -133,11 +133,11 @@ def fulfill(key, state):
 
     order = Orders[key]
     order["status"] = state
-    order["trackers"] = [{"carrier":"Magento Carrier", "public_url":"http://www.tracker.com/", "tracking_code":"TrackCode-Magento-789"}]
+    order["trackers"] = [{"carrier":"ups", "public_url":"http://track.easypost.com/"+tracking_code, "tracking_code":tracking_code}]
 
 
 def main():
-    parser = argparse.ArgumentParser(description="echo")
+    parser = argparse.ArgumentParser(description="vendor")
     parser.add_argument("--port", "-p", type=int, default=3000)
 
     args = parser.parse_args()
