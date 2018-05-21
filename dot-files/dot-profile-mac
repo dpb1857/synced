@@ -33,3 +33,5 @@ function dt() {
 if ! echo $PATH|grep -q /usr/local/bin: ; then
   export PATH=/usr/local/bin:$PATH
 fi
+
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
