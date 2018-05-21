@@ -21,18 +21,19 @@
   (package-refresh-contents)
   (package-install 'go-eldoc))
 
+(unless (package-installed-p 'go-guru)
+  (package-refresh-contents)
+  (package-install 'go-guru))
+
 ;; XXX go-dlv doesn't appear to be in melpa;
 ;;
 ;;(unless (package-installed-p 'go-dlv)
 ;;  (package-refresh-contents)
 ;;  (package-install 'go-dlv))
 
-
-
-
-
 (require 'go-mode)
 (require 'go-eldoc)
+(require 'go-guru)
 (require 'go-dlv)
 
 (add-hook 'go-mode-hook
@@ -42,6 +43,9 @@
 (add-hook 'go-mode-hook 'go-eldoc-setup)
 
 (add-hook 'before-save-hook 'gofmt-before-save)
+
+;; (go-guru-hl-identifier-mode)
+(add-hook 'go-mode-hook #'go-guru-hl-identifier-mode)
 
 (provide 'dpb-golang)
 ;;; dpb-golang.el ends here
