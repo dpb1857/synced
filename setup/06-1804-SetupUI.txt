@@ -1,0 +1,7 @@
+
+1) Configure keyboard to use capslock as ctl;
+   Use gnome-tweak-tool to setup the keyboard;
+
+2) Configure keyboard shortcuts for terminal, chrome, emacs;
+
+3) Configure c-alt-w to close (force?) close windows; (along with alt-f4)
