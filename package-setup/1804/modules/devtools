@@ -1,0 +1,27 @@
+
+# autoconf
+# bzr
+# git-cvs
+git-doc
+# git-gui
+# git-svn
+# gitk
+jq
+# libtool
+# subversion
+# mercurial
+
+sqlite3
+# sqlite3-doc
+# sqliteman
+
+# mongodb-clients
+# bash-doc
+# binutils-doc
+# diffutils-doc
+# make-doc
+manpages-dev
+# tar-doc
+
+# So we can then install fpm via: gem install fpm
+# ruby-dev
