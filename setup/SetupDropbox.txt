@@ -2,10 +2,13 @@
 Install:
   https://www.dropbox.com/install-linux
 
-  install the 64-bit ubuntu deb package.
+  # XXX no install the 64-bit ubuntu deb package.
+  # Use one liner
+  cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
 
+# Download dropbox.py, copy to /usr/local/bin;
 
-install libpango prereq as necessary, may need to to apt install -fixup;
+# install libpango prereq as necessary, may need to to apt install -fixup;
 
 To actually install the daemon, need to run:
 
