@@ -55,6 +55,14 @@ function adddot () {
     export PATH=".:$PATH"
 }
 
+function addphotos() {
+    if ! echo $PATH | grep synced/bin/photos > /dev/null; then
+        export PATH="$HOME/synced/bin/photos:$PATH"
+    fi
+    echo "photo commands -"
+    ls $HOME/synced/bin/photos
+}
+
 function ediff () {
     emacs --eval "(ediff \"$1\" \"$2\")"
 }
@@ -74,19 +82,6 @@ function enc() {
 function unenc() {
     sudo umount $HOME/enc
     rmdir $HOME/enc
-}
-
-function find_media_dir() {
-    # Sets MEDIA_DIR to the located media directory;
-    MEDIABASE="/media/SanDisk32 /media/`whoami`/SanDisk32"
-    searchdir=$1
-    MEDIA_DIR=""
-    for base in $MEDIABASE; do
-        if [ -d $base/$searchdir ]; then
-            MEDIA_DIR=$base/$searchdir
-            break
-        fi
-    done
 }
 
 function encdocs() {
@@ -115,6 +110,19 @@ function encjobs() {
 function unencjobs() {
     sudo umount $HOME/jobsenc
     rmdir $HOME/jobsenc
+}
+
+function find_media_dir() {
+    # Sets MEDIA_DIR to the located media directory;
+    MEDIABASE="/media/SanDisk32 /media/`whoami`/SanDisk32"
+    searchdir=$1
+    MEDIA_DIR=""
+    for base in $MEDIABASE; do
+        if [ -d $base/$searchdir ]; then
+            MEDIA_DIR=$base/$searchdir
+            break
+        fi
+    done
 }
 
 function gnucashfs() {
@@ -166,70 +174,6 @@ function sl() {
     fi
 }
 
-function stmarks() {
-    if [ ! -f $HOME/enc/passwords/stmarks-ftp.txt ]; then
-        echo "Encrypted filesystem not mounted."
-        return 1
-    fi
-    if [ ! -d /mnt/stmarks ]; then
-        sudo mkdir /mnt/stmarks
-	sudo chown `whoami`:`whoami` /mnt/stmarks
-    fi
-    pass=`cat $HOME/enc/passwords/stmarks-ftp.txt`
-    curlftpfs -o user=saintma7:$pass saint-marks.com /mnt/stmarks
-}
-
-function unstmarks() {
-    sudo umount /mnt/stmarks
-    sudo rmdir /mnt/stmarks
-}
-
-function rusa() {
-    if [ ! -d /mnt/rusa ]; then
-        sudo mkdir /mnt/rusa
-	sudo chown `whoami`:`whoami` /mnt/rusa
-    fi
-    sshfs -p 1022 rusa@rusa.org:/ /mnt/rusa
-}
-
-function unrusa() {
-    sudo umount /mnt/rusa
-    sudo rmdir /mnt/rusa
-}
-
-function android() {
-    if [ ! -d /mnt/android ]; then
-        sudo mkdir /mnt/android
-	sudo chown `whoami`:`whoami` /mnt/android
-    fi
-    sshfs root@192.168.1.78:/ /mnt/android
-}
-
-function unandroid() {
-    sudo umount /mnt/android
-    sudo rmdir /mnt/android
-}
-
-function android-backup() {
-    if [ ! -d /mnt/android ]; then
-        echo "nexus-s not mounted." 1>&2
-	return 1
-    fi
-    cd /mnt/android/mnt/sdcard && \
-      rsync -av  $*\
-      --delete --delete-excluded \
-      --exclude=*/com.google.android.music/cache/* \
-      --exclude=*/com.google.earth/temp/* \
-      --exclude=*/com.justpictures/cache/* \
-      --exclude=\*.mp3 \
-      --exclude=\*.m4v \
-      --exclude=\*.mp4 \
-      --exclude=Evernote/* \
-      --exclude=InstaFetch/* \
-      --exclude=com.economist/* \
-      . rsync://backup@nas:/backup/dpb/nexus-s
-}
-
 function ro() {
     sudo mount -o ro,remount $1
 }
@@ -267,3 +211,67 @@ host_user_dot_bashrc="$HOME/synced/dot-files/dot-bashrc-`whoami`-`hostname`"
 if [ -f $host_user_dot_bashrc ]; then
     . $host_user_dot_bashrc
 fi
+
+function xxxstmarks() {
+    if [ ! -f $HOME/enc/passwords/stmarks-ftp.txt ]; then
+        echo "Encrypted filesystem not mounted."
+        return 1
+    fi
+    if [ ! -d /mnt/stmarks ]; then
+        sudo mkdir /mnt/stmarks
+	sudo chown `whoami`:`whoami` /mnt/stmarks
+    fi
+    pass=`cat $HOME/enc/passwords/stmarks-ftp.txt`
+    curlftpfs -o user=saintma7:$pass saint-marks.com /mnt/stmarks
+}
+
+function xxxunstmarks() {
+    sudo umount /mnt/stmarks
+    sudo rmdir /mnt/stmarks
+}
+
+function xxxrusa() {
+    if [ ! -d /mnt/rusa ]; then
+        sudo mkdir /mnt/rusa
+	sudo chown `whoami`:`whoami` /mnt/rusa
+    fi
+    sshfs -p 1022 rusa@rusa.org:/ /mnt/rusa
+}
+
+function xxxunrusa() {
+    sudo umount /mnt/rusa
+    sudo rmdir /mnt/rusa
+}
+
+function xxxandroid() {
+    if [ ! -d /mnt/android ]; then
+        sudo mkdir /mnt/android
+	sudo chown `whoami`:`whoami` /mnt/android
+    fi
+    sshfs root@192.168.1.78:/ /mnt/android
+}
+
+function xxxunandroid() {
+    sudo umount /mnt/android
+    sudo rmdir /mnt/android
+}
+
+function xxxandroid-backup() {
+    if [ ! -d /mnt/android ]; then
+        echo "nexus-s not mounted." 1>&2
+	return 1
+    fi
+    cd /mnt/android/mnt/sdcard && \
+      rsync -av  $*\
+      --delete --delete-excluded \
+      --exclude=*/com.google.android.music/cache/* \
+      --exclude=*/com.google.earth/temp/* \
+      --exclude=*/com.justpictures/cache/* \
+      --exclude=\*.mp3 \
+      --exclude=\*.m4v \
+      --exclude=\*.mp4 \
+      --exclude=Evernote/* \
+      --exclude=InstaFetch/* \
+      --exclude=com.economist/* \
+      . rsync://backup@nas:/backup/dpb/nexus-s
+}

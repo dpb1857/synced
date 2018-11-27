@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BASE=/media/dpb/Backup
+BASE=/media/dpb/Backup/Backup
 
 function do_backup() {
     NAME=$1
