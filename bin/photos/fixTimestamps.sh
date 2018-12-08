@@ -6,4 +6,5 @@
 #
 # Do it all in exiftool.
 #
-echo exiftool "-FileModifyDate<DateTimeOriginal" FileOrDir
+# exiftool "-FileModifyDate<DateTimeOriginal" <file-or-directory>
+exiftool "-FileModifyDate<DateTimeOriginal" $1

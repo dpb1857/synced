@@ -59,8 +59,8 @@ function addphotos() {
     if ! echo $PATH | grep synced/bin/photos > /dev/null; then
         export PATH="$HOME/synced/bin/photos:$PATH"
     fi
-    echo "photo commands -"
-    ls $HOME/synced/bin/photos
+    echo "photo command notes -"
+    cat $HOME/synced/bin/photos/README.txt
 }
 
 function ediff () {

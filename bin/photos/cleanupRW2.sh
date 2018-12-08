@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# Remove orphan rw2 files;
 for dir in *_PANA; do
     for file in $dir/*.RW2; do
         jpgFile=`echo $file|sed 's/RW2/JPG/'`
