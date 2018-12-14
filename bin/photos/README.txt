@@ -21,6 +21,7 @@ Suggested order of business -
 This would be a good time to backup the laptop.
 
 5) View with digikam, get rid of the obious junk;
+   remove .Trash-* directories;
 
 6) Run:
    cleanupRW2.sh
@@ -30,10 +31,10 @@ This would be a good time to backup the laptop.
    fixTimestamps.sh 121_PANA (or whereever)
    to fix timestamps on jpg files we may have tweaked in digikam; (rotation, stars, etc.)
 
-8) Push the "developed" photos to the photos drive;
-   rsync gx7-2018-1120-1124-121-0144-0451 /media/dpb/Photos/
+o8) Push the "developed" photos to the photos drive;
+   rsync gx7-2018-1120-1124-121-0144-0451 /media/dpb/PhotoArchive/archive
 
-9) run PushToDropbox.sh and PushToPreview.sh to "publish" photos;
+9) run Push.sh to execute PushToSmugmug.sh and PushToPreview.sh to "publish" photos;
 
 10) Go to Smugmug and import the photos pushed to Dropbox for Smugmug consumption;
 
