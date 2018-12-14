@@ -3,9 +3,13 @@
 
 (unless (package-installed-p 'python-mode)
   (package-refresh-contents)
-  (package-install 'python-mode))
+  (package-install 'python-mode)
+  ;; (package-install 'pydoc)
+  )
 
 (require 'python-mode)
+;; pydoc not really doing it for me; 12/14/18; maybe next time.
+;; (require 'pydoc)
 
 ;; (setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
 
@@ -18,5 +22,19 @@
 ;; (require 'lambda-mode)
 ;; (add-hook 'python-mode-hook #'lambda-mode 1)
 ;; (setq lambda-symbol (string (make-char 'greek-iso8859-7 107)))
+
+;; http://ergoemacs.org/emacs/emacs_pretty_lambda.html
+;; fun, but not doing it, at least in python-mode;
+;; (defun my-add-pretty-lambda ()
+;;   "make some word or string show as pretty Unicode symbols"
+;;   (setq prettify-symbols-alist
+;;         '(
+;;           ("lambda" . 955) ; λ
+;;           ;; ("->" . 8594)    ; →
+;;           ;; ("=>" . 8658)    ; ⇒
+;;           ;; ("map" . 8614)   ; ↦
+;;           )))
+;;
+;; (add-hook 'python-mode-hook 'my-add-pretty-lambda)
 
 (provide 'dpb-python)
