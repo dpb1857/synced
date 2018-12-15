@@ -37,4 +37,22 @@
 ;;
 ;; (add-hook 'python-mode-hook 'my-add-pretty-lambda)
 
+(setq pylint-disables "\
+# Find pylint codes at: http://pylint-messages.wikidot.com/all-codes
+# pylint: disable=line-too-long
+# pylint: disable=invalid-name
+# pylint: disable=missing-docstring
+# pylint: disable=too-few-public-methods
+
+")
+
+(defun pylint-disables ()
+  (interactive)
+  "Insert standard set of pylint disable settings at the top of the buffer"
+  (save-excursion
+    (goto-char (point-min))
+    (next-line 2)
+    (insert-string pylint-disables)
+    ))
+
 (provide 'dpb-python)
