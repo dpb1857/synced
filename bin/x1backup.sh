@@ -33,7 +33,11 @@ if [ ! -d $BASE ]; then
     exit 1
 fi
 
+start=`date`
 for dir in $DIRS; do
     echo Backing up $dir
     do_backup $dir
 done
+
+echo "Backup started:" $start
+echo "Backup finished:" `date`
