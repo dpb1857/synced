@@ -17,4 +17,4 @@ if [ $# -ne 1 ]; then
 fi
 
 checkfolder $1
-rsync -av --exclude=*.RW2 $1 /home/dpb/Dropbox/Photos/SmugmugExport
+rsync -av --exclude=*.RW2 --exclude=*.NEF $1 /home/dpb/Dropbox/Photos/SmugmugExport
