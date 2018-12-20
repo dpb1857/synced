@@ -6,32 +6,40 @@ function vc() {
     if [ ! -d /mnt/vc ]; then
         sudo mkdir /mnt/vc
     fi
-    sudo losetup -f /space/vc/data
-    sudo cryptsetup luksOpen /dev/loop0 vc
+    device=`sudo losetup -f /space/vc/data --show`
+    sudo cryptsetup luksOpen $device vc
     sudo mount /dev/mapper/vc /mnt/vc
+    echo $device > /tmp/vcloop
 }
 
 function unvc() {
     sudo umount /mnt/vc
-    sudo cryptsetup luksClose vc
-    sudo losetup -d /dev/loop0
     sudo rmdir /mnt/vc
+    sudo cryptsetup luksClose vc
+    if [ -f /tmp/vcloop ]; then
+        sudo losetup -d `cat /tmp/vcloop`
+        rm -f /tmp/vcloop
+    fi
 }
 
 function stuff() {
     if [ ! -d /mnt/stuff ]; then
         sudo mkdir /mnt/stuff
     fi
-    sudo losetup -f /space/vc/stuff
-    sudo cryptsetup luksOpen /dev/loop0 stuff
+    device=`sudo losetup -f /space/vc/stuff --show`
+    sudo cryptsetup luksOpen $device stuff
     sudo mount /dev/mapper/stuff /mnt/stuff
+    echo $device > /tmp/stuffloop
 }
 
 function unstuff() {
     sudo umount /mnt/stuff
-    sudo cryptsetup luksClose stuff
-    sudo losetup -d /dev/loop0
     sudo rmdir /mnt/stuff
+    sudo cryptsetup luksClose stuff
+    if [ -f /tmp/stuffloop ]; then
+        sudo losetup -d `cat /tmp/stuffloop`
+        rm -f /tmp/stuffloop
+    fi
 }
 
 function unphotos() {
