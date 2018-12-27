@@ -7,3 +7,4 @@
 cd /opt
 virtualenv -p /usr/bin/python3 python3
 python3/bin/pip install pylint
+python3/bin/pip install ipython
