@@ -34,4 +34,5 @@ done
 for file in `find $1 \( -name \*.MP4 -o -name \*.mp4 \) -print`; do
     echo $file
     ffmpeg -i $file -t 00:00:20 -codec copy $PREVIEW_DIR/$file
+    touch -r $file $PREVIEW_DIR/$file
 done
