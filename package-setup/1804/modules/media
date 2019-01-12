@@ -25,6 +25,9 @@ audacity
 # Solved. Went to Synaptic and installed libavformat-extra-52 and that did it.
 # For 16.10, need to install x264
 
+# DVD Player
+vlc
+
 # Movie editor
 openshot
 x264
