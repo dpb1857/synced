@@ -35,3 +35,9 @@ go get -u github.com/motemen/gore
 
 # guru
 go get -u golang.org/x/tools/cmd/guru
+
+# hugo - from https://github.com/gohugoio/hugo installation docs
+cd /opt
+sudo git clone https://github.com/gohugoio/hugo.git
+cd hugo
+go install
