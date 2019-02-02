@@ -21,4 +21,5 @@ rsync -av --exclude=*.RW2 \
       --exclude=*.NEF \
       --exclude=*.CR2 \
       --exclude=*.MOV \
+      --exclude=*.AVI \
       $1 /home/dpb/Dropbox/Photos/SmugmugExport
