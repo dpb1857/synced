@@ -43,6 +43,7 @@
 # pylint: disable=invalid-name
 # pylint: disable=missing-docstring
 # pylint: disable=too-few-public-methods
+# pylint: disable=superfluous-parens
 
 ")
 
