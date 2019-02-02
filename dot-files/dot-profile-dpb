@@ -10,7 +10,7 @@ for dir in $DIRS; do
 done
 
 # Allow /opt to override default path;
-for dir in /opt/*; do
+for dir in /opt/go /opt/google /opt/hugo /opt/python3 /opt/python2 /opt/zoom; do
     if [ -d $dir/bin ]; then
         PATH=$dir/bin:$PATH
     elif [ -d $dir ]; then
