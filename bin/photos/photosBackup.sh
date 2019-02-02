@@ -13,6 +13,8 @@ if [ ! -d /media/dpb/PhotoArchive ]; then
     exit 1
 fi
 
+start=`date`
+
 if [ ! -d $BASE/$NAME/current ]; then
     /bin/btrfs subvolume create $BASE/$NAME
     /bin/btrfs subvolume create $BASE/$NAME/current
@@ -33,3 +35,6 @@ if [ $updates -gt 0 ]; then
 fi
 
 rm -f /tmp/filelist.$$
+
+echo "Backup started:" $start
+echo "Backup finished:" `date`
