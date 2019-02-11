@@ -10,3 +10,13 @@ python3/bin/pip install ipython
 python3/bin/pip install mypy
 python3/bin/pip install pylint
 python3/bin/pip install pytest
+
+# web stuff + django dev
+python3/bin/pip install requests
+python3/bin/pip install flask
+python3/bin/pip install django
+python3/bin/pip install djangorestframework
+
+# misc
+python3/bin/pip install lxml
+python3/bin/pip install pygments
