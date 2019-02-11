@@ -10,13 +10,15 @@ for dir in $DIRS; do
 done
 
 # Allow /opt to override default path;
-for dir in /opt/go /opt/google /opt/hugo /opt/python3 /opt/python2 /opt/zoom; do
+newpath=""
+for dir in /opt/go /opt/hugo /opt/python3 /opt/python2 /opt/zoom; do
     if [ -d $dir/bin ]; then
-        PATH=$dir/bin:$PATH
+        newpath="$newpath $dir/bin"
     elif [ -d $dir ]; then
-        PATH=$dir:$PATH
+        newpath="$newpath $dir"
     fi
 done
+PATH=`echo $newpath|sed 's/ /:/g'`:$PATH
 
 if [ -d /opt/go ]; then
     export GOROOT=/opt/go
