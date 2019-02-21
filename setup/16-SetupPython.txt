@@ -16,6 +16,7 @@ python3/bin/pip install requests
 python3/bin/pip install flask
 python3/bin/pip install django
 python3/bin/pip install djangorestframework
+python3/bin/pip install psycopg2
 
 # misc
 python3/bin/pip install lxml
