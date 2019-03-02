@@ -1,28 +1,13 @@
 #!/bin/bash
 
-BASE=/media/dpb/Backup
+BASE=/media/dpb/Backup/Backup
+DIRS=$(cat $HOME/synced/conf/backup-directories.txt)
+EXCLUDES="--exclude=.mypy_cache/"
 
 function check_backup() {
     NAME=$1
-
-    if [ ! -d $BASE/$NAME/current ]; then
-        /bin/btrfs subvolume create $BASE/$NAME
-        /bin/btrfs subvolume create $BASE/$NAME/current
-        mkdir $BASE/$NAME/updates
-    fi
-
-    rsync -av -n --delete-after /space/$NAME/ $BASE/$NAME/current | sed '1d' | head -n -3 | grep -v '/$'
+    rsync -av -n ${EXCLUDES} --delete-after --delete-excluded /space/$NAME/ $BASE/$NAME/current | sed '1d' | head -n -3 | grep -v '/$'
 }
-
-DIRS="digikam
-      goprojects
-      imports
-      linked-dirs
-      refile
-      repos
-      SanDisk32
-      vc
-"
 
 if [ ! -d $BASE ]; then
     echo "Backup drive is not mounted" 1>&2
