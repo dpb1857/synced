@@ -70,8 +70,8 @@
 (require 'dpb-verify-exit)
 (require 'dpb-smooth)
 (require 'dpb-acejump)
+(require 'dpb-which-key)
 (require 'iwb) ;; indent-whole-buffer
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Turn Ido mode
@@ -207,7 +207,7 @@
  '(org-reverse-note-order t)
  '(package-selected-packages
    (quote
-    (vagrant-tramp markdown-mode browse-kill-ring ace-jump-mode sublimity smooth-scrolling scala-mode2 magit cider clojure-mode go-mode)))
+    (which-key vagrant-tramp markdown-mode browse-kill-ring ace-jump-mode sublimity smooth-scrolling scala-mode2 magit cider clojure-mode go-mode)))
  '(remember-annotation-functions (quote (org-remember-annotation)))
  '(remember-handler-functions (quote (org-remember-handler)))
  '(safe-local-variable-values (quote ((py-indent-offset . 4))))
@@ -231,4 +231,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 79 :width normal)))))

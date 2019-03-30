@@ -1,6 +1,6 @@
 
 ;;
-;; Verify we reall want to exiton ^x-^c; 
+;; Verify we reall want to exit on ^x-^c;
 ;;
 
 (defun dpb-exit ()
