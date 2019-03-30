@@ -2,7 +2,7 @@
 
 BASE=/media/dpb/Backup/Backup
 DIRS=$(cat $HOME/synced/conf/backup-directories.txt)
-EXCLUDES="--exclude=.mypy_cache/"
+EXCLUDES="--exclude=.mypy_cache/ --exclude=.pytest_cache/ --exclude=__pycache__"
 
 function do_backup() {
     NAME=$1
@@ -13,9 +13,7 @@ function do_backup() {
         mkdir $BASE/$NAME/updates
     fi
 
-    set -x
     rsync -av ${EXCLUDES} --delete-after --delete-excluded /space/$NAME/ $BASE/$NAME/current > /tmp/filelist.$$
-    set +x
 
     updates=`cat /tmp/filelist.$$ | sed '1d' | head -n -3 | grep -v '/$' | wc -l`
 
