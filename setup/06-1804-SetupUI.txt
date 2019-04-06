@@ -1,6 +1,6 @@
 
-1) Configure keyboard to use capslock as ctl;
-   Use gnome-tweak-tool to setup the keyboard;
+1) Configure keyboard to use capslock as ctl; 
+   Use gnome-tweak-tool to setup the keyboard; (run command gnome-tweaks)
 
 2) Configure keyboard shortcuts for terminal, chrome, emacs;
 
