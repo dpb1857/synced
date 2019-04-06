@@ -4,7 +4,6 @@ cinnamon-desktop-environment
 i3
 xscreensaver
 xautolock
-xserver-xorg-input-synaptics
 xtrlock
 feh
 gnome-tweak-tool
