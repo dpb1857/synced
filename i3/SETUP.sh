@@ -7,3 +7,4 @@ ln -s $HOME/synced/i3/i3status.conf $HOME/.i3status.conf
 ln -s $HOME/synced/i3/mpv-config $HOME/.config/mpv/config
 
 cp dot-xscreensaver $HOME/.xscreensaver
+echo "i3 configuration complete."
