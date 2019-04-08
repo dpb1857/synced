@@ -1,0 +1,8 @@
+
+Do: 02-LinkDotFiles.sh
+Do: 05a-SetupEmacs
+
+Run: ssh-keygen to generate ssh keys
+
+Add to:
+  github
