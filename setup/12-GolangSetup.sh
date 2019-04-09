@@ -30,9 +30,6 @@ go get -u github.com/nsf/gocode
 # delve (debugger)
 go get -u github.com/derekparker/delve/cmd/dlv
 
-# gore (repl)
-go get -u github.com/motemen/gore
-
 # guru
 go get -u golang.org/x/tools/cmd/guru
 
