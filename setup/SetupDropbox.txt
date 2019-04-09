@@ -1,21 +1,23 @@
 
-Install:
-  https://www.dropbox.com/install-linux
+Install, instructions from: https://www.dropbox.com/install-linux
 
-  # XXX no install the 64-bit ubuntu deb package.
-  # Use one liner
-  cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+-------------
 
-# Download dropbox.py, copy to /usr/local/bin;
+1) Use headless install via command line;
+   cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
 
-# install libpango prereq as necessary, may need to to apt install -fixup;
+2) Run the Dropbox daemon from the newly created .dropbox-dist folder
+   ~/.dropbox-dist/dropboxd
 
-To actually install the daemon, need to run:
+   --> This prompts you to login to your dropbox account;
 
-  dropbox start -i
+   NOTE: [No longer necessary in 18.04? as of 4/2019?]
+         install libpango prereq as necessary, may need to to apt install -fixup;
 
-before
+3) Download dropbox.py, from link on instructions page, copy to /usr/local/bin/dropbox;
 
-  dropbox start
 
-will actually work.
+4) [Maybe not? didn't seem to download anything new]
+   To actually install the daemon, need to run:
+
+     dropbox start -i
