@@ -19,12 +19,6 @@ if [ ! -f $HOME/.lein/profiles.clj -a -f $HOME/synced/dot-files/dot-lein-profile
     set +x
 fi
 
-if [ ! -d $HOME/.config/google-chrome -a -d /home/dpb-stuff/dot-files/dot-config-google-chrome ]; then
-    set -x
-    ln -s /home/dpb-stuff/dot-files/dot-config-google-chrome $HOME/.config/google-chrome
-    set +x
-fi
-
 if [ -f $HOME/synced/dot-files/dot-bashrc-dpb ] && ! grep dot-bashrc $HOME/.bashrc>/dev/null 2>&1; then
     echo "Hooking dot-bashrc-dpb into .bashrc..." 1>&2
     echo ". $HOME/synced/dot-files/dot-bashrc-dpb" >> $HOME/.bashrc
