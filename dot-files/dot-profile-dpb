@@ -1,8 +1,7 @@
 
 # dpb .profile additions;
 
-USER=`whoami`
-DIRS="/home/$USER/synced/bin"
+DIRS="$HOME/synced/bin"
 for dir in $DIRS; do
     if [ -d $dir ]; then
 	PATH=$dir:$PATH
@@ -25,7 +24,12 @@ if [ -d /opt/go ]; then
 fi
 
 # Setup go environment
-export GOPATH=/space/goprojects
+if [ -d /space/goprojects ]; then
+    export GOPATH=/space/goprojects
+elif [ -d $HOME/goprojects ]; then
+    export GOPATH=$HOME/goprojects
+fi
+
 PATH=$PATH:$GOPATH/bin
 
 export EDITOR=emacsclient
