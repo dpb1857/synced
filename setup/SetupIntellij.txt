@@ -1,0 +1,9 @@
+
+[A portion of instructions from XX-SetupJava.txt]
+
+Configure Intellij to use Emacs as an external editor;
+
+   https://www.jetbrains.com/help/idea/using-emacs-as-an-external-editor.html
+   Notes:
+     Program: /usr/bin/emacsclient
+     Arguments: -n +$LineNumber$:$ColumnNumber$ $FilePath$

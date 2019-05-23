@@ -21,3 +21,10 @@
 
    Project for Future: figure out how to get it "registered"; prob install
    from a PPA.
+
+3) Configure Intellij to use Emacs as an external editor;
+
+   https://www.jetbrains.com/help/idea/using-emacs-as-an-external-editor.html
+   Notes:
+     Program: /usr/bin/emacsclient
+     Arguments: -n +$LineNumber$:$ColumnNumber$ $FilePath$
