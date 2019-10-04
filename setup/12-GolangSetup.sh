@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VERSION=1.11.2
+VERSION=1.13.1
 
 cd /tmp
 curl https://storage.googleapis.com/golang/go${VERSION}.linux-amd64.tar.gz > golang.tar.gz
