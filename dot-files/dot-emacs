@@ -88,11 +88,12 @@
 (setq ido-auto-merge-work-directories-length -1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; shell-mode tweaking; login shell for mac
+;; shell-mode tweaking; necessary for mac & chromebook
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(if (string-equal system-type "darwin")
-    (setq explicit-bash-args (quote ("--noediting" "-i" "-l"))))
+;;(if (string-equal system-type "darwin")
+(setq explicit-bash-args (quote ("--noediting" "-i" "-l")))
+;; )
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
