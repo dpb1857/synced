@@ -23,6 +23,8 @@ PATH=`echo $newpath|sed 's/ /:/g'`:$PATH
 
 if [ -d /opt/go ]; then
     export GOROOT=/opt/go
+elif [ -d /usr/lib/google-golang ]; then
+    export GOROOT=/usr/lib/google-golang
 fi
 
 # Setup go environment
