@@ -1,5 +1,7 @@
 # -*- mode: shell-script; -*-
 
+export LOADED_DOT_BASHRC_DPB=1
+
 unalias ls 2> /dev/null
 alias ls='ls -F'
 

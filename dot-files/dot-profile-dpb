@@ -1,6 +1,8 @@
 
 # dpb .profile additions;
 
+export LOADED_DOT_PROFILE_DPB=1
+
 DIRS="$HOME/synced/bin"
 for dir in $DIRS; do
     if [ -d $dir ]; then
