@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VERSION=1.13.1
+VERSION=1.14.2
 
 cd /tmp
 curl https://storage.googleapis.com/golang/go${VERSION}.linux-amd64.tar.gz > golang.tar.gz
@@ -14,8 +14,6 @@ fi
 export PATH="/opt/go/bin:$PATH"
 
 # Build/install gorun;
-
-## GOPATH is now set to $HOME/goprojects
 go get -u github.com/erning/gorun
 
 # Install additional tools to support emacs;
@@ -28,7 +26,7 @@ go get -u github.com/rogpeppe/godef
 go get -u github.com/nsf/gocode
 
 # delve (debugger)
-go get -u github.com/derekparker/delve/cmd/dlv
+go get github.com/go-delve/delve/cmd/dlv
 
 # guru
 go get -u golang.org/x/tools/cmd/guru
