@@ -1,0 +1,21 @@
+
+1) Configure keyboard to use capslock as ctl;
+   keyboard -> Layouts -> Options
+
+2) Configure keyboard shortcuts for terminal, chrome, emacs
+;
+
+
+** Configure Cinnamon **
+
+1) Keyboard settings lets you easily set caps lock to ctl;
+
+1b) Make the text bigger! Settings[Appearance] > FontSelection > Text scaling factor: 1.4
+
+2) Configure themes: Other settings -
+   Controls: HighContrast (top line); (or Radiance looks ok on x1-carbon)
+   Icons: gnome
+   Window borders: Ambiance
+   Keybindings: emacs
+
+4) Configure keyboard shortcuts for terminal, chrome, emacs;

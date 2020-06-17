@@ -1,0 +1,13 @@
+
+i7z - shows state of your Intel CPU;
+cpufrequtils
+cpupower-gui
+CPU Frequency Applet - applet shows CPU speed;
+   has refresh issues in 20.04.
+
+cpupower
+lscpu
+dmidecode
+lshw
+cpuid
+inxi

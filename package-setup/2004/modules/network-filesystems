@@ -1,0 +1,5 @@
+
+sshfs
+curlftpfs
+autofs
+nfs-common

@@ -1,6 +1,7 @@
 
 1) Download clojure from clojure.org, unpack in /opt;
 
+   cd /tmp
    curl -O https://download.clojure.org/install/linux-install.sh
    chmod +x linux-install.sh
    sudo ./linux-install.sh
