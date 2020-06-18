@@ -2,7 +2,7 @@
 
 BASE=/media/dpb/Backup/Backup
 DIRS=$(cat $HOME/synced/conf/backup-directories.txt)
-EXCLUDES="--exclude=.mypy_cache/"
+EXCLUDES="--exclude=.mypy_cache/ --exclude=.pytest_cache/ --exclude=__pycache__"
 
 function check_backup() {
     NAME=$1

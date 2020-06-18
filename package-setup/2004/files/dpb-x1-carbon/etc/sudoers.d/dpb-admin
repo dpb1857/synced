@@ -1,3 +1,4 @@
 
 dpb ALL=(root) NOPASSWD: /bin/mount *
 dpb ALL=(root) NOPASSWD: /bin/umount *
+dpb ALL=(root) NOPASSWD: /usr/sbin/gparted *

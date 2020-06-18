@@ -11,13 +11,7 @@ Install, instructions from: https://www.dropbox.com/install-linux
 
    --> This prompts you to login to your dropbox account;
 
-   NOTE: [No longer necessary in 18.04? as of 4/2019?]
-         install libpango prereq as necessary, may need to to apt install -fixup;
-
 3) Download dropbox.py, from link on instructions page, copy to /usr/local/bin/dropbox;
 
-
-4) [Maybe not? didn't seem to download anything new]
-   To actually install the daemon, need to run:
-
+4) To start dropbox:
      dropbox start -i
