@@ -6,7 +6,7 @@ function vc() {
     if [ ! -d /mnt/vc ]; then
         sudo mkdir /mnt/vc
     fi
-    device=`sudo losetup -f /space/vc/data --show`
+    device=`sudo losetup -f /mnt/space/vc/data --show`
     sudo cryptsetup luksOpen $device vc
     sudo mount /dev/mapper/vc /mnt/vc
     echo $device > /tmp/vcloop
@@ -26,7 +26,7 @@ function stuff() {
     if [ ! -d /mnt/stuff ]; then
         sudo mkdir /mnt/stuff
     fi
-    device=`sudo losetup -f /space/vc/stuff --show`
+    device=`sudo losetup -f /mnt/space/vc/stuff --show`
     sudo cryptsetup luksOpen $device stuff
     sudo mount /dev/mapper/stuff /mnt/stuff
     echo $device > /tmp/stuffloop

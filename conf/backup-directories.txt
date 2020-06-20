@@ -5,3 +5,6 @@ refile
 repos
 tmp
 vc
+Videos
+Dropbox
+stmarks

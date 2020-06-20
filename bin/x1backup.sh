@@ -6,6 +6,18 @@ EXCLUDES="--exclude=.mypy_cache/ --exclude=.pytest_cache/ --exclude=__pycache__"
 
 function do_backup() {
     NAME=$1
+    for dir in /mnt /mnt/space; do
+        if [ -d $dir/$NAME ]; then
+            SRCDIR=$dir
+        fi
+    done
+
+    if [ "$SRCDIR" = "" ]; then
+        echo "Cannot find backup target $NAME" 1>&2
+        exit 1
+    fi
+
+    echo $NAME located in $SRCDIR/$NAME
 
     if [ ! -d $BASE/$NAME/current ]; then
         /bin/btrfs subvolume create $BASE/$NAME
@@ -13,7 +25,7 @@ function do_backup() {
         mkdir $BASE/$NAME/updates
     fi
 
-    rsync -av ${EXCLUDES} --delete-after --delete-excluded /space/$NAME/ $BASE/$NAME/current > /tmp/filelist.$$
+    rsync -av ${EXCLUDES} --delete-after --delete-excluded $SRCDIR/$NAME/ $BASE/$NAME/current > /tmp/filelist.$$
 
     updates=`cat /tmp/filelist.$$ | sed '1d' | head -n -3 | grep -v '/$' | wc -l`
 
