@@ -2,4 +2,6 @@ common-system
 crypt-filesystems
 network-filesystems
 system-utilities
-system-nas2
+system-nas
+media-server
+network-filesystems-server
