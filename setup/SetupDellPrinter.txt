@@ -16,3 +16,10 @@ I had to download some additional stuff by hand from packages.ubuntu.com; for 16
 
 If you try to debug filter problems, look for "xrhkazmf" in the the
 /var/log/cups/error_log file.
+
+
+20.04 extras:
+  lib32stdc++6
+  lib32z1
+
+  sudo service cups restart
