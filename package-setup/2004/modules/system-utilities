@@ -1,6 +1,6 @@
 
 # cpulimit
-cpufreq-set
+# cpufreq-set
 curl
 dconf-editor
 filelight
