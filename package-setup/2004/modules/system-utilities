@@ -11,3 +11,4 @@ nmap
 sysstat
 traceroute
 # wireshark
+net-tools
