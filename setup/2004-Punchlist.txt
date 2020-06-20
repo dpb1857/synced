@@ -1,3 +1,2 @@
 Clojure: Fix Clojure; nrepl server doesn't work!
-Printer: Dell printer - haven't tried to do this for a while;
 * Acronis recovery boot image
