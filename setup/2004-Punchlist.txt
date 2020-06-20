@@ -1,9 +1,3 @@
-Run backup scripts, make sure nothing wierd going on there;
-Fix Clojure; nrepl server doesn't work!
-Install Zoom
-Verfy digikam
-Dell printer - haven't tried to do this for a while;
-Docker
-Dropbox
-Handbrake
-?? Anything for LibreOffice?
+Clojure: Fix Clojure; nrepl server doesn't work!
+Printer: Dell printer - haven't tried to do this for a while;
+* Acronis recovery boot image

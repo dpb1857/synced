@@ -1,2 +1,3 @@
 
-Configure & Rebuild digikam databases;
+Copy [old]~/.config/digikamrc  to ~/.config
+Startup, (possibly) answer some questions about photo partitions;
