@@ -1,6 +1,7 @@
 #!/bin/bash
 
-host=`hostname`
+host=`hostname -s`
+user=`whoami`
 
 if [ $host = "nas" -o $host = "castle" ]; then
     echo "Server warning:" 1>&2
@@ -25,9 +26,6 @@ if [ ! -d $HOME/enc ]; then
     echo "Must mount enc directory to restore ssh keys." 1>&2
     exit 1
 fi
-
-host=`hostname -s`
-user=`whoami`
 
 if [ -d $HOME/enc/ssh/$host-$user ]; then
     keydir="$HOME/enc/ssh/$host-$user"
@@ -92,7 +90,7 @@ fi
 if [ -d $keydir/dot-ssh-root ]; then
     echo "Restoring root ssh user keys..." 1>&2
     if [ ! -d /root/.ssh ]; then
-        mkdir /root/.ssh
+        sudo mkdir /root/.ssh
     fi
     sudo cp -p $keydir/dot-ssh-root/* /root/.ssh
     sudo sh -c 'chown root:root /root/.ssh/*'
