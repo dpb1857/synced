@@ -1,9 +1,10 @@
 
-############################################################
-1710 - Didn't have to do any of this;
-       just use the power settings.
-############################################################
+20.04 - same edit as below.
+http://ubuntuhandbook.org/index.php/2020/05/lid-close-behavior-ubuntu-20-04/
 
+Edit /etc/systemd/logind.conf, change HandleLidSwitch to ignore.
+
+--------------------------------------------------
 
 Two things do the trick -
 
@@ -18,7 +19,6 @@ to
 HandleLidSwitch=ignore
 
 Then reboot.
-
 
 
 AND
