@@ -3,7 +3,7 @@ Suggested order of business -
 
 1) Copy the files from the SD card to ~/tmp/Photos, like so:
    cd /media/dpb
-   rsync -av 3531-6538 ~/tmp/Photos
+   rsync -av 3531-6538 /mnt/space/tmpphotos
 
    At this point, you can clear the SD card anytime after you backup the laptop.
 
@@ -41,4 +41,4 @@ This would be a good time to backup the laptop.
 11) At some point, backup the Photos drive -
     photosBackup.sh
 
-12) If kept on laptop, move photos directory to /space/scratch/Photos;
+12) If kept on laptop, move photos directory to /mnt/space/scratch/Photos;

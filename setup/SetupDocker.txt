@@ -1,12 +1,16 @@
 
-Now in 18.04:
+Now in 20.04:
 
-apt install docker.io
+## Install docker
+
+Follow instructions at:
+  https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
+to add the repo and install the packages.
+
+Copy/link /var/lib/docker to /mnt/docker.
+
+## Install docker-compose;
 apt install docker-compose
 
-# Make /var/lib/docker point to /space/docker;
-mv /var/lib/docker /space
-ln -s /space/docker /var/lib/docker
-
-# Add dpb to the docker group;
+## Add dpb to the docker group;
 adduser dpb docker

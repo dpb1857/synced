@@ -4,6 +4,7 @@ linked-dirs
 refile
 repos
 tmp
+tmpphotos
 vc
 Videos
 Dropbox
