@@ -153,14 +153,14 @@ function finance() {
         mkdir $HOME/finance
     fi
     echo "Mounting finance dir read-only"
-    sudo mount -t ecryptfs -r /space/linked-dirs/Dropbox/Finance $HOME/finance
+    sudo mount -t ecryptfs -r /mnt/Dropbox/Finance $HOME/finance
 }
 
 function finance-rw() {
     if [ ! -d $HOME/finance ]; then
         mkdir $HOME/finance
     fi
-    sudo mount -t ecryptfs /space/linked-dirs/Dropbox/Finance $HOME/finance
+    sudo mount -t ecryptfs /mnt/Dropbox/Finance $HOME/finance
 }
 
 function unfinance() {
