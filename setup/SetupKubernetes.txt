@@ -1,0 +1,55 @@
+0) Install KVM virtualization;
+   https://www.linuxtechi.com/install-kvm-on-ubuntu-20-04-lts-server/
+   sudo apt install -y qemu qemu-kvm libvirt-daemon bridge-utils virt-manager virtinst
+
+   or use the Ubuntu docs:
+   https://help.ubuntu.com/community/KVM/Installation
+
+   tweak kernel boot params:
+       edit /etc/default/grub, add intel_iommu=on to GRUB_CMDLINE_LINUX_DEFAULT
+       validate by rerunning virt-host-available
+
+1) Install Kubernetes;
+   Using packages from apt.kubernetes.io;
+
+2) Install awscli if not ainstalled;
+   https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html
+
+3) Install eksctl;
+   (same url)
+
+4) Install minikube;
+   https://minikube.sigs.k8s.io/docs/start/
+   Install drivers for Docker and KVM2;
+   https://minikube.sigs.k8s.io/docs/drivers/
+
+5) Install kind to run k8s in docker;
+   https://kind.sigs.k8s.io/docs/user/quick-start
+
+   Installed via download using curl, copy to /usr/local/bin;
+
+NOTES
+-----
+
+kubectl version
+kubectl get componentstatuses
+kubectl get nodes
+kubectl describe nodes <node>
+
+# Swith contexts
+kubectl config use-context <context>, e.g. kind-kind or minikube
+
+
+kvm2 -
+    virt-host-validate
+
+minikube -
+    Handbook: https://minikube.sigs.k8s.io/docs/handbook/
+    minikube start
+    minikube stop
+
+kind -
+    https://kind.sigs.k8s.io/docs/user/quick-start
+    kind create cluster
+    kind get clusters
+    kubectl cluster-info
