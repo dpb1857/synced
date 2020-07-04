@@ -1,12 +1,11 @@
 #!/bin/bash
 
 BASE=/media/dpb/Backup/Backup
-DIRS="/media/dpb/Windows/Users/dpb"
 EXCLUDES="--exclude=OneDrive/"
 
 function do_backup_windows() {
     DIR=$1
-    NAME=windows
+    NAME=$2
 
     if [ ! -d $BASE/$NAME/current ]; then
         /bin/btrfs subvolume create $BASE/$NAME
@@ -35,16 +34,19 @@ if [ ! -d $BASE ]; then
     exit 1
 fi
 
-if [ ! -d /media/dpb/Windows ]; then
-    echo "Windows is not mounted" 1>&2
+if [ ! -d /media/dpb/WindowsC ]; then
+    echo "WindowsC is not mounted" 1>&2
+    exit 1
+fi
+
+if [ ! -d /media/dpb/WindowsD ]; then
+    echo "WindowsD is not mounted" 1>&2
     exit 1
 fi
 
 start=`date`
-for dir in $DIRS; do
-    echo Backing up $dir
-    do_backup_windows $dir
-done
+do_backup_windows /media/dpb/WindowsC/Users/dpb windows
+do_backup_windows /media/dpb/WindowsD/VideoProd videoprod
 
 echo "Backup started:" $start
 echo "Backup finished:" `date`
