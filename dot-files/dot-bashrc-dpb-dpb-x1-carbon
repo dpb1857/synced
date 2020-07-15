@@ -66,28 +66,3 @@ function digikam-ext() {
     ln -s /media/Photos/digikam/dot-kde-share-config-digikamrc ~/.kde/share/config/digikamrc
     ln -s /media/Photos/digikam/dot-kde-share-config-kipirc ~/.kde/share/config/kipirc
 }
-
-function nexus7() {
-    mkdir $HOME/nexus7
-    mtpfs $HOME/nexus7
-}
-
-function unnexus7() {
-    sudo umount $HOME/nexus7
-    rmdir $HOME/nexus7
-}
-
-function ssh-dpb() {
-    rm -f $HOME/.ssh
-    ln -s $HOME/Private/dot-ssh $HOME/.ssh
-}
-
-function ssh-don() {
-    rm -f $HOME/.ssh
-    ln -s $HOME/Private/dot-ssh-don $HOME/.ssh
-}
-
-function sbackup() {
-    sh -c "cd /media/dpb/SanDisk32 && sh Backup.sh $@"
-    rsync -av --delete-after /space/SanDisk32/ 192.168.2.3:/srv/mirror/dpb-SanDisk32
-}

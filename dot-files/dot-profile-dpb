@@ -28,8 +28,8 @@ elif [ -d /usr/lib/google-golang ]; then
 fi
 
 # Setup go environment
-if [ -d /space/goprojects ]; then
-    export GOPATH=/space/goprojects
+if [ -d /mnt/space/goprojects ]; then
+    export GOPATH=/mnt/space/goprojects
 elif [ -d $HOME/goprojects ]; then
     export GOPATH=$HOME/goprojects
 fi
