@@ -9,6 +9,7 @@
    SystemPreferences->Keyboard[Keyboard]->ModifierKeys; for all keyboards, set the caps lock mapping;
 
 4) Download/install/link chrome;
+   SystemPreferences->Keyboard[Shortcuts]
    -> Configure App Shortcuts keys to make it more like Chrome on linux
 
 5) Create/install ssh keys;
@@ -29,7 +30,7 @@
    see: https://github.com/railwaycat/homebrew-emacsmacport
    (from hackernews https://news.ycombinator.com/item?id=9594031)
 
-   brew tap railwaycat/emacsmacport
+   brew tap railwaycat/homebrew-emacsmacport
    brew install emacs-mac
    brew linkapps
 
