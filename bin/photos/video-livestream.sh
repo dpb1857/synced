@@ -8,4 +8,4 @@
 
 BASE=`echo $1 | sed 's/\..*//'`
 set -x
-ffmpeg -i "$1" -vf scale=-1:720 -c:v libx264 -tune fastdecode -b:v 3M -maxrate 4M -bufsize 1M -c:a copy "${BASE}-stream.mp4"
+ffmpeg -i "$1" -vf scale=-1:720 -c:v libx264 -preset veryfast -crf 21 -tune fastdecode -b:v 3M -maxrate 4M -bufsize 1M -strict -2 -c:a copy "${BASE}-stream.mp4"
