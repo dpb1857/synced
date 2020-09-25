@@ -46,7 +46,7 @@ fi
 
 start=`date`
 do_backup_windows /media/dpb/WindowsC/Users/dpb windows
-do_backup_windows /media/dpb/WindowsD/VideoProd videoprod
+do_backup_windows /media/dpb/WindowsD/Livestream livestream
 
 echo "Backup started:" $start
 echo "Backup finished:" `date`

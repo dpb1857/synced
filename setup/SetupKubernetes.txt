@@ -53,3 +53,4 @@ kind -
     kind create cluster
     kind get clusters
     kubectl cluster-info
+    kind delete cluster
