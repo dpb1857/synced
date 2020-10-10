@@ -1,5 +1,6 @@
 common-system
 crypt-filesystems
+database
 desktop
 devtools
 languages
