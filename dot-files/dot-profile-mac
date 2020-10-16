@@ -2,15 +2,15 @@
 # Setup environment
 
 if [ "${EDITOR}" != "emacsclient" ]; then
-    export PATH=$PATH:/Users/dbennett/gopath/bin:/Users/dbennett/ep-vm-threepo/threepo/bin:/usr/local/go/bin
+    export PATH=$PATH:$HOME/gopath/bin:/Users/dbennett
     export EDITOR=emacsclient
 fi
 
-export GOPATH=/Users/dbennett/gopath
+export GOPATH=$HOME/gopath
 
-for branch in `cat $HOME/ep-vm-threepo/GO_REPOS`; do
-    export GOPATH=$GOPATH:/Users/dbennett/ep-vm-threepo/$branch
-done
+# for branch in `cat $HOME/ep-vm-threepo/GO_REPOS`; do
+#     export GOPATH=$GOPATH:/Users/dbennett/ep-vm-threepo/$branch
+# done
 
 alias ls='ls -F'
 alias again='LEFTP=""; RIGHTP=""; source ~/.profile'

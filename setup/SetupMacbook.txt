@@ -3,30 +3,21 @@
    dotprofile-mac
    dot-emacs
 
-2) Add launcher shortcut for terminal;
-
-3) Map caps lock to control on all keyboards;
+2) Map caps lock to control on all keyboards;
    SystemPreferences->Keyboard[Keyboard]->ModifierKeys; for all keyboards, set the caps lock mapping;
 
-4) Download/install/link chrome;
+3) Download/install/link chrome;
    SystemPreferences->Keyboard[Shortcuts]
    -> Configure App Shortcuts keys to make it more like Chrome on linux
 
-5) Create/install ssh keys;
+4) Create/install ssh keys;
 
-6) turn on touchpad click-and-drag -
-   System Preferences ->
-     Accessibility ->
-       Mouse & Trackpad from options on left ->
-         click Trackpad Options ->
-           place checkmark next to "Enable dragging"
-
-7) install brew:
+5) install brew:
    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-8) brew install awscli
+6) brew install awscli
 
-9) install emacs;
+7) install emacs;
    see: https://github.com/railwaycat/homebrew-emacsmacport
    (from hackernews https://news.ycombinator.com/item?id=9594031)
 
@@ -34,31 +25,31 @@
    brew install emacs-mac
    brew linkapps
 
-10) install & configure git;
+8) install & configure git;
    configure default email address: git config --global user.email "user@company.com"
 
 
-11) Keyboard shortcuts for Terminal app(Utilities/Terminal), Chrome, Emacs;
+9) Keyboard shortcuts for Terminal app(Utilities/Terminal), Chrome, Emacs;
     see: https://computers.tutsplus.com/tutorials/how-to-launch-any-app-with-a-keyboard-shortcut--mac-31463
 
-12) Setup python3 environment:
+12) ?? Setup python3 environment:
     brew install python3
     pip3 install virtualenv
     pip3 install pylint
 
-13) Other stuff;
+13) ?? Other stuff;
     brew install jq
 
-14) Install sdkman to manage installed software;
+14) ?? Install sdkman to manage installed software;
     cat http://get.sdkman.io | bash
 
-15) Setup lockscreen without sleep;
+15) ?? Setup lockscreen without sleep;
     https://apple.stackexchange.com/questions/95819/mbp-lock-screen-hotkey-without-sleeping
     Mollyguard - can't setup on Easypost mac, security settings won't allow it;
 
 *** Notes on data backup strategy
 
-    -> Create dbennett@easypost.com browser login/context for passwords, bookmarks;
+    -> Create user@company browser login/context for passwords, bookmarks;
     -> Configure, save appropriate docs in Dropbox EasyPost folder;
     -> Install gpg, use it to encrypt/store things in google drive;
        * ssh ids

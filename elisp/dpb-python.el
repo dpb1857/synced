@@ -56,4 +56,7 @@
     (insert-string pylint-disables)
     ))
 
+;; Disable those automatic definition pop-up bufers!!
+(global-edoc-mode -1)
+
 (provide 'dpb-python)
