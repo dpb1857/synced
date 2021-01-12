@@ -1,11 +1,14 @@
 archive
+clojure
+Dropbox
 import
 linked-dirs
+MovieProd
 refile
 repos
+scratch
+stmarks
 tmp
 tmpphotos
 vc
 Videos
-Dropbox
-stmarks
