@@ -37,7 +37,7 @@
 ;;
 ;; (add-hook 'python-mode-hook 'my-add-pretty-lambda)
 
-(setq pylint-disables "\
+(setq pylint-disables "
 # Find pylint codes at: http://pylint-messages.wikidot.com/all-codes
 # pylint: disable=line-too-long
 # pylint: disable=invalid-name
@@ -52,11 +52,15 @@
   "Insert standard set of pylint disable settings at the top of the buffer"
   (save-excursion
     (goto-char (point-min))
-    (next-line 2)
-    (insert-string pylint-disables)
+    (next-line 1)
+    (insert pylint-disables)
     ))
 
-;; Disable those automatic definition pop-up buffers!!
-;; (global-edoc-mode -1)
+
+;; Disable those automatic definition pop-up buffers, add key to popup help;
+(global-eldoc-mode -1)
+(global-set-key "\^h@" 'py-eldoc)
+;; See: https://www.flycheck.org/en/latest/languages.html#Python
+;; (setq flycheck-python-pylint-executable "pylint")
 
 (provide 'dpb-python)

@@ -23,7 +23,7 @@ python3/bin/pip install lxml
 python3/bin/pip install pygments
 
 # Testing
-python3/bin/pip install nosetests
+# python3/bin/pip install nosetests
 python3/bin/pip install pytest
 python3/bin/pip install sniffer
 python3/bin/pip install pyinotify
