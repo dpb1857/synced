@@ -24,8 +24,8 @@ def ratelimit(qps):
                 indx = (indx+1) % qps
                 print("timestamps:", recent)
                 return f(*args)
-            else:
-                raise Exception
+
+            raise Exception
 
         return wrapper
     return decorator
