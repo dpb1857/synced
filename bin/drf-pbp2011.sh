@@ -6,7 +6,8 @@ echo "****************************************"
 echo " Create pbp2011 app"
 echo "****************************************"
 
-pyenv/bin/django-admin startapp pbp2011
+. pyenv/bin/activate
+django-admin startapp pbp2011
 d=$HOME/synced/templates/drf-pbp2011
 cp $d/models.py pbp2011
 cp $d/views.py pbp2011
@@ -48,7 +49,7 @@ from pbp2011 import views
 
 router = routers.DefaultRouter()
 router.register(r'biketype', views.BikeTypeViewSet)
-router.register(r'controls', views.ControlViewSet)
+router.register(r'control', views.ControlViewSet)
 router.register(r'rider', views.RiderViewSet)
 
 urlpatterns = [
