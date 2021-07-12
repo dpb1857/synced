@@ -21,7 +21,7 @@ echo "****************************************"
 sleep 2
 cat >> $PROJECT/settings.py <<EOF
 
-### Added by setup script
+### Added by setup script for pbp2011 app
 INSTALLED_APPS.append('pbp2011.apps.Pbp2011Config')
 EOF
 
@@ -41,7 +41,7 @@ echo "****************************************"
 sleep 2
 cat >> $PROJECT/urls.py <<EOF
 
-### Added by setup script
+### Added by setup script for pbp2011 app
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
@@ -52,10 +52,7 @@ router.register(r'biketype', views.BikeTypeViewSet)
 router.register(r'control', views.ControlViewSet)
 router.register(r'rider', views.RiderViewSet)
 
-urlpatterns = [
-    path('api/', include(router.urls)),
-    path('admin/', admin.site.urls),
-]
+urlpatterns.append(path('api/', include(router.urls)))
 EOF
 
 echo "****************************************"

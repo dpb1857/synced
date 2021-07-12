@@ -45,6 +45,7 @@ cat > requirements.txt <<EOF
 django
 djangorestframework
 django-cors-headers
+django-debug-toolbar
 django-filter
 django_extensions
 markdown
@@ -77,12 +78,22 @@ django-admin startapp sample
 set +x
 
 echo "****************************************"
-echo "Update INSTALLED_APPS"
+echo "Setup git"
+echo "****************************************"
+sleep 2
+set -x
+git init
+git add .
+git commit -m "Initial commit: created django project & app"
+set +x
+
+echo "****************************************"
+echo "Update SETTINGS"
 echo "****************************************"
 sleep 2
 cat >> $service/settings.py <<EOF
 
-### Added by setup script
+### Added by drf setup script
 INSTALLED_APPS.append('rest_framework')
 INSTALLED_APPS.append('corsheaders')
 INSTALLED_APPS.append('django_extensions')
@@ -91,6 +102,26 @@ INSTALLED_APPS.append('sample.apps.SampleConfig')
 # See: https://pypi.org/project/django-cors-headers/
 MIDDLEWARE.insert(2, "corsheaders.middleware.CorsMiddleware")
 CORS_ALLOW_ALL_ORIGINS = True
+
+# Configure django-debug-toolbar
+INSTALLED_APPS.append('debug_toolbar')
+MIDDLEWARE.insert(0, 'debug_toolbar.middleware.DebugToolbarMiddleware')
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
+EOF
+
+echo "****************************************"
+echo "Update $service/urls.py"
+echo "****************************************"
+sleep 2
+cat >> $service/urls.py <<EOF
+
+### Added by drf setup script
+from django.urls import include
+import debug_toolbar
+urlpatterns.append(path('__debug__/', include(debug_toolbar.urls)))
 EOF
 
 echo "****************************************"
@@ -103,11 +134,11 @@ set -x
 set +x
 
 echo "****************************************"
-echo "Setup git"
+echo "Checkin customizations"
 echo "****************************************"
 sleep 2
 set -x
 git init
 git add .
-git commit -m "Initial commit"
+git commit -m "drf-setup script customizations"
 set +x
