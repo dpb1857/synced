@@ -8,7 +8,7 @@ echo "****************************************"
 
 . pyenv/bin/activate
 django-admin startapp pbp2011
-d=$HOME/synced/templates/drf-pbp2011
+d=/mnt/space/repos/drf-pbp2011
 cp $d/models.py pbp2011
 cp $d/views.py pbp2011
 cp $d/serializers.py pbp2011
