@@ -39,20 +39,18 @@ echo "****************************************"
 echo " Install routes"
 echo "****************************************"
 sleep 2
-cat >> $PROJECT/urls.py <<EOF
+cat >> $PROJECT/urlapps.py <<EOF
 
 ### Added by setup script for pbp2011 app
-from django.contrib import admin
-from django.urls import path, include
-from rest_framework import routers
-from pbp2011 import views
 
-router = routers.DefaultRouter()
-router.register(r'biketype', views.BikeTypeViewSet)
-router.register(r'control', views.ControlViewSet)
-router.register(r'rider', views.RiderViewSet)
+def addroutes_pbp2011(router):
+    from pbp2011 import views
 
-urlpatterns.append(path('api/', include(router.urls)))
+    router.register(r'biketype', views.BikeTypeViewSet)
+    router.register(r'control', views.ControlViewSet)
+    router.register(r'rider', views.RiderViewSet)
+
+addroutehooks.append(addroutes_pbp2011)
 EOF
 
 echo "****************************************"
