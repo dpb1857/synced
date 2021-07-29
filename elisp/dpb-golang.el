@@ -21,9 +21,9 @@
   (package-refresh-contents)
   (package-install 'go-eldoc))
 
-(unless (package-installed-p 'go-guru)
-  (package-refresh-contents)
-  (package-install 'go-guru))
+;; (unless (package-installed-p 'go-guru)
+;;   (package-refresh-contents)
+;;   (package-install 'go-guru))
 
 (unless (package-installed-p 'go-dlv)
   (package-refresh-contents)
@@ -31,7 +31,7 @@
 
 (require 'go-mode)
 (require 'go-eldoc)
-(require 'go-guru)
+;; (require 'go-guru)
 (require 'go-dlv)
 
 (add-hook 'go-mode-hook
@@ -43,7 +43,7 @@
 (add-hook 'before-save-hook 'gofmt-before-save)
 
 ;; (go-guru-hl-identifier-mode)
-(add-hook 'go-mode-hook #'go-guru-hl-identifier-mode)
+;; (add-hook 'go-mode-hook #'go-guru-hl-identifier-mode)
 
 (provide 'dpb-golang)
 ;;; dpb-golang.el ends here

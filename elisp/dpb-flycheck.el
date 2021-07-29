@@ -23,5 +23,8 @@
 (add-to-list 'flycheck-checkers 'python-mypy t)
 (flycheck-add-next-checker 'python-pylint 'python-mypy t)
 
+;; Disable go-build; behaves badly when using loal frontdoor protobuf definitions.
+;; see https://www.flycheck.org/en/latest/user/syntax-checkers.html#disable-syntax-checkers
+;; (setq-default flycheck-disabled-checkers '(go-build))
 
 (provide 'dpb-flycheck)
