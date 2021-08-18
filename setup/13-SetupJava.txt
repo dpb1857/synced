@@ -1,4 +1,6 @@
 
+0) - or, to simply run clojure, you can install -
+   sudo apt-get install openjdk-16-jre
 
 1) Install java;
 
