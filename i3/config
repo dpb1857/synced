@@ -189,7 +189,7 @@ exec --no-startup-id exec ~/synced/i3/bin/cycle-background.py
 
 # Screensave / Locking / blanking;
 exec --no-startup-id exec xscreensaver -no-splash
-exec --no-startup-id exec xautolock -time 60 -locker ~/synced/i3/bin/i3lock-wrapper.sh
+# exec --no-startup-id exec xautolock -time 60 -locker ~/synced/i3/bin/i3lock-wrapper.sh
 
 # bindsym $mod+Control+l exec xscreensaver -lock
 bindsym $mod+Shift+Delete exec xautolock -locknow
@@ -265,3 +265,6 @@ bindsym $mod+Control+s exec gnome-terminal
 # File Manager;
 # dolphin or nemo(used by cinnamon)
 bindsym $mod+Control+d exec dolphin
+
+# Backup Capslock nuker;
+bindsym $mod+z exec setxkbmap -option ctrl:nocaps
