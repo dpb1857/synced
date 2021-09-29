@@ -10,7 +10,11 @@
 # postgresql
 postgresql-client
 # postgresql-contrib
+
 postgresql-doc
+# to enable python to build sqlite3 module so we can run jupyter
+libsqlite3-dev
+
 # pgadmin3
 # ptop
 # pgpool2
