@@ -160,7 +160,7 @@ function finance-rw() {
     if [ ! -d $HOME/finance ]; then
         mkdir $HOME/finance
     fi
-    sudo mount -t ecryptfs /mnt/Dropbox/Finance $HOME/finance
+    sudo mount -t ecryptfs $HOME/Dropbox/Finance $HOME/finance
 }
 
 function unfinance() {
