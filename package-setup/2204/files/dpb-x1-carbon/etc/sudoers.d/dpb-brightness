@@ -1,0 +1,2 @@
+
+dpb ALL=(root) NOPASSWD: /usr/local/bin/adjust-brightness.sh *
