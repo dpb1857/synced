@@ -1,10 +1,17 @@
 
-* Create a VM:
+     * Create a VM:
   -> Config settings;
      * Use template: don-halo-dev
-
   -> OR vmware instance;
 
+* adduser dpb
+* adduser dpb sudo
+* rsync -av /home/ubuntu/ /home/dpb
+* chown -R dpb:dpb /home/dpb
+
 * Install packages;
-   cd synced/package-setup/2204
-   ./install.sh awsdev
+  cd synced/package-setup/2204
+  ./install.sh awsdev
+
+* ./02-LinkDotFiles.sh
+* ./05a-SetupEmacs.txt
