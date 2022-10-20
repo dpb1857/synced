@@ -1,5 +1,9 @@
 #!/bin/bash
 #
+
+# Let's use a git command that doesn't do host key checking to remove the user prompt
+export GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+
 ##################################################
 # Base packages, dev user setup
 ##################################################
@@ -8,7 +12,7 @@ function init() {
     USER=$1
     apt-get update
     apt-get upgrade -y
-    apt-get install -y make mg postgresql-client jq nfs-common
+    apt-get install -y make mg postgresql-client jq nfs-common awscli
 
     adduser ${USER}
     adduser ${USER} sudo
@@ -32,6 +36,10 @@ function init() {
 ##################################################
 
 function setup_docker() {
+    if [ -f /etc/apt/keyrings/docker.gpg ]; then
+        echo "Docker already installed"
+        return
+    fi
     # from https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
     # Add official GPG key
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
@@ -41,7 +49,7 @@ function setup_docker() {
       $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     # Update and install
     sudo apt-get update
-    sudo DEBIAN_FRONTEND=noninteractive apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
 }
 
 ##################################################
@@ -49,6 +57,11 @@ function setup_docker() {
 ##################################################
 
 function setup_pyenv() {
+    if [ -d ~/.pyenv ]; then
+        echo "pyenv already installed"
+        return
+    fi
+
     # install pyenv
     git clone https://github.com/pyenv/pyenv.git ~/.pyenv
     echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
@@ -63,8 +76,16 @@ function setup_pyenv() {
 }
 
 ##################################################
-# Barb local setup
+# Barb builds
 ##################################################
+
+function barb_checkout() {
+    if [ -d code/barb ]; then
+        echo "barb already checked out"
+        return
+    fi
+    git clone git@github.com:Synthego/barb.git code/barb
+}
 
 function barb_local() {
     if [ "$GEMFURY_USERNAME" = "" ]; then
@@ -76,7 +97,7 @@ function barb_local() {
        exit 1
     fi
 
-    git clone git@github.com:Synthego/barb.git code/barb
+    barb_checkout
     (cd $HOME/code/barb && pyenv local 3.10.7)
     (cd $HOME/code/barb && python -m venv venv)
     (cd $HOME/code/barb && venv/bin/pip install --upgrade pip)
@@ -86,6 +107,21 @@ function barb_local() {
     sudo DEBIAN_FRONTEND=noninteractive apt-get install -y libcurl4-openssl-dev libldap-dev libsasl2-dev
 
     (cd $HOME/code/barb && venv/bin/pip install -r requirements.txt)
+}
+
+##################################################
+# Barb docker setup
+##################################################
+
+function barb_docker() {
+    if [ "$GEMFURY_USERNAME" = "" ]; then
+      echo "must have GEMFURY_USERNAME set"
+      exit 1
+    fi
+
+    barb_checkout
+    (cd $HOME/code/barb && make build)
+    (cd $HOME/code/barb && make dbrestore)
 }
 
 ##################################################
@@ -137,8 +173,14 @@ function setup_dpb() {
 }
 
 function setup_dpb_all() {
+    if [ "$GEMFURY_USERNAME" = "" ]; then
+      echo "must have GEMFURY_USERNAME set"
+      exit 1
+    fi
+
     setup_docker
     setup_pyenv
+    export PATH="$HOME/.pyenv/bin:$PATH"
     barb_local
     qcducks_local
     setup_dpb
