@@ -164,8 +164,6 @@ function setup_dpb() {
     fi
 
     ./synced/setup/02-LinkDotFilesSynth.sh
-    . .bashrc
-
     git config --global user.email "don.bennett@synhtego.com"
     git config --global user.name "Don Bennett"
 
@@ -191,6 +189,7 @@ function help() {
     echo "  docker"
     echo "  pyenv"
     echo "  barb_local"
+    echo "  barb_docker"
     echo "  qcducks_local"
 }
 
@@ -209,6 +208,8 @@ case $command in
     dpb_all) setup_dpb_all
         ;;
     barb_local) barb_local
+        ;;
+    barb_docker) barb_docker
         ;;
     qcducks_local) qcducks_local
         ;;
