@@ -14,6 +14,9 @@ function init() {
     adduser ${USER} sudo
     bash -c "echo \"${USER} ALL=(ALL) NOPASSWD:ALL\" >> /etc/sudoers.d/90-cloud-init-users"
 
+    addgroup docker
+    adduser ${USER} docker
+
     rsync -av /home/ubuntu/ /home/${USER}
     chown -R ${USER}:${USER} /home/${USER}
 
@@ -77,7 +80,7 @@ function barb_local() {
     (cd $HOME/code/barb && pyenv local 3.10.7)
     (cd $HOME/code/barb && python -m venv venv)
     (cd $HOME/code/barb && venv/bin/pip install --upgrade pip)
-    (cd $HOME/code/qcducks && venv/bin/pip install wheel)
+    (cd $HOME/code/barb && venv/bin/pip install wheel)
 
     # Support for modules in python requirements
     sudo apt-get install -y libcurl4-openssl-dev libldap-dev libsasl2-dev
@@ -133,9 +136,16 @@ function setup_dpb() {
     sudo apt-get install -y emacs
 }
 
+function setup_dpb_all() {
+    setup_docker
+    setup_pyenv
+    barb_local
+    qcducks_local
+    setup_dpb
+}
+
 function help() {
     echo "Subcommands:"
-    echo "  init <user>"
     echo "  docker"
     echo "  pyenv"
     echo "  barb_local"
@@ -153,6 +163,8 @@ case $command in
     pyenv) setup_pyenv
         ;;
     dpb) setup_dpb
+        ;;
+    dpb_all) setup_dpb_all
         ;;
     barb_local) barb_local
         ;;
