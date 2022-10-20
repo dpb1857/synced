@@ -6,9 +6,6 @@
 
 function init() {
     USER=$1
-    echo CMD: init $USER
-    return
-
     apt-get update
     apt-get upgrade -y
     apt-get install -y make mg postgresql-client jq nfs-common
@@ -129,6 +126,7 @@ command=$1
 shift
 case $command in
     init) user=$1
+        init $user
         ;;
     pyenv)
         pyenv
