@@ -187,10 +187,11 @@ function setup_dpb_all() {
 function help() {
     echo "Subcommands:"
     echo "  docker"
+    echo "  barb_docker"
     echo "  pyenv"
     echo "  barb_local"
-    echo "  barb_docker"
     echo "  qcducks_local"
+    echo "  dpb"
 }
 
 command=$1
