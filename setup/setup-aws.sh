@@ -109,10 +109,6 @@ function barb_local() {
     (cd $HOME/code/barb && venv/bin/pip install -r requirements.txt)
 }
 
-##################################################
-# Barb docker setup
-##################################################
-
 function barb_docker() {
     if [ "$GEMFURY_USERNAME" = "" ]; then
       echo "must have GEMFURY_USERNAME set"
@@ -121,7 +117,7 @@ function barb_docker() {
 
     barb_checkout
     (cd $HOME/code/barb && make build)
-    (cd $HOME/code/barb && make dbrestore)
+    (cd $HOME/code/barb && make dbsync)
 }
 
 ##################################################
