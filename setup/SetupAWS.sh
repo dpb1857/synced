@@ -1,9 +1,3 @@
-
-#      * Create a VM:
-#   -> Config settings;
-#      * Use template: don-halo-dev
-#   -> OR vmware instance;
-
 #!/bin/bash
 #
 ##################################################
