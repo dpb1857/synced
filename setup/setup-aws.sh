@@ -32,39 +32,18 @@ function init() {
 # SYSTEM: generic user local python setup
 ##################################################
 
-function pyenv() {
+function setup_pyenv() {
     # install pyenv
     git clone https://github.com/pyenv/pyenv.git ~/.pyenv
     echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
     echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
     echo 'eval "$(pyenv init -)"' >> ~/.bashrc
     (cd ~/.pyenv && src/configure && make -C src)
-    . .bashrc
 
     # install versions 3.6.8, 3.10.7
     # pyenv install 3.6.8 # 3.6.8 pyenv install fails!
+    export PATH="$PYENV_ROOT/bin:$PATH"
     pyenv install 3.10.7
-}
-
-##################################################
-# SYSTEM: don customizations (as ${USER})
-##################################################
-
-function dpb() {
-    git clone git@github.com:dpb1857/synced
-    if [ $? -ne 0 ]; then
-      echo "You probably forgot to do 'ssh -A'"
-      sleep 10
-      exit 1
-    fi
-
-    ./synced/setup/02-LinkDotFilesSynth.sh
-    . .bashrc
-
-    git config --global user.email "don.bennett@synhtego.com"
-    git config --global user.name "Don Bennett"
-
-    sudo apt-get install -y emacs
 }
 
 ##################################################
@@ -74,14 +53,18 @@ function dpb() {
 function barb_local() {
     if [ "$GEMFURY_USERNAME" = "" ]; then
       echo "must have GEMFURY_USERNAME set"
-      sleep 10
       exit 1
+    fi
+    if ! command -v pyenv >/dev/null; then
+       echo "pyenv not found; re-source .bashrc?"
+       exit 1
     fi
 
     git clone git@github.com:Synthego/barb.git code/barb
     (cd $HOME/code/barb && pyenv local 3.10.7)
     (cd $HOME/code/barb && python -m venv venv)
     (cd $HOME/code/barb && venv/bin/pip install --upgrade pip)
+    (cd $HOME/code/qcducks && venv/bin/pip install wheel)
 
     # Support for modules in python requirements
     sudo apt-get install -y libcurl4-openssl-dev libldap-dev libsasl2-dev
@@ -96,8 +79,11 @@ function barb_local() {
 function qcducks_local() {
     if [ "$GEMFURY_USERNAME" = "" ]; then
       echo "must have GEMFURY_USERNAME set"
-      sleep 10
       exit 1
+    fi
+    if ! command -v pyenv >/dev/null; then
+       echo "pyenv not found; re-source .bashrc?"
+       exit 1
     fi
 
     git clone git@github.com:Synthego/qcducks.git code/qcducks
@@ -112,6 +98,26 @@ function qcducks_local() {
     sudo apt-get install -y pkgconf libpq-dev libcurl4-openssl-dev
 
     (cd $HOME/code/qcducks && venv/bin/pip install -r requirements.txt)
+}
+
+##################################################
+# SYSTEM: don customizations (as ${USER})
+##################################################
+
+function dpb() {
+    git clone git@github.com:dpb1857/synced
+    if [ $? -ne 0 ]; then
+      echo "You probably forgot to do 'ssh -A'"
+      exit 1
+    fi
+
+    ./synced/setup/02-LinkDotFilesSynth.sh
+    . .bashrc
+
+    git config --global user.email "don.bennett@synhtego.com"
+    git config --global user.name "Don Bennett"
+
+    sudo apt-get install -y emacs
 }
 
 function help() {
@@ -129,7 +135,7 @@ case $command in
         init $user
         ;;
     pyenv)
-        pyenv
+        setup_pyenv
         ;;
     dpb) dpb
         ;;
