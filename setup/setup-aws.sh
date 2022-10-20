@@ -82,7 +82,7 @@ function setup_pyenv() {
 function barb_checkout() {
     if [ -d code/barb ]; then
         echo "barb already checked out"
-        return
+        exit 1
     fi
     git clone git@github.com:Synthego/barb.git code/barb
 }
