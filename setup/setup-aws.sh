@@ -41,7 +41,7 @@ function setup_docker() {
       $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     # Update and install
     sudo apt-get update
-    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 }
 
 ##################################################
@@ -83,7 +83,7 @@ function barb_local() {
     (cd $HOME/code/barb && venv/bin/pip install wheel)
 
     # Support for modules in python requirements
-    sudo apt-get install -y libcurl4-openssl-dev libldap-dev libsasl2-dev
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y libcurl4-openssl-dev libldap-dev libsasl2-dev
 
     (cd $HOME/code/barb && venv/bin/pip install -r requirements.txt)
 }
@@ -111,7 +111,7 @@ function qcducks_local() {
 
     # Support for modules in python requirements
     # sudo apt-get install libcurl4-openssl-dev libldap-dev libsasl2-dev
-    sudo apt-get install -y pkgconf libpq-dev libcurl4-openssl-dev
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y pkgconf libpq-dev libcurl4-openssl-dev
 
     (cd $HOME/code/qcducks && venv/bin/pip install -r requirements.txt)
 }
@@ -133,7 +133,7 @@ function setup_dpb() {
     git config --global user.email "don.bennett@synhtego.com"
     git config --global user.name "Don Bennett"
 
-    sudo apt-get install -y emacs
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y emacs
 }
 
 function setup_dpb_all() {
