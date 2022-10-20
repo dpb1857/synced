@@ -42,7 +42,7 @@ function setup_pyenv() {
 
     # install versions 3.6.8, 3.10.7
     # pyenv install 3.6.8 # 3.6.8 pyenv install fails!
-    export PATH="$PYENV_ROOT/bin:$PATH"
+    export PATH="$HOME/.pyenv/bin:$PATH"
     pyenv install 3.10.7
 }
 
