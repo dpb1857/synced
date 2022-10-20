@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 ##################################################
-# SYSTEM:
+# Base packages, dev user setup
 ##################################################
 
 function init() {
@@ -9,10 +9,6 @@ function init() {
     apt-get update
     apt-get upgrade -y
     apt-get install -y make mg postgresql-client jq nfs-common
-
-    ##################################################
-    # SYSTEM: generic user setup (as root)
-    ##################################################
 
     adduser ${USER}
     adduser ${USER} sudo
@@ -29,7 +25,24 @@ function init() {
 }
 
 ##################################################
-# SYSTEM: generic user local python setup
+# Docker setup
+##################################################
+
+function setup_docker() {
+    # from https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
+    # Add official GPG key
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    # Setup repository
+    echo \
+      "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+      $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    # Update and install
+    sudo apt-get update
+    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+}
+
+##################################################
+# Pyenv for user
 ##################################################
 
 function setup_pyenv() {
@@ -101,10 +114,10 @@ function qcducks_local() {
 }
 
 ##################################################
-# SYSTEM: don customizations (as ${USER})
+# Special: don customizations
 ##################################################
 
-function dpb() {
+function setup_dpb() {
     git clone git@github.com:dpb1857/synced
     if [ $? -ne 0 ]; then
       echo "You probably forgot to do 'ssh -A'"
@@ -123,6 +136,7 @@ function dpb() {
 function help() {
     echo "Subcommands:"
     echo "  init <user>"
+    echo "  docker"
     echo "  pyenv"
     echo "  barb_local"
     echo "  qcducks_local"
@@ -134,10 +148,11 @@ case $command in
     init) user=$1
         init $user
         ;;
-    pyenv)
-        setup_pyenv
+    docker) setup_docker
         ;;
-    dpb) dpb
+    pyenv) setup_pyenv
+        ;;
+    dpb) setup_dpb
         ;;
     barb_local) barb_local
         ;;
