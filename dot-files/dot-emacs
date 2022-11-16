@@ -173,8 +173,7 @@
  ;; If there is more than one, they won't work right.
  '(inhibit-startup-screen t)
  '(org-agenda-custom-commands
-   (quote
-    (("d" todo "DELEGATED" nil)
+   '(("d" todo "DELEGATED" nil)
      ("c" todo "DONE|DEFERRED|CANCELLED" nil)
      ("w" todo "WAITING" nil)
      ("W" agenda ""
@@ -182,21 +181,15 @@
      ("A" agenda ""
       ((org-agenda-skip-function
         (lambda nil
-          (org-agenda-skip-entry-if
-           (quote notregexp)
-           "\\=.*\\[#A\\]")))
+          (org-agenda-skip-entry-if 'notregexp "\\=.*\\[#A\\]")))
        (org-agenda-ndays 1)
        (org-agenda-overriding-header "Today's Priority #A tasks: ")))
      ("u" alltodo ""
       ((org-agenda-skip-function
         (lambda nil
-          (org-agenda-skip-entry-if
-           (quote scheduled)
-           (quote deadline)
-           (quote regexp)
-           "<[^>
+          (org-agenda-skip-entry-if 'scheduled 'deadline 'regexp "<[^>
 ]+>")))
-       (org-agenda-overriding-header "Unscheduled TODO entries: "))))))
+       (org-agenda-overriding-header "Unscheduled TODO entries: ")))))
  '(org-agenda-ndays 7)
  '(org-agenda-show-all-dates t)
  '(org-agenda-skip-deadline-if-done t)
@@ -204,20 +197,18 @@
  '(org-agenda-start-on-weekday nil)
  '(org-deadline-warning-days 14)
  '(org-default-notes-file "~/org/notes.org")
- '(org-fast-tag-selection-single-key (quote expert))
+ '(org-fast-tag-selection-single-key 'expert)
  '(org-remember-store-without-prompt t)
  '(org-remember-templates
-   (quote
-    ((116 "* TODO %?
+   '((116 "* TODO %?
   %u" "~/org/todo.org" "Tasks")
-     (110 "* %u %?" "~/org/notes.org" "Notes"))))
+     (110 "* %u %?" "~/org/notes.org" "Notes")))
  '(org-reverse-note-order t)
  '(package-selected-packages
-   (quote
-    (which-key vagrant-tramp markdown-mode browse-kill-ring ace-jump-mode sublimity smooth-scrolling scala-mode2 magit cider clojure-mode go-mode)))
- '(remember-annotation-functions (quote (org-remember-annotation)))
- '(remember-handler-functions (quote (org-remember-handler)))
- '(safe-local-variable-values (quote ((py-indent-offset . 4))))
+   '(which-key vagrant-tramp markdown-mode browse-kill-ring ace-jump-mode sublimity smooth-scrolling scala-mode2 magit cider clojure-mode go-mode))
+ '(remember-annotation-functions '(org-remember-annotation))
+ '(remember-handler-functions '(org-remember-handler))
+ '(safe-local-variable-values '((py-indent-offset . 4)))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 
@@ -233,3 +224,9 @@
      ;; Your init file should contain only one such instance.
      ;; If there is more than one, they won't work right.
      '(default ((t (:family "DejaVu Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 79 :width normal))))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 90 :width normal)))))

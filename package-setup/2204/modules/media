@@ -2,12 +2,11 @@
 ubuntu-restricted-extras
 digikam
 exfat-fuse
-exfat-utils
 gimp
 gimp-help-en
 gscan2pdf
 # Pano stitcher
-hugin
+# hugin
 imagemagick
 kipi-plugins
 showfoto
@@ -28,7 +27,7 @@ audacity
 vlc
 
 # Movie editor
-openshot
+openshot-qt
 x264
 ripperx
 youtube-dl

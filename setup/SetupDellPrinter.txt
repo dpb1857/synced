@@ -18,7 +18,7 @@ If you try to debug filter problems, look for "xrhkazmf" in the the
 /var/log/cups/error_log file.
 
 
-20.04 extras:
+20.04 extras: (also required for 22.04)
   lib32stdc++6
   lib32z1
 

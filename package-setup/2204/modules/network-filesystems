@@ -1,5 +1,5 @@
 
 sshfs
-curlftpfs
-autofs
+# curlftpfs
+# autofs
 nfs-common

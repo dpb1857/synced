@@ -11,8 +11,8 @@ jq
 # subversion
 # mercurial
 
-sqlite3
-sqlite3-doc
+# sqlite3
+# sqlite3-doc
 
 # mongodb-clients
 # bash-doc
