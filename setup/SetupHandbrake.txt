@@ -2,3 +2,15 @@ https://askubuntu.com/questions/1013292/cant-play-dvds-through-either-vlc-videos
 
 apt install libdvdcss2
 dpkg-reconfigure libdvd-pkg
+
+
+If activated, the APT post-invoke hook takes care of future automatic upgrades   │
+ │ of libdvdcss2 (which may be triggered by new versions of libdvd-pkg). When       │
+ │ updates are available, the hook will launch the process of downloading the       │
+ │ source, recompiling it, and (if "apt-get check" reports no errors) using "dpkg   │
+ │ -i" to install the new versions.                                                 │
+ │                                                                                  │
+ │ Alternatively, the process can be launched manually by running "sudo             │
+ │ dpkg-reconfigure libdvd-pkg".                                                    │
+ │                                                                                  │
+ │ Enable automatic upgrades for libdvdcss2?

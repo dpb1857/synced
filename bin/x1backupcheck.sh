@@ -6,7 +6,18 @@ EXCLUDES="--exclude=.mypy_cache/ --exclude=.pytest_cache/ --exclude=__pycache__"
 
 function check_backup() {
     NAME=$1
-    rsync -av -n ${EXCLUDES} --delete-after --delete-excluded /space/$NAME/ $BASE/$NAME/current | sed '1d' | head -n -3 | grep -v '/$'
+    for dir in /mnt /mnt/space; do
+        if [ -d $dir/$NAME ]; then
+            SRCDIR=$dir
+        fi
+    done
+
+    if [ "$SRCDIR" = "" ]; then
+        echo "Cannot find backup target $NAME" 1>&2
+        exit 1
+    fi
+
+    rsync -av -n ${EXCLUDES} --delete-after --delete-excluded $SRCDIR/$NAME/ $BASE/$NAME/current | sed '1d' | head -n -3 | grep -v '/$'
 }
 
 if [ ! -d $BASE ]; then
