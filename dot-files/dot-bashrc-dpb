@@ -77,7 +77,7 @@ function enc() {
     if [ ! -d $HOME/enc ]; then
         mkdir $HOME/enc
     fi
-    sudo mount -t ecryptfs $HOME/synced/enc $HOME/enc
+    sudo mount -t ecryptfs -o key=passphrase $HOME/synced/enc $HOME/enc
     chmod 700 $HOME/enc
 }
 
@@ -91,7 +91,7 @@ function encdocs() {
         mkdir $HOME/encdocs
     fi
     DOCS_DIR="$HOME/Dropbox/Documents/EncDocs"
-    sudo mount -t ecryptfs $DOCS_DIR $HOME/encdocs
+    sudo mount -t ecryptfs -o key=passphrase $DOCS_DIR $HOME/encdocs
     chmod 700 $HOME/encdocs
 }
 
@@ -105,7 +105,7 @@ function encjobs() {
         mkdir $HOME/jobsenc
     fi
     JOBS_DIR="$HOME/Dropbox/Jobs/enc"
-    sudo mount -t ecryptfs $JOBS_DIR $HOME/jobsenc
+    sudo mount -t ecryptfs -o key=passphrase $JOBS_DIR $HOME/jobsenc
     chmod 700 $HOME/jobsenc
 }
 
@@ -135,7 +135,7 @@ function gnucashfs() {
     if [ "$MEDIA_DIR" == "" ]; then
         echo "Could not locate gnucash directory." 1>&2
     else
-        sudo mount -t ecryptfs $MEDIA_DIR $HOME/gnucash
+        sudo mount -t ecryptfs -o key=passphrase $MEDIA_DIR $HOME/gnucash
     fi
 }
 
@@ -153,14 +153,14 @@ function finance() {
         mkdir $HOME/finance
     fi
     echo "Mounting finance dir read-only"
-    sudo mount -t ecryptfs -r $HOME/Dropbox/Finance $HOME/finance
+    sudo mount -t ecryptfs -o key=passphrase -r $HOME/Dropbox/Finance $HOME/finance
 }
 
 function finance-rw() {
     if [ ! -d $HOME/finance ]; then
         mkdir $HOME/finance
     fi
-    sudo mount -t ecryptfs $HOME/Dropbox/Finance $HOME/finance
+    sudo mount -t ecryptfs -o key=passphrase $HOME/Dropbox/Finance $HOME/finance
 }
 
 function unfinance() {
