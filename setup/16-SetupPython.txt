@@ -4,6 +4,14 @@
 # In particular, we want to install pylint so we can
 # lint our python code in emacs;
 
+*******************
+*** NEW: use pyenv
+*** see setup bin/aws-setup.sh:subsystem_pyenv()
+***
+*******************
+
+
+
 cd /opt
 virtualenv -p /usr/bin/python3 python3
 python3/bin/pip install ipython
