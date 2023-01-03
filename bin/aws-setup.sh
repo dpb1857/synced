@@ -124,6 +124,10 @@ function subsystem_pyenv() {
         libsqlite3-dev libgdbm-dev \
         libncurses-dev libreadline-dev uuid-dev libffi-dev libssl-dev
 
+    # To be able to build the tkinter module
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install -y \
+        tk-dev
+
     # install pyenv
     git clone https://github.com/pyenv/pyenv.git ~/.pyenv
     echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
