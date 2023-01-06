@@ -8,9 +8,11 @@
 *** NEW: use pyenv
 *** see setup bin/aws-setup.sh:subsystem_pyenv()
 ***
+*** Packages to install into base:
+***   matplotlib
+***   mypy
+***   pylint
 *******************
-
-
 
 cd /opt
 virtualenv -p /usr/bin/python3 python3
