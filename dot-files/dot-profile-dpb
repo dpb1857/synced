@@ -12,7 +12,7 @@ done
 
 # Allow /opt to override default path;
 newpath=""
-for dir in /opt/go /opt/hugo /opt/python3 /opt/python2 /opt/zoom /opt/protobuf; do
+for dir in /usr/local/go /opt/zoom; do
     if [ -d $dir/bin ]; then
         newpath="$newpath $dir/bin"
     elif [ -d $dir ]; then

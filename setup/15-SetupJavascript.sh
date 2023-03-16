@@ -1,4 +1,10 @@
 
+apt-get install npm
+sudo npm install shadow-cljs
+
+
+##################################################
+
 # Look here
 # https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
 
