@@ -1,13 +1,8 @@
 
-download from google.com/chrome, install the deb package.
+Install from chrome ppa;
 
 Login to chrome/chromium; (use dpb1857 gmail login) $<leadingcap,planetary><2digUltAns>
 
 Login to pinboard; (dpb:<planetary>pinboard)
 login to evernote; (dpb@donbennett.org)
 login to pocket; (getpocket.com - login with email dpb1857)
-
-Set chrome as default browser;
-
--> need to go into SystemSettings/Preferences/PreferredApplications to set it.
-TODO still?
