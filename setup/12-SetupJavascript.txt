@@ -1,16 +1,13 @@
 
-apt-get install npm
-sudo npm install shadow-cljs
-
+# sudo npm install shadow-cljs
 
 ##################################################
 
 # Look here
 # https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
 
-# Install nodejs
-curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-sudo apt-get install -y nodejs npm
+# https://github.com/nodejs/snap
+sudo snap install node --classic  # --channel=18 ; without channel, uses stable
 
 # Install Emacs linters
 ### http://codewinds.com/blog/2015-04-02-emacs-flycheck-eslint-jsx.html

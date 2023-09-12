@@ -9,13 +9,19 @@ Install, instructions from: https://www.dropbox.com/install-linux
 2) Run the Dropbox daemon from the newly created .dropbox-dist folder
    ~/.dropbox-dist/dropboxd
 
-   --> This prompts you to login to your dropbox account;
+   --> This prompts you to login to your dropbox account in a web page;
 
 3) Download dropbox.py, from link on instructions page, copy to /usr/local/bin/dropbox;
    look here: https://help.dropbox.com/installs-integrations/desktop/linux-commands,
    under "What linux commands are available..."
 
-3b) use "dropbox exclude add ..." to exclude directories from sync;
+3b) Use the GUI to exclude any directories that need it;
+    the command line
+      "dropbox exclude add ..." to exclude directories from sync;
+    doesn't seem to exlude them.
+    However,
+       dropbox exclude list
+    will show them.
 
 4) To start dropbox:
      dropbox start -i

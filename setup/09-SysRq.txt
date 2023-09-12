@@ -1,4 +1,0 @@
-Edit /etc/sysctl.d/10-magic-sysrq.conf,
-
-set to 1 to enable alt-sysrq-k to kill the x server and processes running 
-in that virtual console;

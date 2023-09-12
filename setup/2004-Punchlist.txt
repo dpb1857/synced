@@ -1,2 +1,0 @@
-Clojure: Fix Clojure; nrepl server doesn't work!
-* Acronis recovery boot image

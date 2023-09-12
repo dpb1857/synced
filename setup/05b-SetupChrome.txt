@@ -1,5 +1,7 @@
 
 Install from chrome ppa;
+See: ubuntuupdates.org/ppa/google_chrome
+
 
 Login to chrome/chromium; (use dpb1857 gmail login) $<leadingcap,planetary><2digUltAns>
 

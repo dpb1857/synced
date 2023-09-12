@@ -10,20 +10,27 @@ https://www.support.xerox.com/en-gb/product/phaser-6000/downloads?language=en_GB
 
 [ I have it in Downloads/DellC1760nw/xerox-phaser-6000-6010_1.0-1_i386.deb ]
 
-I had to download some additional stuff by hand from packages.ubuntu.com; for 16.10:
+16.10 extras: I had to download some additional stuff by hand from packages.ubuntu.com;
 
   lib32stdc++6
   lib32gcc1
   libc6-i386
 
-If you try to debug filter problems, look for "xrhkazmf" in the the
-/var/log/cups/error_log file.
+  If you try to debug filter problems, look for "xrhkazmf" in the the
+  /var/log/cups/error_log file.
 
 
-20.04 extras: (also required for 22.04)
-these can be installed using apt.
+20.04, 22.04 extras:
+  these can be installed using apt.
 
   lib32stdc++6
   lib32z1
 
+
+Then:
+
   sudo service cups restart
+
+Add the printer in the printers dialog:
+  Add-> NetworkPrinter -> Dell C1760nw
+  type: xerox phaser 6000B

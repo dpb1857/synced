@@ -1,0 +1,18 @@
+Edit /etc/sysctl.d/10-magic-sysrq.conf,
+
+set to 1 to enable alt-sysrq-k to kill the x server and processes running
+in that virtual console;
+
+On thinkpad carbon x1 machines, commands are Alt-PrtSc-<KEY>
+Useful keys: (wikipedia Magic Syrq key)
+ b : reboot immediately
+ k : kill all processes in current virtual console
+ o : poweroff
+
+
+---------------------------------
+
+Virtual Consoles -
+
+To switch, use: c-m-FN<N>; so to switch to virtual console #1, the graphical login screen:
+  fn-c-m-1  (fn to access the function keys on the top row)

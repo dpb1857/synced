@@ -1,0 +1,68 @@
+
+# alias ssh-sh='ssh pie.simplyhired.com -l don -p 420 -L 32032:dbennett-dt:22'
+# alias quixeyvpn='(cd $HOME/ncLinuxApp && ./ncsvc -u dbennett -h qvpn.quixey.net -f quixey.net.der -r NC_Users)'
+
+function vc() {
+    if [ ! -d /mnt/vc ]; then
+        sudo mkdir /mnt/vc
+    fi
+    device=`sudo losetup -f /mnt/space/vc/data --show`
+    sudo cryptsetup luksOpen $device vc
+    sudo mount /dev/mapper/vc /mnt/vc
+    echo $device > /tmp/vcloop
+}
+
+function unvc() {
+    sudo umount /mnt/vc
+    sudo rmdir /mnt/vc
+    sudo cryptsetup luksClose vc
+    if [ -f /tmp/vcloop ]; then
+        sudo losetup -d `cat /tmp/vcloop`
+        rm -f /tmp/vcloop
+    fi
+}
+
+function stuff() {
+    if [ ! -d /mnt/stuff ]; then
+        sudo mkdir /mnt/stuff
+    fi
+    device=`sudo losetup -f $HOME/Dropbox/stuff --show`
+    sudo cryptsetup luksOpen $device stuff
+    sudo mount /dev/mapper/stuff /mnt/stuff
+    echo $device > /tmp/stuffloop
+}
+
+function unstuff() {
+    sudo umount /mnt/stuff
+    sudo rmdir /mnt/stuff
+    sudo cryptsetup luksClose stuff
+    if [ -f /tmp/stuffloop ]; then
+        sudo losetup -d `cat /tmp/stuffloop`
+        rm -f /tmp/stuffloop
+    fi
+}
+
+# function unphotos() {
+#     killall digikam
+#     killall kio_digikamalbums
+#     killall kio_digikamdates
+#     sleep 3
+#     umount /media/Photos
+#     umount /media/Video
+#     umount /media/Audio
+#     umount /media/FAT32
+# }
+
+# function digikam-local() {
+#     rm -f ~/.kde/share/config/digikamrc
+#     rm -f ~/.kde/share/config/kipirc
+#     ln -s ~/digikam/digikamrc ~/.kde/share/config/digikamrc
+#     ln -s ~/digikam/kipirc ~/.kde/share/config/kipirc
+# }
+
+# function digikam-ext() {
+#     rm ~/.kde/share/config/digikamrc
+#     rm ~/.kde/share/config/kipirc
+#     ln -s /media/Photos/digikam/dot-kde-share-config-digikamrc ~/.kde/share/config/digikamrc
+#     ln -s /media/Photos/digikam/dot-kde-share-config-kipirc ~/.kde/share/config/kipirc
+# }

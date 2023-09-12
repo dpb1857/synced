@@ -52,8 +52,9 @@
 
 ;; devtools
 
-(require 'dpb-docker)
-(require 'dpb-docker-tramp)
+;; Docker tries to pull in tablist pagkage which can't be found; :-(
+;; (require 'dpb-docker)
+;; (require 'dpb-docker-tramp)
 (require 'dpb-neotree)
 (require 'vi-paren-matching)
 (show-paren-mode t)
