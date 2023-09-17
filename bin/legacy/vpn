@@ -1,0 +1,49 @@
+#!/bin/sh
+
+cayenne="209.131.56.39"
+habanero="209.131.56.40"
+therock="209.131.45.68"
+lares="209.131.48.40"
+ftp="209.131.63.211"
+ultraqa7="209.131.45.70"
+ultraqa9="209.131.45.81"
+internal="209.131.48.41"
+redhat52="209.131.45.82"
+inkdev="209.131.48.71"
+gandalf="209.131.48.161"
+theheights="209.131.45.69"
+lakota="209.131.48.41"
+bugzilla="209.131.55.115"
+mm="209.131.48.44"
+
+exec ssh -g	\
+	-L 10023:$cayenne:23 \
+	-L 10080:$cayenne:80 \
+	-L 10443:$cayenne:443 \
+	-L 10200:$cayenne:8200 \
+	-L 10765:$cayenne:8765 \
+	-L 10880:$cayenne:8080 \
+	-L 11023:$therock:23 \
+	-L 11080:$therock:80 \
+	-L 11100:$therock:10000 \
+	-L 11200:$therock:8200 \
+	-L 12023:$ftp:23 \
+	-L 13023:$ultraqa9:23 \
+	-L 13200:$ultraqa9:8200 \
+	-L 14023:$habanero:23 \
+	-L 14200:$habanero:8200 \
+	-L 15080:$internal:80 \
+	-L 16023:$redhat52:23 \
+	-L 16200:$redhat52:8200 \
+	-L 17080:$inkdev:80 \
+	-L 18080:$gandalf:80 \
+	-L 19023:$theheights:23 \
+	-L 19080:$theheights:80 \
+	-L 19200:$theheights:8200 \
+	-L 20765:$lakota:8765 \
+	-L 21080:$bugzilla:80 \
+	-L 21443:$bugzilla:443 \
+	-L 22023:$ultraqa7:23 \
+	-L 22500:$ultraqa7:8500 \
+	-L 23080:$mm:80 \
+	$lares
