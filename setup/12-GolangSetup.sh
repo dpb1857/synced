@@ -1,17 +1,14 @@
 #!/bin/sh
 
-VERSION=1.21.1
+# Install using snap;
+snap install go --classic
 
-cd /tmp
-curl https://storage.googleapis.com/golang/go${VERSION}.linux-amd64.tar.gz > golang.tar.gz
-cd /usr/local && sudo tar xzf /tmp/golang.tar.gz
+# https://askubuntu.com/questions/1400653/how-to-install-specific-version-of-go-in-ubuntu-using-snap# Or install a specific version;
+# snap info go
+# snap install go ==channel=1.16/stable --classic
 
-if [ ! -d $GOPATH ]; then
-    echo "Making directory $GOPATH"
-    mkdir $GOPATH
-fi
-
-export PATH="/usr/local/go/bin:$PATH"
+# Or upgrade / downgrade:
+# snap refresh go --channel=1.16/stable --classic
 
 # Build/install gorun;
 # go get -u github.com/erning/gorun
