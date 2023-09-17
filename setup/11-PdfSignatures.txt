@@ -1,0 +1,9 @@
+
+'xournal' is the program (same package name) to sign pdf files; it should already be pulled in.
+
+To sign a pdf:
+  Tools -> Image
+  Select ~/Documents/Signature/signature<N>.png
+
+To Actually place and resize the image, you must use the trackpad buttons,
+*not* the ones just below the spacebar. (!!)

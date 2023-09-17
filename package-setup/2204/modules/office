@@ -12,7 +12,14 @@
 # lyx
 # pdfjam
 # pdfposter
+
 # pdftk - where did it go???
 # https://askubuntu.com/questions/1028522/how-can-i-install-pdftk-in-ubuntu-18-04-bionic
+
+# Use this to sign pdf files:
+# https://www.xmodulo.com/add-signature-pdf-document-linux.html
+# Add the image file ~/Documents/Signature/signature<N>.png
+xournal
+
 # Open source desktop publishing
 # scribus
