@@ -15,3 +15,6 @@ If activated, the APT post-invoke hook takes care of future automatic upgrades  
  │ dpkg-reconfigure libdvd-pkg".                                                    │
  │                                                                                  │
  │ Enable automatic upgrades for libdvdcss2?
+
+
+2) While you're at it, change the default app for video to be vlc; "Prefered Applications"
