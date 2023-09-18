@@ -1,0 +1,3 @@
+
+/var/cache/apt/archives/
+~/.cache/go-build
