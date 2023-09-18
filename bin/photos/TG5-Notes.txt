@@ -1,0 +1,4 @@
+Convert ORF files to jpg:
+dcraw -c -w <file>.ORF | convert -quality 98 - <file>.jpg
+
+or use Digikam / Darktable / Olympus software on windows to get better jpgs;
