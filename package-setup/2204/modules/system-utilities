@@ -2,6 +2,7 @@
 # cpulimit
 # cpufreq-set
 curl
+httpie
 dconf-editor
 filelight
 gparted
