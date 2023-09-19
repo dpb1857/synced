@@ -249,7 +249,7 @@ function subsystem_desktop() {
     # Disable lightdm, install nx (from nomachine)
     sudo systemctl stop lightdm
     sudo systemctl disable lightdm
-    file=nomachine_8.1.2_1_amd64.deb
+    file=nomachine_8.8.1_1_amd64.deb
     (cd /tmp && wget https://download.nomachine.com/download/8.1/Linux/$file)
     sudo dpkg -i /tmp/$file
 
