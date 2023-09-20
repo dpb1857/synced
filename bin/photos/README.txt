@@ -32,7 +32,7 @@ This would be a good time to backup the laptop.
    to fix timestamps on jpg files we may have tweaked in digikam; (rotation, stars, etc.)
 
 8) Push the "developed" photos to the photos drive;
-   rsync gx7-2018-1120-1124-121-0144-0451 /media/dpb/PhotoArchive/archive
+   rsync -av gx7-2018-1120-1124-121-0144-0451 /media/dpb/PhotoArchive/archive
 
 9) run Push.sh to execute PushToSmugmug.sh and PushToPreview.sh to "publish" photos;
 

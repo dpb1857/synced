@@ -34,7 +34,7 @@ def name_gx7_folder():
     ctime_list = [info.statbuf.st_mtime for info in photo_info]
     dt_start = datetime.datetime.fromtimestamp(min(ctime_list))
     dt_end = datetime.datetime.fromtimestamp(max(ctime_list))
-    filenames = list(sorted(info.src for info in photo_info))
+    filenames = list(sorted(info.src for info in photo_info if info.src.find("._")==-1))
 
     year = dt_start.year
 
