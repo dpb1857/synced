@@ -1,0 +1,7 @@
+
+https://askubuntu.com/questions/43020/decrease-grub-timeout
+
+Edit /etc/default/grub,
+change GRUB_TIMEOUT to something smaller; (default 10)
+
+Run 'update-grub' to update grub.cfg.
