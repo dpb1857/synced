@@ -25,3 +25,18 @@ Install, instructions from: https://www.dropbox.com/install-linux
 
 4) To start dropbox:
      dropbox start -i
+
+
+--------------------------------------------------
+
+Extra fstab entries to support:
+* nfs mount of photos directory;
+* rbind links to map things into my home directory -
+
+# Rather than symlinks...
+/mnt/space/Dropbox		/home/dpb/Dropbox	none defaults,rbind,nofail
+/mnt/space/Dropbox/Documents	/home/dpb/Documents	none defaults,rbind,nofail
+/mnt/space/Dropbox/Notes	/home/dpb/Notes		none defaults,rbind,nofail
+/tmp				/home/dpb/Downloads	none defaults,rbind,nofail
+
+nas-gen4:/Photos /mnt/Photos nfs rsize=8912,wsize=8912,timeo=5,bg,intr,soft 0 0
