@@ -14,5 +14,7 @@ ALSO:
   * Network booting is disabled;
   * USB is always off
 
+  * GEN 6 => BIOS Power Sleep setting to suport linx;
+
 TODO:
   add a sudo to the shortcut command, tweak sudoers to allow this command without password;
