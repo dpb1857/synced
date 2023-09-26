@@ -9,5 +9,10 @@ TLDR:
   GRUB_CMDLINE_LINUX_DEFAULT= ... resume=UUID=<UUID OF SWAP PARTITION>"
 * Added keyboard shortcut c-s-H to run systemctl hibernate
 
+ALSO:
+  To save power, changes the BIOS so -
+  * Network booting is disabled;
+  * USB is always off
+
 TODO:
   add a sudo to the shortcut command, tweak sudoers to allow this command without password;
