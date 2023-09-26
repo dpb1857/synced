@@ -1,0 +1,13 @@
+
+See https://ubuntuhandbook.org/index.php/2021/08/enable-hibernate-ubuntu-21-10/
+for instructions on enabling hibernate.
+
+TLDR:
+* Test via systemctl hibernate
+* Make sure swap partition is big enough;
+* edit /etc/default/grub to add a kernel parameter:
+  GRUB_CMDLINE_LINUX_DEFAULT= ... resume=UUID=<UUID OF SWAP PARTITION>"
+* Added keyboard shortcut c-s-H to run systemctl hibernate
+
+TODO:
+  add a sudo to the shortcut command, tweak sudoers to allow this command without password;
