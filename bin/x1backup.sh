@@ -6,6 +6,7 @@ EXCLUDES="--exclude=.mypy_cache/ --exclude=.pytest_cache/ --exclude=__pycache__"
 
 function do_backup() {
     NAME=$1
+    SRCDIR="" # XXX ?? necessary? or magic for declaring a local?
     for dir in /mnt /mnt/space; do
         if [ -d $dir/$NAME ]; then
             SRCDIR=$dir
@@ -13,8 +14,8 @@ function do_backup() {
     done
 
     if [ "$SRCDIR" = "" ]; then
-        echo "Cannot find backup target $NAME" 1>&2
-        exit 1
+        echo "Cannot find backup target ${NAME}; skipping" 1>&2
+        return
     fi
 
     echo $NAME located in $SRCDIR/$NAME
