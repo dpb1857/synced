@@ -3,19 +3,27 @@ Now in 20.04:
 
 ## Install docker
 
-Follow instructions at:
-  https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
-to add the repo and install the packages.
+APT:
 
-Copy/link /var/lib/docker to /mnt/docker.
+    Follow instructions at:
+      https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
+    to add the repo and install the packages.
 
-## Install docker-compose;
-apt install docker-compose
+    Copy/link /var/lib/docker to /mnt/docker.
 
-## Add dpb to the docker group;
-adduser dpb docker
+    ## Install docker-compose;
+    apt install docker-compose
+
+    ## Add dpb to the docker group;
+    adduser dpb docker
+
+SNAP:
+    snap install docker
+    data stored in /var/snap/docker
 
 --------------------------------------------------
 22.04
 
 ln -s /mnt/docker /var/lib/docker
+
+--------------------------------------------------
