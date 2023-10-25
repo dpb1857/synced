@@ -30,3 +30,8 @@ snap install go --classic
 
 # hugo - from http://gohugo.io/installation/linux; install from source
 CGO_ENABLED=1 go install -tags extended github.com/gohugoio/hugo@latest
+
+# Install GoLand;
+Install package lives in: Dropbox/SavedDownloads/goland-yyyy.<ver>.tar.gz
+
+sudo -c /opt tar xvzf Goland-xxxx.tar.gz
