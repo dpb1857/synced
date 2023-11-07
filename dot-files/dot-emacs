@@ -5,6 +5,19 @@
 ;; Last-Edit: Wed May 14 23:11:28 2008 by Don Bennett <dpb at dpb-laptop>
 ;;
 
+;; TL/DR:
+;;
+;; Minibuffer keyprompts:
+;;     m-x which-key-mode
+;;     turn on completion prompts after prefix characters
+;;
+;; Acejump -
+;;     [C-U] c-<backtick> <key> <selector>
+;;
+;; Indenting -
+;;     m-x iwb (indent whole buffer)
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Path configuration;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
