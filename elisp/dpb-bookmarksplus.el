@@ -1,3 +1,4 @@
+;; Read about Bookmark Plus: https://www.emacswiki.org/emacs/BookmarkPlus
 ;; from comments tetris11 on https://www.emacswiki.org/emacs/BookmarkPlus#h5o-9 ;
 
 (let ((bookmarkplus-dir "~/synced/elisp/bookmark-plus/")

@@ -16,7 +16,11 @@
 ;;
 ;; Indenting -
 ;;     m-x iwb (indent whole buffer)
-
+;;
+;; Bookmarks -
+;;     C-x x m  - bookmark current file
+;;     C-x j j  - jump to bookmark
+;;     C-x r l  - list / edit bookmarks
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Path configuration;
@@ -132,10 +136,6 @@
 ;; (setq sql-postgres-options '("-P" "pager=off" "-p" "32497")
 
 
-(setq-default indent-tabs-mode nil)
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-(setenv "PAGER") ;; for subshells and ipython;
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; browse-kill-ring
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -167,6 +167,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Misc settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(setq-default indent-tabs-mode nil)
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+(setenv "PAGER") ;; for subshells and ipython;
 
 ;; Try to control window splitting;
 (setq split-width-threshold 250)
