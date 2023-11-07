@@ -7,7 +7,10 @@ TLDR:
 * Make sure swap partition is big enough;
 * edit /etc/default/grub to add a kernel parameter:
   GRUB_CMDLINE_LINUX_DEFAULT= ... resume=UUID=<UUID OF SWAP PARTITION>"
-* Added keyboard shortcut c-s-H to run systemctl hibernate
+* run 'update-grub'
+* Added keyboard shortcut c-super-H to run "sudo systemctl hibernate"
+* Add to /etc/sudoers.d/dpb-admin:
+  dpb ALL=(root) NOPASSWD: /usr/bin/systemctl *
 
 ALSO:
   To save power, changes the BIOS so -
@@ -15,6 +18,3 @@ ALSO:
   * USB is always off
 
   * GEN 6 => BIOS Power Sleep setting to suport linx;
-
-TODO:
-  add a sudo to the shortcut command, tweak sudoers to allow this command without password;
