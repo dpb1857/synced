@@ -82,15 +82,16 @@
 
 ;; features
 
+(require 'dpb-acejump)
 (require 'dpb-enable-features)
 (require 'dpb-position-info)
+(require 'dpb-rg) ;; ripgrep
+(require 'dpb-smooth)
 (require 'dpb-truncate-toggle)
 (require 'dpb-verify-exit)
-(require 'dpb-smooth)
-(require 'dpb-acejump)
 (require 'dpb-which-key)
-(require 'iwb) ;; indent-whole-buffer
 
+(require 'iwb) ;; indent-whole-buffer
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Turn Ido mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

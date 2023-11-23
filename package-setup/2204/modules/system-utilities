@@ -13,3 +13,10 @@ sysstat
 traceroute
 # wireshark
 net-tools
+
+# Super fast recursive grep; command is 'rg'
+ripgrep
+# Another grep to checkout;
+ugrep
+# fzf - fuzzy command line picker;
+fzf
