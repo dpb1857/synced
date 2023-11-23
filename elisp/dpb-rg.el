@@ -6,6 +6,7 @@
   (package-install 'rg))
 
 (require 'rg)
+(rg-enable-default-bindings)
 (setq wgrep-auto-save-buffer t)
 
 (provide 'dpb-rg)
