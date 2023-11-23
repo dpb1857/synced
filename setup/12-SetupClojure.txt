@@ -17,3 +17,16 @@ To make sure cider and cider-nrel match -
 
 4) Install boot -
    https://github.com/boot-clj/boot
+
+5) Install babashka -
+   cd /tmp
+   curl -O https://raw.githubusercontent.com/babashka/babashka/master/install
+   chmod +x install
+   sudo ./install
+
+6) Install clj-kondo (for code checking with flycheck)
+   https://github.com/clj-kondo/clj-kondo/blob/master/doc/install.md
+   cd /tmp
+   curl -sLO https://raw.githubusercontent.com/clj-kondo/clj-kondo/master/script/install-clj-kondo
+   chmod +x install-clj-kondo
+   sudo ./install-clj-kondo

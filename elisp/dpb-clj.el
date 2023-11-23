@@ -15,7 +15,14 @@
   (package-refresh-contents)
   (package-install 'paredit))
 
+(unless (package-installed-p 'flycheck-clj-kondo)
+  (package-refresh-contents)
+  (package-install 'flycheck-clj-kondo))
+
 (add-hook 'clojure-mode-hook 'enable-paredit-mode)
+
+(global-set-key "\C-xcj" 'cider-jack-in)
+(global-set-key "\C-xcb" 'cider-connect-cljs)
 
 ;; XXX Doesn't quite work; try again later; also, checkout this package:
 ;; https://github.com/clojure-emacs/squiggly-clojure
@@ -26,5 +33,6 @@
 
 (require 'cider)
 (require 'paredit)
+(require 'flycheck-clj-kondo)
 
 (provide 'dpb-clj)
