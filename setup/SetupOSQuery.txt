@@ -1,0 +1,6 @@
+
+Install osquery, inspect system using sql.
+https://www.osquery.io/
+https://osquery.io/downloads/official/5.10.2
+
+download and install the deb file
