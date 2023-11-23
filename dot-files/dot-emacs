@@ -9,13 +9,42 @@
 ;;
 ;; Minibuffer keyprompts:
 ;;     m-x which-key-mode
-;;     turn on completion prompts after prefix characters
+;;         -> turn on completion prompts after prefix characters
+;;     m-x neotree
+;;         -> file browser in sidebar
+;;     m-x menu-bar-mode
+;;         -> turns on menu bar; useful sometimes with some modes
+;;
+;; Cider -
+;;    c-u c-c cz Switch between repl and clojure buffer
+;;    c-c c-c    Eval defun at point
+;;    c-c c-k    Eval buffer
+;;    c-c c-o    cider-buffer-clear-output; one eval, or prefix c-u to clear all
+;;
+;;    My custom cider connect bindings;
+;;    c-x c j   cider-jack-in
+;;    c-x c b   cider-connect-cljs
+
+;;    :cljs/quit  - exit the cljs repo when connected thru shadow
+;;    (shadow.cljs.devtools.api/repl :app) to rejoin the cljs repl
+;;       setup as logged by cider -
+;;       cljs repl init form: (do (require '[shadow.cljs.devtools.api :as shadow]) (shadow/watch :app) (shadow/nrepl-select :app))
+
+;;
+;; Paredit -
+;;    m-s  splice; unwrap and raise a level
 ;;
 ;; Acejump -
 ;;     [C-U] c-<backtick> <key> <selector>
 ;;
 ;; Indenting -
 ;;     m-x iwb (indent whole buffer)
+;;
+;; Registers
+;;     c-x r x copy region to register
+;;     c-x r g insert register
+;;     c-x r <spc> copy point to register
+;;     c-x r j jump to register location
 ;;
 ;; Bookmarks -
 ;;     C-x x m  - bookmark current file
@@ -73,6 +102,8 @@
 ;; (require 'dpb-docker)
 ;; (require 'dpb-docker-tramp)
 (require 'dpb-neotree)
+(global-set-key "\C-ce" 'neotree)
+
 (require 'vi-paren-matching)
 (show-paren-mode t)
 
@@ -120,7 +151,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (unless (package-installed-p 'magit)
-  (package-refresh-contents)6
+  (package-refresh-contents)
   (package-install 'magit))
 
 (global-set-key "\^xm" 'magit-status)
@@ -192,6 +223,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(bmkp-last-as-first-bookmark-file "/home/dpb/.emacs.d/bookmarks")
  '(inhibit-startup-screen t)
  '(org-agenda-custom-commands
    '(("d" todo "DELEGATED" nil)
@@ -226,7 +258,7 @@
      (110 "* %u %?" "~/org/notes.org" "Notes")))
  '(org-reverse-note-order t)
  '(package-selected-packages
-   '(which-key vagrant-tramp markdown-mode browse-kill-ring ace-jump-mode sublimity smooth-scrolling scala-mode2 magit cider clojure-mode go-mode))
+   '(rg which-key vagrant-tramp markdown-mode browse-kill-ring ace-jump-mode sublimity smooth-scrolling scala-mode2 magit cider clojure-mode go-mode))
  '(remember-annotation-functions '(org-remember-annotation))
  '(remember-handler-functions '(org-remember-handler))
  '(safe-local-variable-values '((py-indent-offset . 4)))
@@ -250,4 +282,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 90 :width normal)))))
+
+;; '(default ((t (:family "DejaVu Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 90 :width normal)))))
+
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 79 :width normal)))))
