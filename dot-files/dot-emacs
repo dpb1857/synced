@@ -16,15 +16,19 @@
 ;;         -> turns on menu bar; useful sometimes with some modes
 ;;
 ;; Cider -
-;;    c-u c-c cz Switch between repl and clojure buffer
-;;    c-c c-c    Eval defun at point
-;;    c-c c-k    Eval buffer
-;;    c-c c-o    cider-buffer-clear-output; one eval, or prefix c-u to clear all
+;;    c-u c-c c-z Switch between repl and clojure buffer
+;;    c-c c-c     Eval defun at point
+;;    c-u c-m-x   instrument for debugging
+;;    c-c c-k     Eval buffer
+;;    c-c c-o     cider-buffer-clear-output; one eval, or prefix c-u to clear all
 ;;
 ;;    My custom cider connect bindings;
 ;;    c-x c j   cider-jack-in
 ;;    c-x c b   cider-connect-cljs
-
+;;
+;;    Inspector -
+;;    c-c m-i cider-inspect - after form (c-u)top-level (c-u c-u)query
+;;
 ;;    :cljs/quit  - exit the cljs repo when connected thru shadow
 ;;    (shadow.cljs.devtools.api/repl :app) to rejoin the cljs repl
 ;;       setup as logged by cider -
