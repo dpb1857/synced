@@ -1,10 +1,4 @@
 repos
 save
+scratch2
 work
-
-# archive
-# clojure
-# import
-# linked-dirs
-# MovieProd
-# refile
