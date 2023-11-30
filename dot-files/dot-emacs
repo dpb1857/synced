@@ -29,6 +29,10 @@
 ;;    Inspector -
 ;;    c-c m-i cider-inspect - after form (c-u)top-level (c-u c-u)query
 ;;
+;;    Namespace Browser -
+;;    m-x cider-browse-ns
+;;    m-x cider-browse-ns-all
+
 ;;    :cljs/quit  - exit the cljs repo when connected thru shadow
 ;;    (shadow.cljs.devtools.api/repl :app) to rejoin the cljs repl
 ;;       setup as logged by cider -
@@ -36,7 +40,8 @@
 
 ;;
 ;; Paredit -
-;;    m-s  splice; unwrap and raise a level
+;;    m-s     splice; unwrap and raise a level
+;;    c-right slurp
 ;;
 ;; Acejump -
 ;;     [C-U] c-<backtick> <key> <selector>
