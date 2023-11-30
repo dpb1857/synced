@@ -1,4 +1,3 @@
 Dropbox
 scratch
-stmarks
 tmpphotos
