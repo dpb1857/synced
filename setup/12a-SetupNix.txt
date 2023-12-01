@@ -1,0 +1,19 @@
+
+Install nix package manager -
+
+NEXT TIME -
+  nix-shell is available via apt, give that a shot first;
+  apt install nix-bin
+
+
+**************************************************
+This doesn't seem to quite work;
+Path setup doesn't pickup nix-installed bins.
+**************************************************
+
+https://nixos.org/manual/nix/stable/installation/installing-binary
+Under Multi-user installation:
+  curl -L https://nixos.org/nix/install | sh -s -- --daemon
+
+Then from the generated output:
+  nix-shell -p nix-info --run "nix-info -m"

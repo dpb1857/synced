@@ -18,11 +18,28 @@ To make sure cider and cider-nrel match -
 4) Install boot -
    https://github.com/boot-clj/boot
 
+
+5pre) Install nix -
+   See 12a-SetupNix.txt
+
 5) Install babashka -
+
+   ***** [[Probably supports nix installation; give it a shot! ]] *****
+
    cd /tmp
    curl -O https://raw.githubusercontent.com/babashka/babashka/master/install
    chmod +x install
    sudo ./install
+
+5b) Install Neil -
+
+    https://github.com/babashka/neil
+
+    $ nix-shell -p neil
+
+    # Alternatively, if your nix channel doesn't have neil yet:
+    $ nix-shell -I nixpkgs=channel:nixos-unstable -p neil
+
 
 6) Install clj-kondo (for code checking with flycheck)
    https://github.com/clj-kondo/clj-kondo/blob/master/doc/install.md
