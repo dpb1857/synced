@@ -34,4 +34,12 @@ CGO_ENABLED=1 go install -tags extended github.com/gohugoio/hugo@latest
 # Install GoLand;
 Install package lives in: Dropbox/SavedDownloads/goland-yyyy.<ver>.tar.gz
 
+# Configure emacs as an external tool -
+# Settings -> Tools -> External Tools -> emacs
+#   Program: emacs
+#   Arguments: +$LineNumber$:$ColumnNumber$ $FilePath$
+#   Working dir: $FileDir$
+#
+# TODO: maybe chanage this to emacsclient??
+
 sudo -c /opt tar xvzf Goland-xxxx.tar.gz

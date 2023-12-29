@@ -9,6 +9,7 @@ Useful keys: (wikipedia Magic Syrq key)
  k : kill all processes in current virtual console
  o : poweroff
 
+reisub was the traditional set of keys to shutdown a hung machine.
 
 ---------------------------------
 

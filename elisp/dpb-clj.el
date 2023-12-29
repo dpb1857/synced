@@ -24,12 +24,7 @@
 (global-set-key "\C-xcj" 'cider-jack-in)
 (global-set-key "\C-xcb" 'cider-connect-cljs)
 
-;; XXX Doesn't quite work; try again later; also, checkout this package:
-;; https://github.com/clojure-emacs/squiggly-clojure
-;;
-;; (unless (package-installed-p 'flycheck-clojure)
-;;   (package-refresh-contents)
-;;   (package-install 'flycheck-clojure))
+(setq cider-show-error-buffer nil)
 
 (require 'cider)
 (require 'paredit)

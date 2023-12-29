@@ -53,11 +53,11 @@
       (error-exit (format "Projectname must have one slash: %s" project) 1)
       (parts 1))))
 
-(defn check-directory-already-created [dirname]
+(defn directory-previously-created? [dirname]
   (when (fs/exists? dirname)
     (error-exit (format "Directory '%s' already exists." dirname) 2)))
 
-(defn verify-software-installed
+(defn tooling-software-installed?
   "Verify that commands we need have been installed."
   []
 
@@ -74,7 +74,7 @@
 ;; Do setup
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defn create-kit-project
+(defn create-kit-project!
   "Create a new kit project."
   [project]
 
@@ -214,9 +214,9 @@ npx tailwindcss -i src/css/tailwind.css -o resources/public/css/tailwind.css --w
   (let [project (first *command-line-args*)
         dirname (verify-project-name project)
         ]
-    (check-directory-already-created dirname)
-    (verify-software-installed)
-    (create-kit-project project)
+    (directory-previously-created? dirname)
+    (tooling-software-installed?)
+    (create-kit-project! project)
     (edit-file (fs/path dirname "deps.edn") "0.37.1" "0.30.0")
     (install-kit-modules dirname)
     (add-shadow-http-server dirname)
