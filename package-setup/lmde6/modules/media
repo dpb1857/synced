@@ -1,0 +1,47 @@
+
+# XXX find out what was in this, need to replace?
+# ubuntu-restricted-extras
+digikam
+darktable
+dcraw
+exfat-fuse
+
+# lmde6: libimage-exiftool-perl
+# exiftool
+libimage-exiftool-perl
+
+gimp
+gimp-help-en
+gscan2pdf
+# Pano stitcher
+# hugin
+imagemagick
+kipi-plugins
+showfoto
+xsane
+# amarok - gone in 20.04?
+audacity
+# Installs avconv, used to convert files to mp4;
+# libav-tools - need to find package with avconv!
+# avidemux
+# easytag
+
+# OpenShot & H.264:
+# from: http://www.openshotusers.com/forum/viewtopic.php?f=12&t=912
+# Solved. Went to Synaptic and installed libavformat-extra-52 and that did it.
+# For 16.10, need to install x264
+
+# DVD Player
+vlc
+
+# Movie editor
+openshot-qt
+x264
+ripperx
+youtube-dl
+handbrake
+
+# Make sure we installed the package to read DVDs;
+# sudo /usr/share/doc/libdvdread4/install-css.sh
+# This finds or builds the deb package libdvdcss2; can we write a puppet rule for this?
+# libdvdread4 - missing in 20.04

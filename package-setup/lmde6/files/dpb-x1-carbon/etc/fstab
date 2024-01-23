@@ -1,0 +1,26 @@
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/nvme0n1p6 during installation
+UUID=0bce3bac-1150-4de5-9ac6-7b6e26378634 /               ext4    errors=remount-ro 0       1
+# /boot/efi was on /dev/nvme0n1p1 during installation
+UUID=D602-F10E  /boot/efi       vfat    umask=0077      0       1
+# /space was on /dev/nvme0n1p7 during installation
+# UUID=d50e7df0-cf97-4745-94a1-cc0c08922e18 /oldspace          ext4    defaults        0       2
+# swap was on /dev/nvme0n1p8 during installation
+UUID=b13fb824-23a1-4fea-9a83-7b493cdb0849 none            swap    sw              0       0
+
+# /space
+UUID="8cecacda-9c9c-48f1-89f0-88cb1ad84490" /mnt/space          ext4    defaults        0       2
+# /Dropbox
+UUID="e9a5d252-e810-4a87-b688-cdbcad730c58" /mnt/Dropbox          ext4    defaults        0       2
+# /stmarks
+UUID="a6d5f820-26d7-4bcd-86ca-b814923c93f6" /mnt/stmarks          ext4    defaults        0       2
+# /docker
+UUID="415e0246-7c87-4980-80dd-3e1f351b917a" /mnt/docker ext4   defaults        0       2
+# /stash
+UUID="8eed175d-b644-4c57-b7b5-2f79f97430ae" /mnt/stash ext4 defaults 0 2

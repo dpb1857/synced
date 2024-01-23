@@ -11,6 +11,10 @@ Useful keys: (wikipedia Magic Syrq key)
 
 reisub was the traditional set of keys to shutdown a hung machine.
 
+From lmde README.sysctl - 
+  After making any changes, please run "service procps force-reload" (or, from
+  a Debian package maintainer script "deb-systemd-invoke restart procps.service").
+
 ---------------------------------
 
 Virtual Consoles -

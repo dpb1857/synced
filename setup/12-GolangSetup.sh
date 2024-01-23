@@ -1,14 +1,9 @@
 #!/bin/sh
 
-# Install using snap;
-snap install go --classic
+# Download package;
+# https://go.dev/doc/install
 
-# https://askubuntu.com/questions/1400653/how-to-install-specific-version-of-go-in-ubuntu-using-snap# Or install a specific version;
-# snap info go
-# snap install go ==channel=1.16/stable --classic
-
-# Or upgrade / downgrade:
-# snap refresh go --channel=1.16/stable --classic
+rm -rf /usr/local/go && tar -C /usr/local -xzf go1.21.6.linux-amd64.tar.gz
 
 # Build/install gorun;
 # go get -u github.com/erning/gorun
@@ -29,7 +24,7 @@ snap install go --classic
 # go get -u golang.org/x/tools/cmd/guru
 
 # hugo - from http://gohugo.io/installation/linux; install from source
-CGO_ENABLED=1 go install -tags extended github.com/gohugoio/hugo@latest
+# CGO_ENABLED=1 go install -tags extended github.com/gohugoio/hugo@latest
 
 # Install GoLand;
 Install package lives in: Dropbox/SavedDownloads/goland-yyyy.<ver>.tar.gz

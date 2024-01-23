@@ -15,6 +15,9 @@ Install, instructions from: https://www.dropbox.com/install-linux
    look here: https://help.dropbox.com/installs-integrations/desktop/linux-commands,
    under "What linux commands are available..."
 
+   python control script moved to dropbox.com/install-linux,
+   look under the section that says "Dropbox Headless Install via command line".
+
 3b) Use the GUI to exclude any directories that need it;
     the command line
       "dropbox exclude add ..." to exclude directories from sync;
@@ -34,9 +37,9 @@ Extra fstab entries to support:
 * rbind links to map things into my home directory -
 
 # Rather than symlinks...
-/mnt/space/Dropbox		/home/dpb/Dropbox	none defaults,rbind,nofail
-/mnt/space/Dropbox/Documents	/home/dpb/Documents	none defaults,rbind,nofail
-/mnt/space/Dropbox/Notes	/home/dpb/Notes		none defaults,rbind,nofail
-/tmp				/home/dpb/Downloads	none defaults,rbind,nofail
+# /mnt/space/Dropbox		/home/dpb/Dropbox	none defaults,rbind,nofail
+# /mnt/space/Dropbox/Documents	/home/dpb/Documents	none defaults,rbind,nofail
+# /mnt/space/Dropbox/Notes	/home/dpb/Notes		none defaults,rbind,nofail
+# /tmp				/home/dpb/Downloads	none defaults,rbind,nofail
 
 nas-gen4:/Photos /mnt/Photos nfs rsize=8912,wsize=8912,timeo=5,bg,intr,soft 0 0

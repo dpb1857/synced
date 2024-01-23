@@ -1,0 +1,8 @@
+
+make
+mg
+ntp
+ntpdate
+rename
+# texi2html
+# texinfo

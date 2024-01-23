@@ -12,15 +12,15 @@ To make sure cider and cider-nrel match -
  You can run the emacs package manager from the menu to update the version of cider;
  You can edit ~/.lein/profiles.clj to update the required version of cider-nrepl;
 
-3) Install lein -
+3) Install lein - [required for cider-jack-in)
    https://leiningen.org/
 
-4) Install boot -
-   https://github.com/boot-clj/boot
+# 4) Install boot -
+#    https://github.com/boot-clj/boot
 
 
-5pre) Install nix -
-   See 12a-SetupNix.txt
+# 5pre) Install nix -
+#    See 12a-SetupNix.txt
 
 5) Install babashka -
 
@@ -31,14 +31,14 @@ To make sure cider and cider-nrel match -
    chmod +x install
    sudo ./install
 
-5b) Install Neil -
+# 5b) Install Neil -
 
-    https://github.com/babashka/neil
+#     https://github.com/babashka/neil
 
-    $ nix-shell -p neil
+#     $ nix-shell -p neil
 
-    # Alternatively, if your nix channel doesn't have neil yet:
-    $ nix-shell -I nixpkgs=channel:nixos-unstable -p neil
+#     # Alternatively, if your nix channel doesn't have neil yet:
+#     $ nix-shell -I nixpkgs=channel:nixos-unstable -p neil
 
 
 6) Install clj-kondo (for code checking with flycheck)
