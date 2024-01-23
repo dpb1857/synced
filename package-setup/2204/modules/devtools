@@ -22,5 +22,5 @@ jq
 manpages-dev
 # tar-doc
 
-# So we can then install fpm via: gem install fpm for package management
+# So we can then install fpm via: gem install fpm for dev et.al. package creation
 # ruby-dev

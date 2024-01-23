@@ -1,0 +1,10 @@
+
+# Consider also -
+#   line-too-long,
+#   invalid-name,
+#   too-few-public-methods
+
+[MESSAGES CONTROL]
+disable=global-statement,
+        missing-function-docstring,
+	missing-module-docstring
