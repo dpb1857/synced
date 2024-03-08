@@ -1,5 +1,7 @@
 # -*- mode: shell-script; -*-
 
+echo "Sourcing dot-bashrc-dpb... "
+
 export LOADED_DOT_BASHRC_DPB=1
 
 unalias ls 2> /dev/null
@@ -204,6 +206,8 @@ function timer() {
     (sleep $1 && sudo /sbin/init 0) &
 }
 
+# Source hostname-based bashrc functions and settings.
+
 host_dot_bashrc="$HOME/synced/dot-files/dot-bashrc-`hostname`"
 if [ -f $host_dot_bashrc ]; then
     . $host_dot_bashrc
@@ -281,3 +285,5 @@ function xxxandroid-backup() {
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+echo "dot-bashrc-dpb Done."

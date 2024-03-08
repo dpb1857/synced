@@ -1,4 +1,6 @@
 
+echo "Sourcing dot-bashrc-dpb-DonThinkpadGen6... "
+
 # alias ssh-sh='ssh pie.simplyhired.com -l don -p 420 -L 32032:dbennett-dt:22'
 # alias quixeyvpn='(cd $HOME/ncLinuxApp && ./ncsvc -u dbennett -h qvpn.quixey.net -f quixey.net.der -r NC_Users)'
 
@@ -26,7 +28,7 @@ function stuff() {
     if [ ! -d /mnt/stuff ]; then
         sudo mkdir /mnt/stuff
     fi
-    device=`sudo losetup -f $HOME/Dropbox/stuff --show`
+    device=`sudo losetup -f $HOME/Dropbox/Legacy/stuff --show`
     sudo cryptsetup luksOpen $device stuff
     sudo mount /dev/mapper/stuff /mnt/stuff
     echo $device > /tmp/stuffloop
@@ -66,3 +68,5 @@ function unstuff() {
 #     ln -s /media/Photos/digikam/dot-kde-share-config-digikamrc ~/.kde/share/config/digikamrc
 #     ln -s /media/Photos/digikam/dot-kde-share-config-kipirc ~/.kde/share/config/kipirc
 # }
+
+echo "dot-bashrc-dpb-DonThinkpadGen6 Done."
