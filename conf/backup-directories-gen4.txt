@@ -1,3 +1,4 @@
-Dropbox
+filestore
 scratch
 tmpphotos
+linode
