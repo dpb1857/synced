@@ -25,9 +25,9 @@
 (defn edit-file
   "Edit a file, replacing patt1 with patt2."
   [fname patt1 patt2]
-
-  (println (format "** edit file %s: replace \"%s\" with \"%s\"" fname patt1 patt2))
-  (spit fname (str/replace (slurp fname) patt1 patt2)))
+  (let [fname (str fname)]
+    (println (format "** edit file %s: replace \"%s\" with \"%s\"" fname patt1 patt2))
+    (spit fname (str/replace (slurp fname) patt1 patt2))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; startup checks & help
@@ -99,7 +99,7 @@
   [dirname]
 
   (println "** Add dev http server to shdow-cljs.edn")
-  (let [fname (fs/path dirname "shadow-cljs.edn")
+  (let [fname (str (fs/path dirname "shadow-cljs.edn"))
         data (read-string (slurp fname))
         update (assoc data
                       :dev-http
@@ -131,7 +131,7 @@
     (pr/shell {:dir dirname} cmd))
 
   (println "** Create file src/css/tailwind.css")
-  (spit (fs/path dirname "src/css/tailwind.css") tailwind-css)
+  (spit (str (fs/path dirname "src/css/tailwind.css")) tailwind-css)
   (edit-file (fs/path dirname "tailwind.config.js") "content: []" "content: [\"./src/**/*.cljs\"]"))
 
 ;;;;; scripts/watch.sh
@@ -146,7 +146,7 @@ npx tailwindcss -i src/css/tailwind.css -o resources/public/css/tailwind.css --w
 (defn create-watcher-script [dirname]
   (println "** adding watcher script")
   (fs/create-dirs (fs/path dirname "scripts"))
-  (let [fname (fs/path dirname "scripts/watch.sh")]
+  (let [fname (str (fs/path dirname "scripts/watch.sh"))]
     (spit fname  watch-script)
     (fs/set-posix-file-permissions fname "rwxr-xr-x")))
 
@@ -164,7 +164,7 @@ npx tailwindcss -i src/css/tailwind.css -o resources/public/css/tailwind.css --w
 
 (defn update-gitignore [dirname]
   (println "** Adding ignore patterns to .gitignore")
-  (spit (fs/path dirname ".gitignore") gitignore-additions :append true))
+  (spit (str (fs/path dirname ".gitignore")) gitignore-additions :append true))
 
 ;;;;; resources/html/home.html
 
@@ -191,8 +191,8 @@ npx tailwindcss -i src/css/tailwind.css -o resources/public/css/tailwind.css --w
 
 (defn fixup-index-html [dirname]
   (println "** Install custom resources/html/home.html")
-  (spit (fs/path dirname "resources/html/home.html") home-html)
-  (fs/create-sym-link (fs/path dirname "resources/html/index.html") "home.html")
+  (spit (str (fs/path dirname "resources/html/home.html")) home-html)
+  (fs/create-sym-link (str (fs/path dirname "resources/html/index.html")) "home.html")
   )
 
 (defn create-initial-git-commit [dirname]
