@@ -24,3 +24,4 @@ manpages-dev
 
 # So we can then install fpm via: gem install fpm for package management
 # ruby-dev
+# (do: run command to install package manager fpm)
