@@ -16,6 +16,20 @@
 ;;         -> turns on menu bar; useful sometimes with some modes
 ;;
 ;; Cider -
+;;
+;;    #################################
+;;    Launching a Clojure+CLJS  Project -
+;;    #################################
+;;    c-u c-x c j - Launch clojure cider buffer
+;;                  Add :dev to the launch command
+;;                  (go)
+;;                  # kit-watch.clj # launches shadow-cljs;
+;;                  ## load app in browser
+;;    c-x c-x c b - Cider connect - connect to browser via shadow nrepl server
+;;                  answers: localhost / 7002 / shadow / app
+;;
+;;    Other cider bindings -
+;;
 ;;    c-u c-c c-z Switch between repl and clojure buffer; sets repl namespace
 ;;    c-c c-c     Eval defun at point
 ;;    c-u c-m-x   instrument for debugging
