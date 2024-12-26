@@ -1,0 +1,13 @@
+# Synth packages
+common-system
+crypt-filesystems
+database-synth
+desktop
+devtools
+network-filesystems-synth
+# ooffice
+system-dpb-x1-carbon
+system-utilities
+i3desktop
+# Build our own python using pyenv
+libkf5ldap-dev
