@@ -1,4 +1,9 @@
 
+############################################################
+# NOTE - this has moved to synced/bin/aws-setup.sh
+############################################################
+
+
 #      * Create a VM:
 #   -> Config settings;
 #      * Use template: don-halo-dev

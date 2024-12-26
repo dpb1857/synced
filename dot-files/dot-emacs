@@ -286,8 +286,7 @@
      ("u" alltodo ""
       ((org-agenda-skip-function
         (lambda nil
-          (org-agenda-skip-entry-if 'scheduled 'deadline 'regexp "<[^>
-]+>")))
+          (org-agenda-skip-entry-if 'scheduled 'deadline 'regexp "<[^>\12]+>")))
        (org-agenda-overriding-header "Unscheduled TODO entries: ")))))
  '(org-agenda-ndays 7)
  '(org-agenda-show-all-dates t)
@@ -299,8 +298,7 @@
  '(org-fast-tag-selection-single-key 'expert)
  '(org-remember-store-without-prompt t)
  '(org-remember-templates
-   '((116 "* TODO %?
-  %u" "~/org/todo.org" "Tasks")
+   '((116 "* TODO %?\12  %u" "~/org/todo.org" "Tasks")
      (110 "* %u %?" "~/org/notes.org" "Notes")))
  '(org-reverse-note-order t)
  '(package-selected-packages

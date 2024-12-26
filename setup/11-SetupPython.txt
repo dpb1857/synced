@@ -4,15 +4,7 @@
 # In particular, we want to install pylint so we can
 # lint our python code in emacs;
 
-*******************
-*** NEW: use pyenv
-*** see setup bin/aws-setup.sh:subsystem_pyenv()
-***
-*** Packages to install into base:
-***   matplotlib
-***   mypy
-***   pylint
-*******************
+~/synced/bin/pyenv-setup.sh
 
 # cd /opt
 # virtualenv -p /usr/bin/python3 python3

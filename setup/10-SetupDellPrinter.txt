@@ -3,34 +3,54 @@ http://askubuntu.com/questions/513943/how-can-i-get-my-dell-c1760nw-printer-to-w
 
 Basic Instructions -
 
-sudo apt-get install libcupsimage2:i386
-Download and install the Ubuntu .deb drivers from Xerox for their Phaser 6000 model.
-https://www.support.xerox.com/en-gb/product/phaser-6000/downloads?language=en_GB&platform=linux
+1)
+    sudo apt-get install libcupsimage2:i386
+
+2)
+    # (maybe?)
+    sudo apt-get install lib32stdc++6 lib32z1
+
+3)  # (maybe?)
+    apt --fix-broken-install
+
+4)
+    Download and install the Ubuntu .deb drivers from Xerox for their Phaser 6000 model.
+    https://www.support.xerox.com/en-gb/product/phaser-6000/downloads?language=en_GB&platform=linux
+    Also saved in ~/Documents/DellC1760nw/<xxx>.deb
+
+4)
+    sudo service cups restart
+
+5)
+    Add the printer in the printers dialog:
+    Add-> NetworkPrinter -> Dell C1760nw
+    type: xerox phaser 6000B
 
 
-[ I have it in Downloads/DellC1760nw/xerox-phaser-6000-6010_1.0-1_i386.deb ]
 
-16.10 extras: I had to download some additional stuff by hand from packages.ubuntu.com;
-
-  lib32stdc++6
-  lib32gcc1
-  libc6-i386
-
-  If you try to debug filter problems, look for "xrhkazmf" in the the
-  /var/log/cups/error_log file.
-
-
-20.04, 22.04 extras:
-  these can be installed using apt.
-
-  lib32stdc++6
-  lib32z1
-
-
-Then:
-
-  sudo service cups restart
-
-Add the printer in the printers dialog:
-  Add-> NetworkPrinter -> Dell C1760nw
-  type: xerox phaser 6000B
+# [ I have it in Documents/DellC1760nw/xerox-phaser-6000-6010_1.0-1_i386.deb ]
+#
+# 16.10 extras: I had to download some additional stuff by hand from packages.ubuntu.com;
+#
+#   lib32stdc++6
+#   lib32gcc1
+#   libc6-i386
+#
+#   If you try to debug filter problems, look for "xrhkazmf" in the the
+#   /var/log/cups/error_log file.
+#
+#
+# 20.04, 22.04 extras:
+#   these can be installed using apt.
+#
+#   lib32stdc++6
+#   lib32z1
+#
+#   apt --fix-broken install
+#
+# does good things for pulling in remaining missing dependencies.
+#
+#
+# Then:
+#
+#   sudo service cups restart

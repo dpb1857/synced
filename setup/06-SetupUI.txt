@@ -1,29 +1,24 @@
 
 1) Configure keyboard to use capslock as ctl;
 
-2) Make the text bigger! Settings > Fonts > Text scaling factor: 1.4
+2) Make the text bigger! Settings > Font Selection > Text scaling factor: 1.4
 
 3) Configure themes: Other settings -
    LOAD Ambiance-Crunchy;
    Controls: HighContrast (top line); (or Radiance looks ok on x1-carbon); 22.04 using Yaru-red
    Icons: gnome
    Window borders: Ambiance-crunchy
-   Keybindings: emacs (?? can't find in 22.04)
 
 4) Configure keyboard shortcuts for terminal, chrome, emacs;
-   Terminal: c-m-T (default), c-s-S, s-Ret
-   Browser: c-s-C
-   Emacs: cmd: bash -c "cd $HOME && exec /usr/bin/emacs"; binding c-s-X
-
-5) Configure c-s-w to close (force?) close windows; (along with alt-f4)
+   Terminal: c-m-T (default), super-Ret
+   Browser: c-super-C
+   Emacs: cmd: bash -c "cd $HOME && exec /usr/bin/emacs"; binding c-super-X
 
 6) Direct Workspace Navigation -
-   c-s-[N=1-5] goto workspace N
-   sh-s-[N=1-5] move window to workspace N
+   c-sh-F<1-6> goto workspace N
+   sh-F<1-6> move window to workspace N
 
 7) Configure panel auto-hide timeouts;
    500ms show delay, 250ms hide;
 
-9) Configure date format; %m/%d/%y %H:%M
-
-10) Remove gnome-screensaver; To disable multiple lock screens. (?? Needed in 22.04?)
+9) Configure date format; %m/%d/%y %H:%M   (?? don't see it in 2404, with Mint)

@@ -12,6 +12,12 @@ TLDR:
 * Add to /etc/sudoers.d/dpb-admin:
   dpb ALL=(root) NOPASSWD: /usr/bin/systemctl *
 
+FSTAB:
+  Add the swap partition to /etc/fstab -
+
+  # swap partition
+  UUID=d6d7022e-6271-4759-8425-4882d004ce6f none swap sw 0 0
+
 ALSO:
   To save power, changes the BIOS so -
   * Network booting is disabled;

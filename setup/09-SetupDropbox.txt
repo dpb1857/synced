@@ -28,6 +28,7 @@ Install, instructions from: https://www.dropbox.com/install-linux
 
 4) To start dropbox:
      dropbox start -i
+   Add this to 'Startup Applications'
 
 
 --------------------------------------------------

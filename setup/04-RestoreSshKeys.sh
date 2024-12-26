@@ -72,6 +72,7 @@ if [ $SERVER -eq 0 ]; then
         echo "Restoring saved ssh user keys from $keydir..." 1>&2
         cp -p $keydir/dot-ssh/* $HOME/Private/dot-ssh
         chmod 600 $HOME/Private/dot-ssh/id_rsa
+        chmod 600 $HOME/Private/dot-ssh/id_ed25519
     fi
 fi
 

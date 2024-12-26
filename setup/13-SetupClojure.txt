@@ -12,33 +12,23 @@ To make sure cider and cider-nrel match -
  You can run the emacs package manager from the menu to update the version of cider;
  You can edit ~/.lein/profiles.clj to update the required version of cider-nrepl;
 
-3) Install lein - [required for cider-jack-in)
-   https://leiningen.org/
+# 3) Install lein; ??
+#    https://leiningen.org/
 
 # 4) Install boot -
 #    https://github.com/boot-clj/boot
 
 
+# ??
 # 5pre) Install nix -
 #    See 12a-SetupNix.txt
 
 5) Install babashka -
 
-   ***** [[Probably supports nix installation; give it a shot! ]] *****
-
    cd /tmp
    curl -O https://raw.githubusercontent.com/babashka/babashka/master/install
    chmod +x install
    sudo ./install
-
-# 5b) Install Neil -
-
-#     https://github.com/babashka/neil
-
-#     $ nix-shell -p neil
-
-#     # Alternatively, if your nix channel doesn't have neil yet:
-#     $ nix-shell -I nixpkgs=channel:nixos-unstable -p neil
 
 
 6) Install clj-kondo (for code checking with flycheck)
@@ -47,3 +37,7 @@ To make sure cider and cider-nrel match -
    curl -sLO https://raw.githubusercontent.com/clj-kondo/clj-kondo/master/script/install-clj-kondo
    chmod +x install-clj-kondo
    sudo ./install-clj-kondo
+
+7) Install / Verify we can run XXX that clojure notebook thingy
+
+8) Verify we can build and run our roster app;

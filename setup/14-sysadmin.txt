@@ -1,0 +1,5 @@
+
+Add host entries:
+
+192.168.7.5 nas-gen4
+# 45.79.66.44 linode.donbennett.org
