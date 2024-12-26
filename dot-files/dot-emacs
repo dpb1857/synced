@@ -43,6 +43,7 @@
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;    DEBUGGING
+;;    https://docs.cider.mx/cider/debugging/debugger.html
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
 ;;    Inspector
@@ -303,7 +304,7 @@
      (110 "* %u %?" "~/org/notes.org" "Notes")))
  '(org-reverse-note-order t)
  '(package-selected-packages
-   '(rg which-key vagrant-tramp markdown-mode browse-kill-ring ace-jump-mode sublimity smooth-scrolling scala-mode2 magit cider clojure-mode go-mode))
+   '(fzf rg which-key vagrant-tramp markdown-mode browse-kill-ring ace-jump-mode sublimity smooth-scrolling scala-mode2 magit cider clojure-mode go-mode))
  '(remember-annotation-functions '(org-remember-annotation))
  '(remember-handler-functions '(org-remember-handler))
  '(safe-local-variable-values '((py-indent-offset . 4)))

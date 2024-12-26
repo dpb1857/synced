@@ -1,6 +1,8 @@
 
 # 0) - or, to simply run clojure, you can install -
-#    sudo apt-get install openjdk-16-jre
+#    ## sudo apt-get install openjdk-16-jre
+#    ## switch to openjdk-16-jdk so some devel library that seems to be used by clerk
+#    sudo apt-get install openjdk-21-jdk
 
 # 1) Install java;
 
