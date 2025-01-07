@@ -4,7 +4,8 @@
 curl
 httpie
 dconf-editor
-filelight
+# This didn't work in mint 22(Ubuntu 2404) but use baobab that comes installed
+# filelight
 gparted
 iotop
 nmap
