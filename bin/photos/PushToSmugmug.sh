@@ -1,5 +1,7 @@
 #!/bin/sh
 
+TARGET=/home/dpb/Dropbox/Photos/SmugmugExport
+
 usage() {
     echo "Usage: $0 <foldername>"
     exit 1
@@ -23,4 +25,4 @@ rsync -av --exclude=*.RW2 \
       --exclude=*.MOV \
       --exclude=*.AVI \
       --exclude=*.ORF \
-      $1 /home/dpb/Dropbox/Photos/SmugmugExport
+      $1  ${TARGET}

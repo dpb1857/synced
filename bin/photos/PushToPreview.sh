@@ -24,7 +24,7 @@ for dir in `find $1 -type d -print`; do
 done
 
 # Downsize photos
-for file in `find $1 \( -name \*.JPG -o -name \*.jpg \) -print`; do
+for file in `find $1 \( -name \*.JPG -o -name \*.jpg -o -name \*.png \) -print`; do
     echo $file
     convert $file -quality 80 $PREVIEW_DIR/$file
     exiftool "-FileModifyDate<DateTimeOriginal" $PREVIEW_DIR/$file > /dev/null
