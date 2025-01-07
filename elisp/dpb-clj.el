@@ -25,6 +25,8 @@
 (global-set-key "\C-xcb" 'cider-connect-cljs)
 
 (setq cider-show-error-buffer nil)
+(setq cider-eval-defun-at-point t)
+(setq cider-enable-nrepl-jvmti-agent t) ;; needed for java21+ interrupts
 
 (require 'cider)
 (require 'paredit)
