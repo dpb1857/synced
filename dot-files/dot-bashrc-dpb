@@ -166,8 +166,10 @@ function finance-rw() {
 }
 
 function unfinance() {
-    sudo umount $HOME/finance
-    rmdir $HOME/finance
+    if [ -d $HOME/finance ]; then
+        sudo umount $HOME/finance
+        rmdir $HOME/finance
+    fi
 }
 
 function sl() {
