@@ -1,4 +1,7 @@
 
+# Worked with ubuntu 2404 (Mint 2404)
+# the :386 packages don't exist for ubuntu 2410.
+
 http://askubuntu.com/questions/513943/how-can-i-get-my-dell-c1760nw-printer-to-work-with-ubuntu
 
 Basic Instructions -
