@@ -1,0 +1,14 @@
+
+Use efibootmgr to restore boot options in the system bios;
+
+This put Ubuntu back into the system boot options after it was removed, overwritten by
+linux installation to an external drive:
+
+sudo efibootmgr -c -d /dev/nvme0n1 -p 1 -L MainUbuntu -l '\EFI\ubuntu\shimx64.efi'
+
+This page: https://wiki.gentoo.org/wiki/Efibootmgr
+
+looks like it might support direct booting to a particular installation without
+going through the grub menu:
+
+    efibootmgr -c -d /dev/sda -p 2 -L "Gentoo" -l '\efi\boot\bootx64.efi' -u 'root=/dev/sda3 initrd=\efi\boot\initramfs.img quiet'
