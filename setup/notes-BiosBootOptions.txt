@@ -4,7 +4,11 @@ Use efibootmgr to restore boot options in the system bios;
 This put Ubuntu back into the system boot options after it was removed, overwritten by
 linux installation to an external drive:
 
-sudo efibootmgr -c -d /dev/nvme0n1 -p 1 -L MainUbuntu -l '\EFI\ubuntu\shimx64.efi'
+  sudo efibootmgr -c -d /dev/nvme0n1 -p 1 -L MainUbuntu -l '\EFI\ubuntu\shimx64.efi'
+
+To add a boot entry to boot off of the external SSD:
+
+  sudo efibootmgr -c -d /dev/sd<X> -p 2 -L "SSD Ubuntu" -l '\EFI\ubuntu\shimx64.efi'
 
 This page: https://wiki.gentoo.org/wiki/Efibootmgr
 
