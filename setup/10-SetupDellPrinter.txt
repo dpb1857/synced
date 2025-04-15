@@ -30,6 +30,16 @@ Basic Instructions -
     type: xerox phaser 6000B
 
 
+##
+## Remote Access to an Existing Printer
+##
+
+If the automatic discovery doesn't work, do this:
+
+  Add -> Network Printer -> Find Network Printer
+
+Then enter the hostname or ip address of the machine with the drivers running CUPS.
+
 
 # [ I have it in Documents/DellC1760nw/xerox-phaser-6000-6010_1.0-1_i386.deb ]
 #
