@@ -1,0 +1,35 @@
+Additional grub menu entries for booting ISOs installed on the local system;
+These go in /etc/grub.d/40_custom:
+
+You will likely need to adjust the (hd0,gpt8) to reflect the device and partition number
+where you have the ISOs installed.
+
+Hit "c" in the grub menu to drop into a shell, then "ls -l" will show the partitions with their Grub ids.
+
+
+#!/bin/sh
+exec tail -n +3 $0
+# This file provides an easy way to add custom menu entries.  Simply type the
+# menu entries you want to add after this comment.  Be careful not to change
+# the 'exec tail' line above.
+
+menuentry "Ubuntu 2404 Cinnamon Install" {
+  set ISOFile="/ubuntucinnamon-24.04.2-desktop-amd64.iso"
+  loopback loop (hd0,gpt8)$ISOFile
+  linux (loop)/casper/vmlinuz boot=casper iso-scan/filename=$ISOFile toram
+  initrd (loop)/casper/initrd
+}
+
+menuentry "Ubuntu 2504 Cinnamon Install" {
+  set ISOFile="/ubuntucinnamon-25.04-desktop-amd64.iso"
+  loopback loop (hd0,gpt8)$ISOFile
+  linux (loop)/casper/vmlinuz boot=casper iso-scan/filename=$ISOFile toram,quiet,splash
+  initrd (loop)/casper/initrd
+}
+
+menuentry "Linux Mint 22.1 Install" {
+  set ISOFile="/linuxmint-22.1-cinnamon-64bit.iso"
+  loopback loop (hd0,gpt8)$ISOFile
+  linux (loop)/casper/vmlinuz boot=casper iso-scan/filename=$ISOFile toram,quiet,splash
+  initrd (loop)/casper/initrd.lz
+}

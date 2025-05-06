@@ -1,0 +1,10 @@
+https://bugs.launchpad.net/ubuntu/+source/ntfs-3g/+bug/2062972
+
+Morbius1 (morbius1) wrote on 2024-09-04:			#18
+Do what nmaxx above did and blacklist the ntfs3 driver from running:
+
+echo 'blacklist ntfs3' | sudo tee /etc/modprobe.d/disable-ntfs3.conf
+
+Then reboot the box.
+
+That will force the file manager to use the ntfs-3g driver like it did in Ubuntu 22.04
