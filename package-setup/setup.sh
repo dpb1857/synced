@@ -55,6 +55,7 @@ function systemutils {
             gparted \
             iotop \
             nmap \
+	    usb-creator-gtk \
             sysstat \
             traceroute \
             net-tools \
