@@ -5,7 +5,8 @@ function common() {
             emacs \
             mg \
             ntp \
-            ntpdate
+            ntpdate \
+	    git
 }
 
 function filesystems() {

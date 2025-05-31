@@ -15,3 +15,6 @@ sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/linux_signing_key.
 
 sudo apt update
 sudo apt install google-chrome-stable
+
+# This doesn't quite work on Ubuntu 25.04; see instructions at
+# ubuntuupdates.org/ppa/google_chrome
