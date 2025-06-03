@@ -95,6 +95,11 @@ function babashka {
    sudo ./install
 }
 
+function javascript {
+    apt-get -y install \
+            nodejs \
+            npm
+}
 
 common
 filesystems
@@ -107,3 +112,4 @@ devtools
 office
 clojure
 babashka
+javascript
