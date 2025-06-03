@@ -64,18 +64,46 @@ function systemutils {
     }
 
 function chrome {
-    wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub > /tmp/linux_signing_key.pub
-    sudo install -D -o root -g root -m 644 /tmp/linux_signing_key.pub /etc/apt/keyrings/google.asc
-    sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/google.asc] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list'
+    if [ ! -f /etc/apt/sources.list.d/google.list ]; then
+        wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub > /tmp/linux_signing_key.pub
+        sudo install -D -o root -g root -m 644 /tmp/linux_signing_key.pub /etc/apt/keyrings/google.asc
+        sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/google.asc] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list'
 
-    sudo apt update
-    sudo apt install google-chrome-stable
+        sudo apt update
+        sudo apt install google-chrome-stable
+    fi
 }
+
+function clojure {
+    cd /tmp
+    curl -O https://download.clojure.org/install/linux-install.sh
+    chmod +x linux-install.sh
+    sudo ./linux-install.sh
+
+    # Install clj-kondo (for code checking with flycheck)
+    # https://github.com/clj-kondo/clj-kondo/blob/master/doc/install.md
+    cd /tmp
+    curl -sLO https://raw.githubusercontent.com/clj-kondo/clj-kondo/master/script/install-clj-kondo
+    chmod +x install-clj-kondo
+    sudo ./install-clj-kondo
+}
+
+function babashka {
+   cd /tmp
+   curl -O https://raw.githubusercontent.com/babashka/babashka/master/install
+   chmod +x install
+   sudo ./install
+}
+
 
 common
 filesystems
-devtools
 media
-office
 systemutils
 chrome
+
+# Not needed for minimal setup
+devtools
+office
+clojure
+babashka
