@@ -95,10 +95,17 @@ function babashka {
    sudo ./install
 }
 
+# Will need to install nvm if we need a newer version of node
 function javascript {
     apt-get -y install \
             nodejs \
             npm
+}
+
+function debs {
+    dpkg -i zoom_amd64.deb \
+         virtualbox-7.1_7.1.6-167084~Ubuntu~noble_amd64.deb
+    apt-get install -f
 }
 
 common

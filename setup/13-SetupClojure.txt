@@ -38,6 +38,4 @@
    chmod +x install-clj-kondo
    sudo ./install-clj-kondo
 
-7) Install / Verify we can run XXX that clojure notebook thingy
-
-8) Verify we can build and run our roster app;
+7) Verify we can build and run our roster app;
