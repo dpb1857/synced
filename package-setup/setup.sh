@@ -102,7 +102,14 @@ function javascript {
             npm
 }
 
-function debs {
+function dell_printer {
+   sudo dpkg --add-architecture i386
+   sudo apt update
+   sudo dpkg -i ~/Dropbox/Setup/DellC1760nw/xerox-phaser-6000-6010_1.0-1_i386.deb
+   sudo apt-get update -f
+}
+
+function misc {
     dpkg -i zoom_amd64.deb \
          virtualbox-7.1_7.1.6-167084~Ubuntu~noble_amd64.deb
     apt-get install -f
@@ -120,3 +127,5 @@ office
 clojure
 babashka
 javascript
+dell_printer
+misc
