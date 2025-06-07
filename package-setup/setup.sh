@@ -106,7 +106,7 @@ function dell_printer {
    sudo dpkg --add-architecture i386
    sudo apt update
    sudo dpkg -i ~/Dropbox/Setup/DellC1760nw/xerox-phaser-6000-6010_1.0-1_i386.deb
-   sudo apt-get update -f
+   sudo apt-get install -f
 }
 
 function misc {
