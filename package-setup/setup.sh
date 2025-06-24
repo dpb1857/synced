@@ -55,6 +55,7 @@ function systemutils {
             dconf-editor \
             gparted \
             iotop \
+            btop \
             nmap \
 	    usb-creator-gtk \
             sysstat \
