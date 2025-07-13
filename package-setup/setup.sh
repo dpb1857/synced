@@ -75,6 +75,10 @@ function chrome {
     fi
 }
 
+function python {
+    sudo apt install -y python3-tk
+}
+
 function clojure {
     cd /tmp
     curl -O https://download.clojure.org/install/linux-install.sh
@@ -126,6 +130,7 @@ chrome
 # Not needed for minimal setup
 devtools
 office
+python
 clojure
 babashka
 javascript
