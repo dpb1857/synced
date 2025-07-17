@@ -8,7 +8,7 @@ function vc() {
     if [ ! -d /mnt/vc ]; then
         sudo mkdir /mnt/vc
     fi
-    device=`sudo losetup -f /mnt/space/vc/data --show`
+    device=`sudo losetup -f $HOME/Dropbox/Legacy/vcdata --show`
     sudo cryptsetup luksOpen $device vc
     sudo mount /dev/mapper/vc /mnt/vc
     echo $device > /tmp/vcloop
