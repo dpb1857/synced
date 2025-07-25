@@ -111,7 +111,7 @@ function dell_printer {
    sudo dpkg --add-architecture i386
    sudo apt update
    sudo apt-get install libcupsimage2:i386 lib32z1 lib32stdc++6
-   sudo dpkg -i ~/Dropbox/Setup/DellC1760nw/xerox-phaser-6000-6010_1.0-1_i386.deb
+   sudo dpkg -i ~/synced/packages/xerox-phaser-6000-6010_1.0-1_i386.deb
    sudo apt-get install -f
 }
 
