@@ -1,0 +1,7 @@
+Ubuntu Instructions (24.04+)
+
+Run these commands to install OBS Studio on Ubuntu via the official PPA:
+
+sudo add-apt-repository ppa:obsproject/obs-studio
+sudo apt update
+sudo apt install obs-studio
