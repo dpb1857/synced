@@ -43,6 +43,9 @@ if [ -x ${PYENV_ROOT}/bin/pyenv ]; then
     eval "$(pyenv init --path)"
 fi
 
+# Claude Code
+export PATH=$HOME/.local/bin:$PATH
+
 export EDITOR=emacsclient
 export ALTERNATE_EDITOR=mg
 export FCEDIT=$EDITOR

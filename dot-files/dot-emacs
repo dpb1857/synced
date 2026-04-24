@@ -66,6 +66,10 @@
 ;;    m-x cider-browse-ns
 ;;    m-x cider-browse-ns-all
 ;;
+;;    Namespace Operations
+;;    C-c M-n n cider-repl-set-ns ; change repl into current namespace
+;;
+;;
 ;;    Documentation -
 ;;    c-u c-c c-d  Display function docstring
 ;;    c-u c-c c-c  Display full documentation
